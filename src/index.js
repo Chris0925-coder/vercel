@@ -25,7 +25,7 @@ const hostname = process.env.PUBLIC_URL || "localhost";
 
 const portFinded = await findAvailablePort(3000).then((port) => port);
 const port = process.env.PORT || portFinded;
-console.log(process.env.PORT);
+// console.log(process.env.PORT);
 
 // static files
 // app.use(express.static(path.join(__dirname, "public")));

@@ -1,0 +1,32 @@
+{
+  "name": "vercel",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "predeploy": "npm run ./src/index.js",
+    "deploy": "gh-pages -d ./src/index.js",
+    "start": "node ./src/index.js",
+    "dev": "node --watch ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "vercel"
+  },
+  "author": "Chris0935-coder",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@libsql/client": "^0.15.9",
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "picocolors": "^1.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}

@@ -1,7 +1,7 @@
 // import { loadEnvFile } from "node:process";
 
 // loadEnvFile("/development.env");
-// process.loadEnvFile();
+process.loadEnvFile();
 let controller = {};
 
 // import sqlite3 from "sqlite3";
@@ -19,6 +19,17 @@ const db = createClient({
 // console.log(process.env.TURSO_AUTH_TOKEN);
 
 var data = await db.execute("SELECT count FROM counts");
+
+controller.analytics = async (req, res) => {
+  const query = "SELECT count FROM counts";
+  try {
+    let { rows } = await db.execute(query);
+    // console.log(rows);
+    res.render("analytic.html", { title: "ANALYTICS", tab: rows });
+  } catch (error) {
+    console.error("Error updating user:", error);
+  }
+};
 // console.log(data.rows[0].count);
 // let db = new sqlite.Database(
 //   "./database/analytics.db",

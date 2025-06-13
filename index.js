@@ -1,4 +1,4 @@
-// process.loadEnvFile();
+process.loadEnvFile();
 import express from "express";
 import morgan from "morgan";
 import pkg from "ejs";
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, "src/storage")));
 
 // SETTINGS
 app.set("routes", path.join(__dirname, "src/routes"));
-// app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "src/views"));
 app.set("controllers", path.join(__dirname, "src/controllers"));
 app.engine("html", ejs.renderFile);
 app.set("view engine", "ejs");

@@ -21,7 +21,7 @@ const db = createClient({
 var data = await db.execute("SELECT count FROM counts");
 
 controller.analytics = async (req, res) => {
-  const query = "SELECT count FROM counts";
+  const query = "SELECT count,domain FROM counts";
   try {
     let { rows } = await db.execute(query);
     // console.log(rows);

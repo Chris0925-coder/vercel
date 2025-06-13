@@ -16,7 +16,7 @@ const db = createClient({
 // console.log(process.env.TURSO_AUTH_TOKEN);
 
 var data = await db.execute("SELECT count FROM counts");
-console.log(data.rows[0].count);
+// console.log(data.rows[0].count);
 // let db = new sqlite.Database(
 //   "./database/analytics.db",
 //   sqlite.OPEN_READWRITE,
@@ -36,15 +36,15 @@ console.log(data.rows[0].count);
 //   });
 // });
 
-controller.analytics = (req, res) => {
-  db.serialize(() => {
-    db.all(`SELECT domain,count FROM counts`, (err, rows) => {
-      if (err) res.status(500).json(err);
+// controller.analytics = (req, res) => {
+//   db.serialize(() => {
+//     db.all(`SELECT domain,count FROM counts`, (err, rows) => {
+//       if (err) res.status(500).json(err);
 
-      res.render("analytic.html", { title: "ANALYTICS", tab: rows });
-    });
-  });
-};
+//       res.render("analytic.html", { title: "ANALYTICS", tab: rows });
+//     });
+//   });
+// };
 
 // controller.count = async (req, res) => {
 //   let analyticsData = req.body;

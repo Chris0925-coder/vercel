@@ -56,7 +56,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 // app.use("/", index);
 // app.use("/storage", router);
-app.use("/", routes);
+app.use("/api", routes);
 
 // app.use((err,req,res,next) => {
 //   res.status(err.statusCode).json({

@@ -6,12 +6,12 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 // import index from './routes/index.js';
 // import router from "./routes/storage.js";
-import routes from "./routes/visits.js";
+import routes from "./src/routes/visits.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 // import { dbConnect } from "../config/mongo.js";
-import { config } from "./config.js";
-import { findAvailablePort } from "./utils/desiredPort.js";
+import { config } from "./src/config.js";
+import { findAvailablePort } from "./src/utils/desiredPort.js";
 process.loadEnvFile();
 
 // dotenv.config();

@@ -3,7 +3,7 @@ import visitCount from "../controllers/visit.count.controller.js";
 
 const router = express.Router();
 
-app.get("/", (req, res) =>
+router.get("/", (req, res) =>
   res.send("Congratulation 🎉🎉! Our Express server is Running on Vercel")
 );
 

@@ -1,5 +1,5 @@
-let controller = {};
 process.loadEnvFile();
+let controller = {};
 
 // import sqlite3 from "sqlite3";
 // import { catchedAsync } from "../utils/catchedAsync.js";

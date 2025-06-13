@@ -1,3 +1,4 @@
+process.loadEnvFile();
 import express from "express";
 import morgan from "morgan";
 import pkg from "ejs";
@@ -12,7 +13,6 @@ import { fileURLToPath } from "node:url";
 // import { dbConnect } from "../config/mongo.js";
 import { config } from "./src/config.js";
 import { findAvailablePort } from "./src/utils/desiredPort.js";
-process.loadEnvFile();
 
 // dotenv.config();
 const ejs = pkg;

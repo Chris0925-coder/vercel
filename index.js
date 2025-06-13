@@ -7,12 +7,12 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 // import index from './routes/index.js';
 // import router from "./routes/storage.js";
-import routes from "./routes/visits.js";
+import routes from "./src/routes/visits.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 // import { dbConnect } from "../config/mongo.js";
-import { config } from "./config.js";
-import { findAvailablePort } from "./utils/desiredPort.js";
+import { config } from "./src/config.js";
+import { findAvailablePort } from "./src/utils/desiredPort.js";
 
 // dotenv.config();
 const ejs = pkg;
@@ -29,12 +29,12 @@ const port = process.env.PORT || portFinded;
 
 // static files
 // app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "storage")));
+app.use(express.static(path.join(__dirname, "src/storage")));
 
 // SETTINGS
-app.set("routes", path.join(__dirname, "routes"));
+app.set("routes", path.join(__dirname, "src/routes"));
 // app.set("views", path.join(__dirname, "views"));
-app.set("controllers", path.join(__dirname, "controllers"));
+app.set("controllers", path.join(__dirname, "src/controllers"));
 app.engine("html", ejs.renderFile);
 app.set("view engine", "ejs");
 app.set("port", port);
@@ -56,7 +56,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 // app.use("/", index);
 // app.use("/storage", router);
-app.use("/api", routes);
+app.use("/", routes);
 
 // app.use((err,req,res,next) => {
 //   res.status(err.statusCode).json({

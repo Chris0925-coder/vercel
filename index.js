@@ -21,7 +21,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const hostname = process.env.PUBLIC_URL || "localhost";
+// const hostname = process.env.PUBLIC_URL || "localhost";
 
 const portFinded = await findAvailablePort(3000).then((port) => port);
 const port = process.env.PORT || portFinded;
@@ -56,7 +56,7 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 // app.use("/", index);
 // app.use("/storage", router);
-app.use("/api", routes);
+app.use("/", routes);
 
 // app.use((err,req,res,next) => {
 //   res.status(err.statusCode).json({
@@ -67,7 +67,7 @@ app.use("/api", routes);
 
 // listening the server
 app.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://localhost:${port}/`);
 });
 
 // dbConnect();

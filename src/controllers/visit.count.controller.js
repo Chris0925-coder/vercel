@@ -1,7 +1,7 @@
 // import { loadEnvFile } from "node:process";
 
 // loadEnvFile("/development.env");
-process.loadEnvFile();
+// process.loadEnvFile();
 let controller = {};
 
 // import sqlite3 from "sqlite3";

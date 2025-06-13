@@ -1,3 +1,6 @@
+// import { loadEnvFile } from "node:process";
+
+// loadEnvFile("/development.env");
 process.loadEnvFile();
 let controller = {};
 

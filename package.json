@@ -1,14 +1,14 @@
 {
   "name": "vercel",
   "version": "1.0.0",
-  "main": "./index.js",
+  "main": "./src/index.js",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run ./index.js",
-    "deploy": "gh-pages -d ./index.js",
-    "start": "node ./index.js",
-    "dev": "node --watch ./index.js",
-    "server": "node ./index.js",
+    "predeploy": "npm run ./src/index.js",
+    "deploy": "gh-pages -d ./src/index.js",
+    "start": "node ./src/index.js",
+    "dev": "node --watch ./src/index.js",
+    "server": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

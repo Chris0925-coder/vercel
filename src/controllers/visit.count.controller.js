@@ -20,6 +20,8 @@ controller.analytics = async (req, res) => {
 
 controller.count = async (req, res) => {
   let analyticsData = req.body;
+  // const clientIp = req.connection.remoteAddress;
+
   let c = JSON.parse(analyticsData);
   let data = await db.execute({
     sql: "SELECT id,count,domain FROM counts WHERE id=?",
@@ -33,8 +35,10 @@ controller.count = async (req, res) => {
   try {
     await db.execute(query, params);
     console.log(`Web with ID ${c.domain} updated visit ${suma} successfully!`);
+    res.sendStatus(201);
   } catch (error) {
     console.error("Error updating user:", error);
+    res.sendStatus(501);
   }
 };
 

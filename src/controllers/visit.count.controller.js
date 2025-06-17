@@ -20,6 +20,8 @@ controller.analytics = async (req, res) => {
 
 controller.count = async (req, res) => {
   let analyticsData = req.body;
+  // console.log(analyticsData);
+  // let c = req.body;
   // const clientIp = req.connection.remoteAddress;
 
   let c = JSON.parse(analyticsData);
@@ -35,10 +37,10 @@ controller.count = async (req, res) => {
   try {
     await db.execute(query, params);
     console.log(`Web with ID ${c.domain} updated visit ${suma} successfully!`);
-    res.sendStatus(201);
+    res.sendStatus(200);
   } catch (error) {
     console.error("Error updating user:", error);
-    res.sendStatus(501);
+    res.sendStatus(500);
   }
 };
 

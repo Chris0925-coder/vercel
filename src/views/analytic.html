@@ -11,11 +11,19 @@
   <body>
     <h1>Analytics</h1>
 
-    <div>
+    <div style="display: grid; place-content: center">
       <% tab.forEach((data) => { %>
-      <article>
+      <article
+        style="
+          border: 2px solid;
+          border-radius: 10px;
+          padding: 5px;
+          margin: 7px;
+        "
+      >
         <h2><%=data.domain%></h2>
         <p>CONTEO de VISITAS: <%=data.count%></p>
+        <p>Desde: <span><%=data.date%></span></p>
       </article>
       <% }) %>
     </div>

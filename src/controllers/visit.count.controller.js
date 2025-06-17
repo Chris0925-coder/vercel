@@ -9,7 +9,7 @@ const db = createClient({
 });
 
 controller.analytics = async (req, res) => {
-  const query = "SELECT count,domain FROM counts";
+  const query = "SELECT count,domain,date FROM counts";
   try {
     let { rows } = await db.execute(query);
     res.render("analytic.html", { title: "ANALYTICS", tab: rows });

@@ -19,19 +19,19 @@ msg.reciveMSG = async (req, res) => {
     //   email: rows.email,
     //   control: rows.control,
     // });
-    res.json(rows);
+    res.sendStatus(200).json(rows);
     // res.sendStatus(200);
   } catch (error) {
     console.error("Error updating user:", error);
+    res.sendStatus(500);
   }
 };
 
 msg.messages = async (req, res) => {
-  let msg = req.body;
+  const formData = req.body; // Aquí se capturan los datos del FormData
+  console.log("Datos recibidos:", formData);
 
-  // console.log(c);
-
-  let c = JSON.parse(msg);
+  let c = JSON.parse(formData);
   //   let data = await db.execute({
   //     sql: "SELECT id,count,domain FROM counts WHERE id=?",
   //     args: [c.id],

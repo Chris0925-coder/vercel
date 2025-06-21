@@ -7,12 +7,12 @@ import { ClientError, ServerError } from "../utils/errors.js";
 
 export const register = async (req, res) => {
   const { name, email, password, username } = req.body;
-  console.log(User.User);
+  // console.log(User.User);
   let users = User.User;
-  console.log(users);
+  // console.log(users);
   try {
     const userFound = await users.findOne({ username });
-    console.log(userFound);
+    // console.log(userFound);
 
     if (userFound) {
       return res.status(401);

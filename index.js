@@ -10,7 +10,7 @@ import bodyParser from "body-parser";
 import routes from "./src/routes/visits.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-// import { dbConnect } from "../config/mongo.js";
+import { dbConnect } from "./config/mongo.js";
 import { config } from "./src/config.js";
 import { findAvailablePort } from "./src/utils/desiredPort.js";
 
@@ -28,7 +28,7 @@ const port = process.env.PORT || portFinded;
 // console.log(process.env.PORT);
 
 // static files
-// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "src/public")));
 app.use(express.static(path.join(__dirname, "src/storage")));
 
 // SETTINGS
@@ -70,4 +70,4 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
 
-// dbConnect();
+dbConnect();

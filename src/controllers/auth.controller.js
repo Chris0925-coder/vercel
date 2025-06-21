@@ -1,24 +1,26 @@
-import User from "../models/nosql/users.js";
+import User from "../models/index.js";
 import bcrypt from "bcryptjs";
 import { createAccesToken } from "../libs/jwt.js";
 import { ClientError, ServerError } from "../utils/errors.js";
 // import { response } from '../utils/response.js';
 // import { catchedAsync } from '../utils/catchedAsync.js';
 
-export const register = async (req, res, next) => {
+export const register = async (req, res) => {
   const { name, email, password, username } = req.body;
+  console.log(User.User);
+  let users = User.User;
+  console.log(users);
   try {
-    const userFound = await User.findOne({ username });
+    const userFound = await users.findOne({ username });
+    console.log(userFound);
+
     if (userFound) {
-      return res.status(401).render("login.html", {
-        title: "LOGIN",
-        tab: "Username already exist",
-      });
+      return res.status(401);
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
 
-    const newUser = new User({
+    const newUser = new users({
       name,
       username,
       email,
@@ -50,17 +52,20 @@ export const register = async (req, res, next) => {
 
     // });
     // res.render('welcome.html',{title:'WELCOME', tab:data});
+    res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });
     // catchedAsync(error);
   }
-  next();
 };
 
 export const login = async (req, res, next) => {
   const { username, password } = req.body;
   try {
-    const userFound = await User.findOne({ username });
+    // console.log(username);
+    let users = User.User;
+    const userFound = await users.findOne({ username });
+    // console.log(userFound);
     if (!userFound) {
       throw new ClientError("Usuario no encontrado", 400);
     }
@@ -93,10 +98,11 @@ export const login = async (req, res, next) => {
     // updated: userFound.updatedAt
     // });
     // }];
+    // res.sendStatus(200);
   } catch (err) {
     res.status(400).render("login.html", {
       title: "Acceso denegado",
-      message: err.message,
+      messages: err.message,
     });
   }
   next();

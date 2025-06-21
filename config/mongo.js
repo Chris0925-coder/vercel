@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 // const mongoAtlas=[];
 // const passwordDB = [];
 // const mongoAtlas = `mongodb+srv://chris30:`+encodeURIComponent(passwordDB)+`@cluster0.jkdgz4b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const mongoDBLocal = "mongodb://0.0.0.0/#";
+const mongoDBLocal = "mongodb://localhost:27017/webdev";
 // || process.env.DB_URI
 export const dbConnect = async () => {
   try {

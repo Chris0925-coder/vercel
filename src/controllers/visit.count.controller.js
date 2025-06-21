@@ -8,6 +8,14 @@ const db = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
+controller.login = async (req, res) => {
+  try {
+    res.render("login.html", { title: "LOGIN", tab: [], messages: [] });
+  } catch (error) {
+    console.error("Error updating user:", error);
+  }
+};
+
 controller.analytics = async (req, res) => {
   const query = "SELECT count,domain,date FROM counts";
   try {

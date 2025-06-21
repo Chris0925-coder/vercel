@@ -4,9 +4,15 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title><%=title%></title>
+
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-    <!-- <script src="main.js"></script> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/styles/main.css"
+    />
+    <script src="/scripts/main.js" defer></script>
   </head>
   <body>
     <h1 style="text-align: center">Visitas</h1>
@@ -26,5 +32,10 @@
       </article>
       <% }) %>
     </div>
+
+    <form action="/submit" method="get">
+      <!-- <h3>FORM</h3> -->
+      <div id="messages"></div>
+    </form>
   </body>
 </html>

@@ -8,9 +8,14 @@ function form() {
     event.preventDefault(); // Prevent default form submission
     const formData = new FormData(form1);
 
-    // console.log("Message:", formData.get("email"), formData.get("control"));
+    console.log("Message:", formData.get("email"), formData.get("control"));
     await fetch(url, {
       method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
         email: formData.get("username"),
         control: formData.get("password"),

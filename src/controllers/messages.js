@@ -12,7 +12,7 @@ msg.reciveMSG = async (req, res) => {
   const query = "SELECT id,email,control FROM webdev ORDER BY id DESC";
   try {
     let { rows } = await db.execute(query);
-    console.log(rows);
+    // console.log(rows);
 
     // res.json({
     //   id: rows.id,

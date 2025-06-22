@@ -66,7 +66,7 @@ function form() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((data) => {
         console.log(data);
         setCookie("token", data);

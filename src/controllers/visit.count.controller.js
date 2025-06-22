@@ -14,7 +14,8 @@ controller.login = async (req, res) => {
     if (!token) {
       res.render("login.html", { title: "LOGIN", tab: [], messages: [] });
     } else {
-      res.render("analytic.html", { title: "Counter", tab: [], messages: [] });
+      // res.render("analytic.html", { title: "Counter", tab: [], messages: [] });
+      res.redirect("/count");
     }
   } catch (error) {
     console.error("Error: ", error);

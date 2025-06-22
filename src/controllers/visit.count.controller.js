@@ -2,7 +2,6 @@ let controller = {};
 // process.loadEnvFile();
 
 import { createClient } from "@libsql/client";
-import { string } from "zod/v4-mini";
 
 const db = createClient({
   url: process.env.TURSO_DB_URL,

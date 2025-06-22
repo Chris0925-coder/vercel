@@ -8,11 +8,9 @@ import msg from "../controllers/messages.js";
 
 const router = express.Router();
 
-router.get("/login", visitCount.login);
+router.get("/", visitCount.login);
 
-router.get("/", authRequired, visitCount.analytics);
-
-router.post("/login", login, visitCount.analytics);
+router.post("/", validateSchema(loginSchema), login, visitCount.analytics);
 
 router.post("/register", validateSchema(registerSchema), register);
 

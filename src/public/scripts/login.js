@@ -1,5 +1,5 @@
 const form1 = document.getElementById("login");
-const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/`;
+const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/login`;
 
 function form() {
   //   console.log(form1);

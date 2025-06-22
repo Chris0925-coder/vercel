@@ -21,11 +21,18 @@
             <input name="password" type="password" />
           </div>
           <div>
-            <button type="submit">Enviar</button>
+            <button
+              type="submit"
+              form="login"
+              formmethod="post"
+              formaction="/init"
+            >
+              Enviar
+            </button>
           </div>
         </form>
       </section>
-      <div><%=messages%></div>
+      <div id="message"><%=message%></div>
     </div>
   </body>
 </html>

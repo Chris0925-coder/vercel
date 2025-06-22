@@ -2,6 +2,7 @@ let controller = {};
 // process.loadEnvFile();
 
 import { createClient } from "@libsql/client";
+import { string } from "zod/v4-mini";
 
 const db = createClient({
   url: process.env.TURSO_DB_URL,
@@ -10,13 +11,15 @@ const db = createClient({
 
 controller.login = async (req, res) => {
   let { token } = req.cookies;
+  console.log(typeof token);
   try {
-    if (!token) {
-      res.render("login.html", { title: "LOGIN", tab: [], messages: [] });
-    } else {
-      // res.render("analytic.html", { title: "Counter", tab: [], messages: [] });
-      res.redirect("/count");
-    }
+    if (token && token.includes("ey")) return res.redirect("/init");
+    // if (!token) {
+    res.render("login.html", { title: "LOGIN", tab: [], message: [] });
+    // }
+    // res.render("analytic.html", { title: "Counter", tab: [], messages: [] });
+    // res.redirect("/");
+    // }
   } catch (error) {
     console.error("Error: ", error);
     res.sendStatus(500);
@@ -24,10 +27,14 @@ controller.login = async (req, res) => {
 };
 
 controller.analytics = async (req, res) => {
+  // let { token } = req.cookies;
   const query = "SELECT count,domain,date FROM counts";
   try {
+    // if (token) {
     let { rows } = await db.execute(query);
     res.render("analytic.html", { title: "ANALYTICS", tab: rows });
+    // }
+    // res.redirect("/login");
   } catch (error) {
     console.error("Error: ", error);
     res.sendStatus(500);

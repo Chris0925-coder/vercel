@@ -44,21 +44,20 @@ function detectCookie(cname) {
 }
 
 const form1 = document.getElementById("login");
-const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/`;
+const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/init`;
 
-function form() {
-  //   console.log(form1);
-
+function formA() {
   form1.addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent default form submission
+    // event.preventDefault();
     const formData = new FormData(form1);
 
     console.log("Message:", formData.get("username"), formData.get("password"));
-    await fetch(url, {
+
+    let result = await fetch(url, {
       method: "POST",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json; charset=utf-8",
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
@@ -66,15 +65,14 @@ function form() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        setCookie("token", data);
-      })
+      .then((response) => response.json())
+      .then((data) => data)
       .catch((error) => console.error("Error:", error));
-
     // alert("Login successfully!");
+    // console.log(result);
+    setCookie("token", result);
+    return (document.getElementById("message").innerText = result.error);
   });
 }
 
-form();
+formA();

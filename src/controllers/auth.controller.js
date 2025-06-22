@@ -60,7 +60,7 @@ export const register = async (req, res, next) => {
   }
 };
 
-export const login = async (req, res, next) => {
+export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
     // console.log(username, password);
@@ -68,13 +68,15 @@ export const login = async (req, res, next) => {
     const userFound = await users.findOne({ username });
     // console.log(userFound);
     if (!userFound) {
-      throw new ClientError("Usuario no encontrado", 400);
+      return res.status(401).json({ error: "Usuario Incorrecto" });
+      // throw new ClientError("Usuario no encontrado", 400);
     }
 
     const isMatch = await bcrypt.compare(password, userFound.password);
 
     if (!isMatch) {
-      throw new ClientError("Contraseña Incorrecta", 400);
+      return res.status(401).json({ error: "Contraseña Incorrecta" });
+      // throw new ClientError("Usuario no encontrado", 400);
     }
 
     const token = await createAccesToken({ id: userFound._id });
@@ -101,14 +103,19 @@ export const login = async (req, res, next) => {
     // }];
     // next();
     // res.sendStatus(200);
-    res.json(token);
-    next();
+
+    if (token) {
+      return res.json(token);
+    }
+
+    // res.redirect("/init");
   } catch (err) {
     res.render("login.html", {
       title: "Acceso denegado",
-      messages: err.message,
+      message: err.message,
     });
   }
+  // next();
 };
 
 export const logout = async (req, res, next) => {

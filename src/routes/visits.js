@@ -10,11 +10,11 @@ const router = express.Router();
 
 router.get("/", visitCount.login);
 
-router.post("/", validateSchema(loginSchema), login, visitCount.analytics);
+router.get("/init", authRequired, visitCount.analytics);
+
+router.post("/init", validateSchema(loginSchema), login, visitCount.analytics);
 
 router.post("/register", validateSchema(registerSchema), register);
-
-router.get("/count", authRequired, visitCount.analytics);
 
 router.post("/count", visitCount.count);
 

@@ -59,7 +59,7 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res, next) => {
+export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
     // console.log(username, password);
@@ -98,8 +98,9 @@ export const login = async (req, res, next) => {
     //   updated: userFound.updatedAt,
     // });
     // }];
-    next();
+    // next();
     // res.sendStatus(200);
+    res.json(token);
   } catch (err) {
     res.render("login.html", {
       title: "Acceso denegado",

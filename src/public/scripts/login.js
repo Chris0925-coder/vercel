@@ -21,7 +21,7 @@ function form() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
 

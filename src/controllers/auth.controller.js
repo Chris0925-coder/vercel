@@ -59,13 +59,13 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res, next) => {
+export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
-    // console.log(username);
+    console.log(username, password);
     let users = User.User;
     const userFound = await users.findOne({ username });
-    // console.log(userFound);
+    console.log(userFound);
     if (!userFound) {
       throw new ClientError("Usuario no encontrado", 400);
     }
@@ -89,23 +89,22 @@ export const login = async (req, res, next) => {
     res.cookie("email", userFound.email);
 
     // let data = [{
-    // res.json({
-    // id: userFound._id,
-    // name: userFound.name,
-    // username: userFound.username,
-    // email: userFound.email,
-    // created: userFound.createdAt,
-    // updated: userFound.updatedAt
-    // });
+    res.json({
+      id: userFound._id,
+      name: userFound.name,
+      username: userFound.username,
+      email: userFound.email,
+      created: userFound.createdAt,
+      updated: userFound.updatedAt,
+    });
     // }];
     // res.sendStatus(200);
   } catch (err) {
-    res.status(400).render("login.html", {
+    res.render("login.html", {
       title: "Acceso denegado",
       messages: err.message,
     });
   }
-  next();
 };
 
 export const logout = async (req, res, next) => {

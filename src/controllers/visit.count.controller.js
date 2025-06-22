@@ -12,7 +12,8 @@ controller.login = async (req, res) => {
   try {
     res.render("login.html", { title: "LOGIN", tab: [], messages: [] });
   } catch (error) {
-    console.error("Error updating user:", error);
+    console.error("Error: ", error);
+    res.sendStatus(500);
   }
 };
 
@@ -22,7 +23,8 @@ controller.analytics = async (req, res) => {
     let { rows } = await db.execute(query);
     res.render("analytic.html", { title: "ANALYTICS", tab: rows });
   } catch (error) {
-    console.error("Error updating user:", error);
+    console.error("Error: ", error);
+    res.sendStatus(500);
   }
 };
 

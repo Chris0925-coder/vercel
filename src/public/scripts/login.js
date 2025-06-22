@@ -1,3 +1,48 @@
+function setCookie(cname, cvalue, exdays) {
+  let d = new Date();
+
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
+
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function removeCookie(cname) {
+  getCookie(cname, "", -1);
+}
+
+function detectCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0 && name.length != c.length) {
+      return true;
+    }
+  }
+  return false;
+}
+
 const form1 = document.getElementById("login");
 const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/`;
 
@@ -22,7 +67,10 @@ function form() {
       }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        setCookie("token", data);
+      })
       .catch((error) => console.error("Error:", error));
 
     // alert("Login successfully!");

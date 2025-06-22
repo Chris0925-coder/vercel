@@ -62,10 +62,10 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
-    console.log(username, password);
+    // console.log(username, password);
     let users = User.User;
     const userFound = await users.findOne({ username });
-    console.log(userFound);
+    // console.log(userFound);
     if (!userFound) {
       throw new ClientError("Usuario no encontrado", 400);
     }

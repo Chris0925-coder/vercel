@@ -19,7 +19,7 @@ msg.reciveMSG = async (req, res) => {
     //   email: rows.email,
     //   control: rows.control,
     // });
-    res.sendStatus(200).json(rows);
+    res.json(rows);
     // res.sendStatus(200);
   } catch (error) {
     console.error("Error updating user:", error);

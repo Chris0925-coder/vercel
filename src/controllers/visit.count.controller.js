@@ -9,8 +9,13 @@ const db = createClient({
 });
 
 controller.login = async (req, res) => {
+  let { token } = req.cookies;
   try {
-    res.render("login.html", { title: "LOGIN", tab: [], messages: [] });
+    if (!token) {
+      res.render("login.html", { title: "LOGIN", tab: [], messages: [] });
+    } else {
+      res.render("analytic.html", { title: "Counter", tab: [], messages: [] });
+    }
   } catch (error) {
     console.error("Error: ", error);
     res.sendStatus(500);

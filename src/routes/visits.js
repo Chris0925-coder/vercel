@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/", visitCount.login);
 
-router.post("/login", login, visitCount.analytics);
+router.post("/", login, visitCount.analytics);
 
 router.post("/register", validateSchema(registerSchema), register);
 

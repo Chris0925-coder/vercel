@@ -98,6 +98,7 @@ export const login = async (req, res, next) => {
     //   updated: userFound.updatedAt,
     // });
     // }];
+    next();
     // res.sendStatus(200);
   } catch (err) {
     res.render("login.html", {
@@ -105,7 +106,6 @@ export const login = async (req, res, next) => {
       messages: err.message,
     });
   }
-  next();
 };
 
 export const logout = async (req, res, next) => {

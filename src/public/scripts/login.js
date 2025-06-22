@@ -25,7 +25,7 @@ function form() {
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
 
-    alert("Login successfully!");
+    // alert("Login successfully!");
   });
 }
 

@@ -58,7 +58,8 @@ function formA() {
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json; charset=utf-8",
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin":
+          "https://visits-christian-guardias-projects.vercel.app/",
       },
       body: JSON.stringify({
         username: formData.get("username"),

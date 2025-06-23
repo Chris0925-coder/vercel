@@ -1,7 +1,7 @@
 import User from "../models/index.js";
 import bcrypt from "bcryptjs";
 import { createAccesToken } from "../libs/jwt.js";
-import { ClientError, ServerError } from "../utils/errors.js";
+// import { ClientError, ServerError } from "../utils/errors.js";
 // import { response } from '../utils/response.js';
 // import { catchedAsync } from '../utils/catchedAsync.js';
 
@@ -60,8 +60,9 @@ export const register = async (req, res, next) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   const { username, password } = req.body;
+  console.log("Hola Mundo");
   try {
     // console.log(username, password);
     let users = User.User;
@@ -104,9 +105,8 @@ export const login = async (req, res) => {
     // next();
     // res.sendStatus(200);
 
-    if (token) {
-      return res.json(token);
-    }
+    res.json(token);
+    next();
 
     // res.redirect("/init");
   } catch (err) {

@@ -44,11 +44,11 @@ function detectCookie(cname) {
 }
 
 const form1 = document.getElementById("login");
-const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/init`;
+const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/`;
 
 function formA() {
   form1.addEventListener("submit", async function (event) {
-    // event.preventDefault();
+    event.preventDefault();
     const formData = new FormData(form1);
 
     console.log("Message:", formData.get("username"), formData.get("password"));
@@ -69,7 +69,7 @@ function formA() {
       .then((data) => data)
       .catch((error) => console.error("Error:", error));
     // alert("Login successfully!");
-    // console.log(result);
+    console.log(result);
     setCookie("token", result);
     return (document.getElementById("message").innerText = result.error);
   });

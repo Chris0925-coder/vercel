@@ -90,7 +90,8 @@ function formA() {
       });
 
     // console.log(result);
-    if (!result.ok) document.getElementById("message").innerText = result.error;
+    if (!result.ok)
+      return (document.getElementById("message").innerText = result.error);
 
     setCookie("token", result);
     window.location.reload();

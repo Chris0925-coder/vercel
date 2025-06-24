@@ -60,7 +60,7 @@ export const register = async (req, res, next) => {
   }
 };
 
-export const login = async (req, res, next) => {
+export const login = async (req, res) => {
   const { username, password } = req.body;
   console.log("login");
   try {
@@ -105,8 +105,7 @@ export const login = async (req, res, next) => {
     // next();
     // res.sendStatus(200);
 
-    res.json(token);
-    next();
+    res.status(200).json(token);
 
     // res.redirect("/init");
   } catch (err) {

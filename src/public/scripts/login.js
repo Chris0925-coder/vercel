@@ -83,14 +83,9 @@ function formA() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => {
-        if (response.ok) {
-          response.json();
-        }
-      })
+      .then((response) => response.json())
       .then((data) => {
         console.log(data);
-
         setCookie("token", data);
       })
       .catch((error) => {

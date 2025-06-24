@@ -52,6 +52,14 @@ function detectCookie(cname) {
 
 // 2025:WebDev30!?
 
+// .then((data) => {
+//         console.log(data);
+//         if (data.ok) {
+
+//           setCookie("token", data);
+//         }
+//       })
+
 const form1 = document.getElementById("login");
 const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
@@ -75,12 +83,11 @@ function formA() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.ok) {
-          //  data;
-          setCookie("token", data);
+      .then((response) => {
+        if (response.ok) {
+          console.log(response);
+          response.json();
+          setCookie("token", response);
         }
       })
       .catch((error) => {

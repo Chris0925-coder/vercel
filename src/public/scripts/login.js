@@ -61,17 +61,17 @@ function detectCookie(cname) {
 //       })
 
 const form1 = document.getElementById("login");
-const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
+const url = `//wvlhqwzk-3000.use2.devtunnels.ms/init`;
 
 function formA() {
   form1.addEventListener("submit", async function (event) {
-    console.log(event);
+    // console.log(event);
     event.preventDefault();
     const formData = new FormData(form1);
 
-    console.log("Message:", formData.get("username"), formData.get("password"));
+    // console.log("Message:", formData.get("username"), formData.get("password"));
 
-    await fetch(url, {
+    let result = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -84,15 +84,16 @@ function formA() {
       }),
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setCookie("token", data);
-      })
+      // .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
-        return (document.getElementById("message").innerText = error);
       });
-    // window.location.reload();
+
+    // console.log(result);
+    if (!result.ok) document.getElementById("message").innerText = result.error;
+
+    setCookie("token", result);
+    window.location.reload();
   });
 }
 

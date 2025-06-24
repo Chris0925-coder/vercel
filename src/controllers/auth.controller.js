@@ -60,7 +60,7 @@ export const register = async (req, res, next) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   const { username, password } = req.body;
   console.log("login");
   try {
@@ -77,7 +77,7 @@ export const login = async (req, res) => {
 
     if (!isMatch) {
       return res.status(401).json({ error: "Contraseña Incorrecta" });
-      // throw new ClientError("Usuario no encontrado", 400);
+      // throw new ClientError("Contraseña Incorrecta", 400);
     }
 
     const token = await createAccesToken({ id: userFound._id });
@@ -105,16 +105,18 @@ export const login = async (req, res) => {
     // next();
     // res.sendStatus(200);
 
-    res.status(200).json(token);
+    res.json(token);
 
     // res.redirect("/init");
   } catch (err) {
-    res.render("login.html", {
-      title: "Acceso denegado",
-      message: err.message,
-    });
+    res.status(500).json({ message: error.message });
+    // throw new ServerError("Server error", 500);
+    // res.render("login.html", {
+    //   title: "Acceso denegado",
+    //   message: err.message,
+    // });
   }
-  // next();
+  next();
 };
 
 export const logout = async (req, res, next) => {

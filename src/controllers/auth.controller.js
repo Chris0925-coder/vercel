@@ -59,7 +59,7 @@ export const register = async (req, res, next) => {
   }
 };
 
-export const login = async (req, res, next) => {
+export const login = async (req, res) => {
   const { username, password } = req.body;
   console.log("login");
   try {
@@ -92,7 +92,6 @@ export const login = async (req, res, next) => {
     res.cookie("email", userFound.email);
 
     res.json(token);
-    next();
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

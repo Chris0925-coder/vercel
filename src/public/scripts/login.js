@@ -88,8 +88,8 @@ async function formA() {
         console.error("Error:", error);
       });
 
-    // console.log(result.error);
-    if (!result.error) setCookie("token", result);
+    console.log(result.error);
+    if (!result.error) return setCookie("token", result);
 
     // console.log("error");
     document.getElementById("message").innerText = result.error;

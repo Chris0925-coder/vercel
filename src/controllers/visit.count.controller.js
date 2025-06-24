@@ -26,9 +26,8 @@ controller.login = async (req, res) => {
 };
 
 controller.analytics = async (req, res) => {
-  console.log("Hola MundoB");
-
   const query = "SELECT count,domain,date FROM counts";
+  console.log("A");
   try {
     let { rows } = await db.execute(query);
     res.render("analytic.html", { title: "ANALYTICS", tab: rows });

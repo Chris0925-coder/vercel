@@ -77,9 +77,11 @@ function formA() {
     })
       .then((response) => response.json())
       .then((data) => {
-        data;
-        setCookie("token", data);
-        // console.log(data);
+        console.log(data);
+        if (data.ok) {
+          //  data;
+          setCookie("token", data);
+        }
       })
       .catch((error) => {
         console.error("Error:", error);

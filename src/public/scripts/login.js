@@ -61,7 +61,7 @@ function detectCookie(cname) {
 //       })
 
 const form1 = document.getElementById("login");
-const url = `//wvlhqwzk-3000.use2.devtunnels.ms/init`;
+const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
 function formA() {
   form1.addEventListener("submit", async function (event) {

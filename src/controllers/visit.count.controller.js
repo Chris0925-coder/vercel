@@ -29,7 +29,7 @@ controller.analytics = async (req, res) => {
   console.log("A");
   try {
     let { rows } = await db.execute(query);
-    res.render("analytic.html", { title: "ANALYTICS", tab: rows });
+    return res.render("analytic.html", { title: "ANALYTICS", tab: rows });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

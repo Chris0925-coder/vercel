@@ -10,9 +10,9 @@ const db = createClient({
 
 controller.login = async (req, res) => {
   let { token } = req.cookies;
-  console.log(typeof token);
+  console.log(token);
   try {
-    if (token && token.includes("ey")) return res.redirect("/init");
+    // if (token && token.includes("ey")) return res.redirect("/init");
     // if (!token) {
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
     // }

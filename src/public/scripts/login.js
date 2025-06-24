@@ -43,8 +43,10 @@ function detectCookie(cname) {
   return false;
 }
 
+// Accept: "application/json, text/plain, */*",
+
 const form1 = document.getElementById("login");
-const url = `https://wvlhqwzk-3000.use2.devtunnels.ms/`;
+const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
 function formA() {
   form1.addEventListener("submit", async function (event) {
@@ -53,13 +55,12 @@ function formA() {
 
     console.log("Message:", formData.get("username"), formData.get("password"));
 
-    let result = await fetch(url, {
+    await fetch(url, {
       method: "POST",
       headers: {
-        Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json; charset=utf-8",
-        "Access-Control-Allow-Origin":
-          "https://visits-christian-guardias-projects.vercel.app/",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
       },
       body: JSON.stringify({
         username: formData.get("username"),
@@ -67,12 +68,16 @@ function formA() {
       }),
     })
       .then((response) => response.json())
-      .then((data) => data)
-      .catch((error) => console.error("Error:", error));
-    // alert("Login successfully!");
-    console.log(result);
-    setCookie("token", result);
-    return (document.getElementById("message").innerText = result.error);
+      .then((data) => {
+        data;
+        setCookie("token", data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        return (document.getElementById("message").innerText = error);
+      });
+    alert("Login successfully!");
   });
 }
 

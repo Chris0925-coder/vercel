@@ -43,6 +43,11 @@ function detectCookie(cname) {
   return false;
 }
 
+//  headers: {
+//         "Content-Type": "application/json; charset=utf-8",
+//         "Access-Control-Allow-Origin": "*",
+//         "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+//       },
 // Accept: "application/json, text/plain, */*",
 
 const form1 = document.getElementById("login");
@@ -57,11 +62,6 @@ function formA() {
 
     await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
-      },
       body: JSON.stringify({
         username: formData.get("username"),
         password: formData.get("password"),
@@ -78,6 +78,7 @@ function formA() {
         return (document.getElementById("message").innerText = error);
       });
     alert("Login successfully!");
+    window.location.pathname("/init");
   });
 }
 

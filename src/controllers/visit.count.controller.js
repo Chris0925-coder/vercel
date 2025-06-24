@@ -27,17 +27,14 @@ controller.login = async (req, res) => {
 
 controller.analytics = async (req, res) => {
   console.log("Hola MundoB");
-  // let { token } = req.cookies;
+
   const query = "SELECT count,domain,date FROM counts";
   try {
-    // if (token) {
     let { rows } = await db.execute(query);
-    return res.render("analytic.html", { title: "ANALYTICS", tab: rows });
-    // }
-    // res.redirect("/login");
+    res.render("analytic.html", { title: "ANALYTICS", tab: rows });
   } catch (error) {
     console.error("Error: ", error);
-    return res.sendStatus(500);
+    res.sendStatus(500);
   }
 };
 

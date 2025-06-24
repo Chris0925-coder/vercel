@@ -109,7 +109,7 @@ export const login = async (req, res, next) => {
 
     // res.redirect("/init");
   } catch (err) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: err.message });
     // throw new ServerError("Server error", 500);
     // res.render("login.html", {
     //   title: "Acceso denegado",

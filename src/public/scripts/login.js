@@ -85,10 +85,13 @@ function formA() {
     })
       .then((response) => {
         if (response.ok) {
-          console.log(response);
           response.json();
-          setCookie("token", response);
         }
+      })
+      .then((data) => {
+        console.log(data);
+
+        setCookie("token", data);
       })
       .catch((error) => {
         console.error("Error:", error);

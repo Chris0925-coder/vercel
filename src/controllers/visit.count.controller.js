@@ -12,7 +12,7 @@ controller.login = async (req, res) => {
   let { token } = req.cookies;
   console.log(token);
   try {
-    // if (token && token.includes("ey")) return res.redirect("/init");
+    if (token && token.includes("ey")) return res.redirect("/init");
     // if (!token) {
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
     // }
@@ -32,12 +32,12 @@ controller.analytics = async (req, res) => {
   try {
     // if (token) {
     let { rows } = await db.execute(query);
-    res.render("analytic.html", { title: "ANALYTICS", tab: rows });
+    return res.render("analytic.html", { title: "ANALYTICS", tab: rows });
     // }
     // res.redirect("/login");
   } catch (error) {
     console.error("Error: ", error);
-    res.sendStatus(500);
+    return res.sendStatus(500);
   }
 };
 

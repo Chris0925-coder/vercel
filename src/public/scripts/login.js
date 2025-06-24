@@ -71,7 +71,7 @@ function formA() {
       .then((data) => {
         data;
         setCookie("token", data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((error) => {
         console.error("Error:", error);

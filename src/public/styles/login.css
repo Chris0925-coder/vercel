@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px 0;
+}
+
+button {
+  width: 70px;
+  border-radius: 5px;
+  padding: 10px 5px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #1111113a;
+  }
+}
+
+input {
+  border: none;
+  padding: 5px;
+  border-radius: 0.5em;
+  &:placeholder-shown {
+    text-align: right;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* height: auto; */
+  /* border: 1px solid; */
+}
+
+.body-card {
+  display: grid;
+  position: relative;
+  place-content: center;
+  width: 400px;
+  height: 60vh;
+  margin: auto;
+  border-radius: 7px;
+  /* border: 1px solid red; */
+  /* background: url("https://chris0925-coder.github.io/soporte-tecnico/public/img/logochris1.png")
+    no-repeat center center;
+  max-width: 400px;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 7px;
+  z-index: 1; */
+}
+
+.body-card::before {
+  content: "";
+  position: absolute;
+  background: url("https://chris0925-coder.github.io/soporte-tecnico/public/img/logochris1.png")
+    no-repeat center center;
+  /* top: 0;
+  left: 0; */
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 10px;
+  opacity: 0.2; /* 50% de opacidad */
+  z-index: -1;
+  /* border: 1px solid green; */
+}
+
+.form-group {
+  /* color: black; */
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 0.3em;
+}

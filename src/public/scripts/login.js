@@ -87,7 +87,7 @@ function formA() {
         console.error("Error:", error);
         return (document.getElementById("message").innerText = error);
       });
-    window.location.reload();
+    // window.location.reload();
   });
 }
 

@@ -19,7 +19,7 @@ msg.reciveMSG = async (req, res) => {
     //   email: rows.email,
     //   control: rows.control,
     // });
-    res.json(rows);
+    res.status(200).json(rows);
     // res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -12,7 +12,7 @@ router.get("/", visitCount.login);
 
 router.post("/", validateSchema(loginSchema), login);
 
-router.get("/init", authRequired, visitCount.analytics);
+router.get("/home", authRequired, visitCount.analytics);
 
 router.post("/register", validateSchema(registerSchema), register);
 

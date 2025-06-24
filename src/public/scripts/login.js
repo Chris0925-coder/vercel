@@ -93,7 +93,7 @@ async function formA() {
 
     // console.log("error");
     document.getElementById("message").innerText = result.error;
-    // window.location.reload();
+    window.location.reload();
   });
 }
 

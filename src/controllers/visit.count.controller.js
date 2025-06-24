@@ -10,7 +10,7 @@ const db = createClient({
 
 controller.login = async (req, res) => {
   let { token } = req.cookies;
-  console.log(token);
+  // console.log(token);
   try {
     if (token && token.includes("ey")) return res.redirect("/init");
     // if (!token) {
@@ -20,8 +20,7 @@ controller.login = async (req, res) => {
     // res.redirect("/");
     // }
   } catch (error) {
-    console.error("Error: ", error);
-    res.sendStatus(500);
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -32,8 +31,7 @@ controller.analytics = async (req, res) => {
     let { rows } = await db.execute(query);
     res.render("analytic.html", { title: "ANALYTICS", tab: rows });
   } catch (error) {
-    console.error("Error: ", error);
-    res.sendStatus(500);
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -58,8 +56,7 @@ controller.count = async (req, res) => {
     console.log(`Web with ID ${c.domain} updated visit ${suma} successfully!`);
     res.sendStatus(200);
   } catch (error) {
-    console.error("Error updating user:", error);
-    res.sendStatus(500);
+    res.status(500).json({ message: error.message });
   }
 };
 

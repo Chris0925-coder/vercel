@@ -56,7 +56,6 @@ export const register = async (req, res, next) => {
     next();
   } catch (error) {
     res.status(500).json({ message: error.message });
-    // catchedAsync(error);
   }
 };
 
@@ -92,31 +91,11 @@ export const login = async (req, res, next) => {
 
     res.cookie("email", userFound.email);
 
-    // let data = [{
-    // res.json({
-    //   id: userFound._id,
-    //   name: userFound.name,
-    //   username: userFound.username,
-    //   email: userFound.email,
-    //   created: userFound.createdAt,
-    //   updated: userFound.updatedAt,
-    // });
-    // }];
-    // next();
-    // res.sendStatus(200);
-
     res.json(token);
-
-    // res.redirect("/init");
+    next();
   } catch (err) {
     res.status(500).json({ message: err.message });
-    // throw new ServerError("Server error", 500);
-    // res.render("login.html", {
-    //   title: "Acceso denegado",
-    //   message: err.message,
-    // });
   }
-  next();
 };
 
 export const logout = async (req, res, next) => {

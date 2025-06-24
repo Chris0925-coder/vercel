@@ -50,6 +50,8 @@ function detectCookie(cname) {
 //       },
 // Accept: "application/json, text/plain, */*",
 
+// 2025:WebDev30!?
+
 const form1 = document.getElementById("login");
 const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
@@ -63,6 +65,11 @@ function formA() {
 
     await fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+      },
       body: JSON.stringify({
         username: formData.get("username"),
         password: formData.get("password"),

@@ -88,10 +88,10 @@ async function formA() {
         console.error("Error:", error);
       });
 
-    // console.log(!result.error);
+    console.log(!result.error);
     if (!result.error) {
       setCookie("token", result);
-      window.location.reload();
+      // window.location.reload();
     } else {
       document.getElementById("message").innerText = result.error;
     }

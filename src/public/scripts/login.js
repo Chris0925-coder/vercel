@@ -84,7 +84,6 @@ async function formA() {
       }),
     })
       .then((response) => response.json())
-      .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
       });

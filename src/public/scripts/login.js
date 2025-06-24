@@ -71,7 +71,7 @@ async function formA() {
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
 
-    let result = await fetch("/", {
+    let result = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -88,15 +88,12 @@ async function formA() {
         console.error("Error:", error);
       });
 
-    console.log(result.error);
-    if (!result.error) {
-      console.log("error");
-      document.getElementById("message").innerText = result.error;
-    } else {
-      console.log("no error");
-      setCookie("token", result);
-      // window.location.reload();
-    }
+    // console.log(result.error);
+    if (!result.error) setCookie("token", result);
+
+    // console.log("error");
+    document.getElementById("message").innerText = result.error;
+    // window.location.reload();
   });
 }
 

@@ -26,7 +26,7 @@ controller.login = async (req, res) => {
 };
 
 controller.analytics = async (req, res) => {
-  console.log("Hola Mundo");
+  console.log("Hola MundoB");
   // let { token } = req.cookies;
   const query = "SELECT count,domain,date FROM counts";
   try {

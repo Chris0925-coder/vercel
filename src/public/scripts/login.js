@@ -63,7 +63,7 @@ function detectCookie(cname) {
 const form1 = document.getElementById("login");
 const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
-function formA() {
+async function formA() {
   form1.addEventListener("submit", async function (event) {
     // console.log(event);
     event.preventDefault();
@@ -71,7 +71,7 @@ function formA() {
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
 
-    let result = await fetch(url, {
+    let result = await fetch("/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -84,13 +84,13 @@ function formA() {
       }),
     })
       .then((response) => response.json())
-      // .then((data) => data)
+      .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
       });
 
-    // console.log(result);
-    if (!result.ok)
+    // console.log(!result.error);
+    if (result.error)
       return (document.getElementById("message").innerText = result.error);
 
     setCookie("token", result);

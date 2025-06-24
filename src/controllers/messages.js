@@ -22,8 +22,7 @@ msg.reciveMSG = async (req, res) => {
     res.json(rows);
     // res.sendStatus(200);
   } catch (error) {
-    console.error("Error updating user:", error);
-    res.sendStatus(500);
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -48,8 +47,7 @@ msg.messages = async (req, res) => {
     );
     res.sendStatus(200);
   } catch (error) {
-    console.error("Error submit form:", error);
-    res.sendStatus(500);
+    res.status(500).json({ message: error.message });
   }
 };
 

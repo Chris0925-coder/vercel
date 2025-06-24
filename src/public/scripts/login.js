@@ -88,14 +88,14 @@ async function formA() {
         console.error("Error:", error);
       });
 
-    console.log(!result.error);
+    console.log(result.error);
     if (!result.error) {
+      console.log("error");
+      document.getElementById("message").innerText = result.error;
+    } else {
       console.log("no error");
       setCookie("token", result);
       // window.location.reload();
-    } else {
-      console.log("error");
-      document.getElementById("message").innerText = result.error;
     }
   });
 }

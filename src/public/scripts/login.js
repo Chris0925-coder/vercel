@@ -89,11 +89,12 @@ async function formA() {
       });
 
     console.log(!result.error);
-    if (!result.error) {
+    if (result.error) {
+      document.getElementById("message").innerText = result.error;
+    } else {
+      console.log("no error");
       setCookie("token", result);
       // window.location.reload();
-    } else {
-      document.getElementById("message").innerText = result.error;
     }
   });
 }

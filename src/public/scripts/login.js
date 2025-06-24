@@ -55,6 +55,7 @@ const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
 function formA() {
   form1.addEventListener("submit", async function (event) {
+    console.log(event);
     event.preventDefault();
     const formData = new FormData(form1);
 
@@ -77,8 +78,7 @@ function formA() {
         console.error("Error:", error);
         return (document.getElementById("message").innerText = error);
       });
-    alert("Login successfully!");
-    window.location.pathname("/init");
+    window.location.reload();
   });
 }
 

@@ -30,6 +30,7 @@ const port = process.env.PORT || portFinded;
 // static files
 app.use(express.static(path.join(__dirname, "src/public")));
 app.use(express.static(path.join(__dirname, "src/storage")));
+app.use("/favicon.ico", express.static("src/favicon.ico"));
 
 // SETTINGS
 app.set("routes", path.join(__dirname, "src/routes"));
@@ -57,7 +58,6 @@ app.use(express.urlencoded({ extended: true }));
 // app.use("/", index);
 // app.use("/storage", router);
 app.use("/", routes);
-app.use("/favicon.ico", express.static("src/favicon.ico"));
 
 // app.use((err,req,res,next) => {
 //   res.status(err.statusCode).json({

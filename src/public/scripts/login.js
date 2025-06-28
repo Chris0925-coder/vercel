@@ -61,9 +61,9 @@ function detectCookie(cname) {
 const form1 = document.getElementById("login");
 const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
-async function formA() {
+function formA() {
   form1.addEventListener("submit", async function (event) {
-    // console.log(event);
+    document.getElementById("message").innerText = "Iniciando sesion...";
     event.preventDefault();
     const formData = new FormData(form1);
 
@@ -84,22 +84,16 @@ async function formA() {
       .then((response) => response.json())
       .then((data) => data)
       .catch((error) => {
-        // error.json();
         console.error("Error:", error);
         document.getElementById("message").innerText = error;
-        // return error;
       });
 
-    // console.log(result);
     if (!result.error) {
       setCookie("token", result);
-      // console.log(result);
       window.location.reload();
     } else {
       document.getElementById("message").innerText = result.error;
     }
-
-    // console.log("error");
   });
 }
 

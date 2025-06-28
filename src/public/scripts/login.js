@@ -63,7 +63,9 @@ const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
 function formA() {
   form1.addEventListener("submit", async function (event) {
-    document.getElementById("message").innerText = "Iniciando sesion...";
+    const message = document.getElementById("message");
+    message.style.color = "#009900";
+    message.innerText = "Iniciando sesion...";
     event.preventDefault();
     const formData = new FormData(form1);
 
@@ -85,7 +87,8 @@ function formA() {
       .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
-        document.getElementById("message").innerText = error;
+        message.style.color = "#990000";
+        message.innerText = error;
       });
 
     console.log(result);
@@ -94,7 +97,8 @@ function formA() {
       setCookie("token", result);
       window.location.reload();
     } else {
-      document.getElementById("message").innerText = result.error;
+      message.style.color = "#990000";
+      message.innerText = result.error;
     }
   });
 }

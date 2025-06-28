@@ -93,3 +93,9 @@ input {
   padding: 10px;
   gap: 0.3em;
 }
+
+#message {
+  text-align: center;
+  color: red;
+  font-weight: 900;
+}

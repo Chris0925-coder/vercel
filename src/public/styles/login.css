@@ -79,7 +79,8 @@ input {
   height: 100%;
   background-color: black;
   border-radius: 10px;
-  opacity: 0.4; /* 50% de opacidad */
+  opacity: 0.4;
+  /* 50% de opacidad */
   z-index: -1;
   /* border: 1px solid green; */
 }

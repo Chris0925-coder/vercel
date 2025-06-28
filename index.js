@@ -57,6 +57,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use("/", index);
 // app.use("/storage", router);
 app.use("/", routes);
+app.use("/favicon.ico", express.static("src/favicon.ico"));
 
 // app.use((err,req,res,next) => {
 //   res.status(err.statusCode).json({

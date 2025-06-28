@@ -84,13 +84,15 @@ async function formA() {
       }),
     })
       .then((response) => response.json())
+      .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
       });
 
-    console.log(result.error);
+    console.log(result);
     if (!result.error) {
       setCookie("token", result);
+      console.log(result);
       window.location.reload();
     }
 

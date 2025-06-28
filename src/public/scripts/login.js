@@ -50,8 +50,6 @@ function detectCookie(cname) {
 //       },
 // Accept: "application/json, text/plain, */*",
 
-// 2025:WebDev30!?
-
 // .then((data) => {
 //         console.log(data);
 //         if (data.ok) {
@@ -87,12 +85,14 @@ async function formA() {
       .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
+        document.getElementById("message").innerText = error;
+        // return error;
       });
 
     console.log(result);
     if (!result.error) {
       setCookie("token", result);
-      console.log(result);
+      // console.log(result);
       window.location.reload();
     }
 

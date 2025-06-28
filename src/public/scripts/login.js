@@ -84,20 +84,22 @@ async function formA() {
       .then((response) => response.json())
       .then((data) => data)
       .catch((error) => {
+        // error.json();
         console.error("Error:", error);
         document.getElementById("message").innerText = error;
         // return error;
       });
 
-    console.log(result);
+    // console.log(result);
     if (!result.error) {
       setCookie("token", result);
       // console.log(result);
       window.location.reload();
+    } else {
+      document.getElementById("message").innerText = result.error;
     }
 
     // console.log("error");
-    document.getElementById("message").innerText = result.error;
   });
 }
 

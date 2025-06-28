@@ -31,6 +31,7 @@ const port = process.env.PORT || portFinded;
 app.use(express.static(path.join(__dirname, "src/public")));
 app.use(express.static(path.join(__dirname, "src/storage")));
 app.use("/favicon.ico", express.static("src/favicon.ico"));
+// app.use(express.static(path.join(__dirname, "src/favicon.ico")));
 
 // SETTINGS
 app.set("routes", path.join(__dirname, "src/routes"));

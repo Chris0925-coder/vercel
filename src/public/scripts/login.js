@@ -88,6 +88,8 @@ function formA() {
         document.getElementById("message").innerText = error;
       });
 
+    console.log(result);
+
     if (!result.error) {
       setCookie("token", result);
       window.location.reload();

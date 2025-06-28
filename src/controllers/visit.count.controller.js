@@ -10,15 +10,9 @@ const db = createClient({
 
 controller.login = async (req, res) => {
   let { token } = req.cookies;
-  // console.log(token);
   try {
-    if (token && token.includes("ey")) return res.redirect("/home");
-    // if (!token) {
+    if (token) return res.redirect("/home");
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
-    // }
-    // res.render("analytic.html", { title: "Counter", tab: [], messages: [] });
-    // res.redirect("/");
-    // }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

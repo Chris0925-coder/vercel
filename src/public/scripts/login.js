@@ -83,15 +83,14 @@ function formA() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => response.json())
-      .then((data) => data)
+      .then((response) => response.text())
       .catch((error) => {
         console.error("Error:", error);
         message.style.color = "#990000";
         message.innerText = error;
       });
 
-    console.log(result);
+    // console.log(result);
 
     if (!result.error) {
       setCookie("token", result);

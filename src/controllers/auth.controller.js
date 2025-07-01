@@ -59,7 +59,7 @@ export const register = async (req, res, next) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async (req, res, next) => {
   const { username, password } = req.body;
   try {
     // console.log(username, password);
@@ -82,15 +82,18 @@ export const login = async (req, res) => {
 
     res.cookie("token", token);
 
-    res.cookie("id", userFound._id);
+    // res.cookie("id", userFound._id);
 
-    res.cookie("name", userFound.name);
+    // res.cookie("name", userFound.name);
 
-    res.cookie("username", userFound.username);
+    // res.cookie("username", userFound.username);
 
-    res.cookie("email", userFound.email);
+    // res.cookie("email", userFound.email);
 
-    if (token) res.json(token);
+    // if (token) res.json(token);
+    // req.body = token;
+    // console.log(req.body);
+    next();
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

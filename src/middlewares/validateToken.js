@@ -6,16 +6,21 @@ export const authRequired = (req, res, next) => {
   // let { user } = req.cookies;
 
   if (!token) {
-    // return res.render("loginib.html", {
-    //   title: "Login",
-    //   message: "No token, autorization denied",
-    // });
-    return res.status(401).json({ message: "No token, autorization denied" });
+    return res.render("login.html", {
+      title: "Login",
+      message: "No token, autorization denied",
+    });
+    // return res.status(401).json({ message: "No token, autorization denied" });
   } else {
     jwt.verify(token, TOKEN_SECRET, (err, user) => {
       if (err) {
-        return res.status(403).json({ message: "Invalid token" });
+        // return res.status(403).json({ message: "Invalid token" });
+        return res.render("login.html", {
+          title: "Login",
+          message: "Invalid token",
+        });
       } else {
+        // res.cookie("token", token);
         // res.render("employee.html", { title: "Login", message: [] });
         // let { user } = req.cookies;
         req.user = user;

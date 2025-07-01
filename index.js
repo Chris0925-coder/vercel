@@ -61,6 +61,9 @@ app.use(morgan("dev"));
 // app.use("/", index);
 // app.use("/storage", router);
 app.use("/", routes);
+app.use((req, res) => {
+  res.status(404).send(`<h1>404</h1>`);
+});
 
 // app.use((err,req,res,next) => {
 //   res.status(err.statusCode).json({

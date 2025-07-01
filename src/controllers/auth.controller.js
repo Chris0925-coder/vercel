@@ -80,7 +80,7 @@ export const login = async (req, res, next) => {
 
     const token = await createAccesToken({ id: userFound._id });
 
-    res.cookie("token", token);
+    // res.cookie("token", token);
 
     // res.cookie("id", userFound._id);
 
@@ -91,7 +91,7 @@ export const login = async (req, res, next) => {
     // res.cookie("email", userFound.email);
 
     // if (token)
-    // res.json(token);
+    res.json(token);
     // req.body = token;
     next();
     // console.log(req.body);

@@ -70,8 +70,6 @@ function formA() {
     const formData = new FormData(form1);
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
-    // 2025:WebDev30!?
-    // src/public/scripts/login.js
 
     let result = await fetch(url, {
       method: "POST",

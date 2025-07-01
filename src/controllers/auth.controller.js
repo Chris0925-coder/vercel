@@ -59,7 +59,7 @@ export const register = async (req, res, next) => {
   }
 };
 
-export const login = async (req, res, next) => {
+export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
     // console.log(username, password);
@@ -93,7 +93,7 @@ export const login = async (req, res, next) => {
     // if (token)
     res.json(token);
     // req.body = token;
-    next();
+    // next();
     // console.log(req.body);
   } catch (err) {
     res.status(500).json({ message: err.message });

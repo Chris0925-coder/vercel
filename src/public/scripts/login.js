@@ -83,10 +83,7 @@ function formA() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => {
-        response;
-        window.location.reload();
-      })
+      .then((response) => response)
       .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
@@ -94,15 +91,15 @@ function formA() {
         message.innerText = error;
       });
 
-    // console.log(result);
+    console.log(result);
 
-    // if (!result.error) {
-    //   setCookie("token", result);
-    // window.location.reload();
-    // } else {
-    //   message.style.color = "#990000";
-    //   message.innerText = result.error;
-    // }
+    if (!result.error) {
+      setCookie("token", result);
+      window.location.reload();
+    } else {
+      message.style.color = "#990000";
+      message.innerText = result.error;
+    }
   });
 }
 

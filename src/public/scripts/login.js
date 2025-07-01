@@ -64,8 +64,7 @@ const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 function formA() {
   form1.addEventListener("submit", async function (event) {
     const message = document.getElementById("message");
-    message.style.color = "#009900";
-    message.innerText = "Iniciando sesion...";
+
     event.preventDefault();
     const formData = new FormData(form1);
 
@@ -94,6 +93,8 @@ function formA() {
     console.log(result);
 
     if (!result.error) {
+      message.style.color = "#009900";
+      message.innerText = "Iniciando sesion...";
       setCookie("token", result);
       window.location.reload();
     } else {

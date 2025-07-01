@@ -18,6 +18,8 @@ import { findAvailablePort } from "./src/utils/desiredPort.js";
 const ejs = pkg;
 const app = express();
 
+app.disable("x-powered-by");
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -42,14 +44,14 @@ app.set("view engine", "ejs");
 app.set("port", port);
 
 // middlewares
-// app.use(cors({ credentials: true, origin: true }));
+// app.use(cors({ credentials: true, origin: true }))
+app.use(express.urlencoded({ extended: true }));
 app.use(cors(config.application.cors.server));
 app.use(express.json());
 app.use(express.text());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: true }));
 
 // app.verb('path', function(req,res) {
 //   const {body} =req;

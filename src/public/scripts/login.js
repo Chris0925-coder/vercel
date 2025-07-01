@@ -70,6 +70,7 @@ function formA() {
     const formData = new FormData(form1);
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
+    // 2025:WebDev30!?
 
     let result = await fetch(url, {
       method: "POST",
@@ -84,6 +85,7 @@ function formA() {
       }),
     })
       .then((response) => response.text())
+      .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
         message.style.color = "#990000";

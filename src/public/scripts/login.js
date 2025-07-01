@@ -90,7 +90,7 @@ function formA() {
         message.innerText = error;
       });
 
-    // console.log(result);
+    console.log(result);
 
     if (!result.error) {
       setCookie("token", result);

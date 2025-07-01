@@ -57,15 +57,16 @@ function detectCookie(cname) {
 //           setCookie("token", data);
 //         }
 //       })
-
+const message = document.getElementById("message");
 const form1 = document.getElementById("login");
 const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
 function formA() {
   form1.addEventListener("submit", async function (event) {
-    const message = document.getElementById("message");
-
     event.preventDefault();
+
+    message.style.color = "#009900";
+    message.innerText = "Iniciando sesion...";
     const formData = new FormData(form1);
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
@@ -93,8 +94,6 @@ function formA() {
     console.log(result);
 
     if (!result.error) {
-      message.style.color = "#009900";
-      message.innerText = "Iniciando sesion...";
       setCookie("token", result);
       window.location.reload();
     } else {

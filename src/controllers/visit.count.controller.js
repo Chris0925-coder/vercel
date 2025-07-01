@@ -11,6 +11,7 @@ const db = createClient({
 controller.login = async (req, res) => {
   let { token } = req.cookies;
   try {
+    console.log(token);
     if (token) return res.redirect("/home");
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
   } catch (error) {
@@ -19,7 +20,7 @@ controller.login = async (req, res) => {
 };
 
 controller.analytics = async (req, res) => {
-  // let { token } = req.body;
+  // let { token } = req.cookies;
   // res.cookies("token", req.body);
   const query = "SELECT count,domain,date FROM counts";
   // console.log(token);

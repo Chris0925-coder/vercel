@@ -90,10 +90,11 @@ export const login = async (req, res, next) => {
 
     // res.cookie("email", userFound.email);
 
-    // if (token) res.json(token);
+    // if (token)
+    // res.json(token);
     // req.body = token;
-    // console.log(req.body);
     next();
+    // console.log(req.body);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

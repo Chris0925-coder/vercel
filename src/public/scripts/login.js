@@ -94,7 +94,7 @@ function formA() {
 
     if (!result.error) {
       setCookie("token", result);
-      window.location.reload();
+      // window.location.reload();
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;

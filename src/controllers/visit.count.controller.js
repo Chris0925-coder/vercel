@@ -16,12 +16,7 @@ controller.login = async (req, res) => {
     if (token) return res.redirect("/home");
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
   } catch (error) {
-    // res.status(500).json({ message: error.message });
-    res.render("login.html", {
-      title: "LOGIN",
-      tab: [],
-      message: error.message,
-    });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -36,12 +31,7 @@ controller.analytics = async (req, res) => {
 
     res.render("analytic.html", { title: "ANALYTICS", tab: rows });
   } catch (error) {
-    // res.status(500).json({ message: error.message });
-    res.render("login.html", {
-      title: "LOGIN",
-      tab: [],
-      message: error.message,
-    });
+    res.status(500).json({ message: error.message });
   }
 };
 

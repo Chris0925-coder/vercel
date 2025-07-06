@@ -1,10 +1,10 @@
-process.loadEnvFile();
+// process.loadEnvFile();
 import express from "express";
 import morgan from "morgan";
 import pkg from "ejs";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 // import index from './routes/index.js';
 // import router from "./routes/storage.js";
 import routes from "./src/routes/visits.js";
@@ -50,7 +50,7 @@ app.use(cors(config.application.cors.server));
 app.use(express.json());
 app.use(express.text());
 app.use(cookieParser());
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(morgan("dev"));
 
 // app.verb('path', function(req,res) {

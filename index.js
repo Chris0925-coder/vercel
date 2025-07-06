@@ -32,7 +32,7 @@ const port = process.env.PORT || portFinded;
 // static files
 app.use(express.static(path.join(__dirname, "src/public")));
 app.use(express.static(path.join(__dirname, "src/storage")));
-app.use("/favicon.ico", express.static("src/favicon.ico"));
+app.use("favicon.ico", express.static(path.join(__dirname, "src/favicon.ico")));
 // app.use(express.static(path.join(__dirname, "src/favicon.ico")));
 
 // SETTINGS
@@ -43,7 +43,7 @@ app.engine("html", ejs.renderFile);
 app.set("view engine", "ejs");
 app.set("port", port);
 
-// middlewares
+// MIDDLEWARE
 // app.use(cors({ credentials: true, origin: true }))
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(config.application.cors.server));

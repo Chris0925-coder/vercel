@@ -1,5 +1,9 @@
 import express from "express";
-import { login, register, logout } from "../controllers/auth.controller.js";
+import {
+  login,
+  register,
+  uptdatePassword,
+} from "../controllers/auth.controller.js";
 import { authRequired } from "../middlewares/validateToken.js";
 import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
@@ -10,7 +14,7 @@ const router = express.Router();
 
 router.get("/", visitCount.login);
 
-router.post("/", validateSchema(loginSchema), login);
+router.post("/", validateSchema(loginSchema), login, visitCount.analytics);
 
 router.get("/home", authRequired, visitCount.analytics);
 
@@ -21,5 +25,9 @@ router.post("/count", visitCount.count);
 router.get("/submit", authRequired, msg.reciveMSG);
 
 router.post("/submit", msg.messages);
+
+router.get("/recovery", visitCount.recovery);
+
+router.post("/recovery", uptdatePassword);
 
 export default router;

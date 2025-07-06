@@ -61,7 +61,7 @@ const message = document.getElementById("message");
 const form1 = document.getElementById("login");
 const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
-function formA() {
+async function formA() {
   form1.addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -91,7 +91,7 @@ function formA() {
         message.innerText = error;
       });
 
-    console.log(result);
+    // console.log(result);
 
     if (!result.error) {
       setCookie("token", result);

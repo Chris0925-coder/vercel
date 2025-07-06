@@ -27,7 +27,8 @@ msg.reciveMSG = async (req, res) => {
 };
 
 msg.messages = async (req, res) => {
-  const formData = req.body; // Aquí se capturan los datos del FormData
+  const formData = req.body;
+  // Aquí se capturan los datos del FormData
   console.log("Datos recibidos:", formData);
 
   let c = JSON.parse(formData);

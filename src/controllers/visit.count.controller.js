@@ -11,24 +11,37 @@ const db = createClient({
 controller.login = async (req, res) => {
   let { token } = req.cookies;
   try {
-    console.log(token);
+    // console.log(token);
+    console.log("controller login");
     if (token) return res.redirect("/home");
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // res.status(500).json({ message: error.message });
+    res.render("login.html", {
+      title: "LOGIN",
+      tab: [],
+      message: error.message,
+    });
   }
 };
 
 controller.analytics = async (req, res) => {
+  console.log("analytics");
   // let { token } = req.cookies;
   // res.cookies("token", req.body);
   const query = "SELECT count,domain,date FROM counts";
   // console.log(token);
   try {
     let { rows } = await db.execute(query);
-    return res.render("analytic.html", { title: "ANALYTICS", tab: rows });
+
+    res.render("analytic.html", { title: "ANALYTICS", tab: rows });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // res.status(500).json({ message: error.message });
+    res.render("login.html", {
+      title: "LOGIN",
+      tab: [],
+      message: error.message,
+    });
   }
 };
 
@@ -55,6 +68,10 @@ controller.count = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+controller.recovery = async (req, res) => {
+  res.render("recovery.html", { title: "RECOVERY", tab: [] });
 };
 
 export default controller;

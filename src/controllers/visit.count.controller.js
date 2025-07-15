@@ -9,10 +9,8 @@ const db = createClient({
 });
 
 controller.login = async (req, res) => {
-  let { token } = req.cookies;
+  const { token } = req.cookies;
   try {
-    // console.log(token);
-    console.log("controller login");
     if (token) return res.redirect("/home");
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
   } catch (error) {
@@ -21,6 +19,7 @@ controller.login = async (req, res) => {
 };
 
 controller.analytics = async (req, res) => {
+  console.log(req.body);
   console.log("analytics");
   // let { token } = req.cookies;
   // res.cookies("token", req.body);

@@ -62,10 +62,8 @@ export const register = async (req, res, next) => {
 export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
-    // console.log(username, password);
     let users = User.User;
     const userFound = await users.findOne({ username });
-    // console.log(userFound);
     if (!userFound) {
       return res.status(401).json({ error: "Usuario Incorrecto" });
       // throw new ClientError("Usuario no encontrado", 400);
@@ -80,11 +78,7 @@ export const login = async (req, res) => {
 
     const token = await createAccesToken({ id: userFound._id });
 
-    console.log("login");
     res.json(token);
-    // req.body = token;
-    // next();
-    // console.log(req.body);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

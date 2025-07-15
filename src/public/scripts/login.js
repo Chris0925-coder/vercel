@@ -56,7 +56,7 @@ function detectCookie(cname) {
 
 //           setCookie("token", data);
 //         }
-//       }) 2025:WebDev30!?
+//       })
 const message = document.getElementById("message");
 const form1 = document.getElementById("login");
 const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
@@ -71,7 +71,7 @@ async function formA() {
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
 
-    let result = await fetch("/", {
+    let result = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -91,7 +91,7 @@ async function formA() {
         message.innerText = error;
       });
 
-    console.log(result);
+    // console.log(result);
 
     if (!result.error) {
       setCookie("token", result);

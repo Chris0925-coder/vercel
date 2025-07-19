@@ -71,7 +71,7 @@ async function formA() {
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
 
-    let result = await fetch("/", {
+    let result = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",

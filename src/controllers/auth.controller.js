@@ -99,7 +99,7 @@ export const uptdatePassword = async (req, res, next) => {
     service: "gmail",
     auth: {
       user: "devwebjr7@gmail.com",
-      pass: "2025:Gmail30!?",
+      pass: "",
     },
   });
 

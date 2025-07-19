@@ -19,13 +19,9 @@ controller.login = async (req, res) => {
 };
 
 controller.analytics = async (req, res) => {
-  console.log(req.body);
-  console.log("analytics");
-  // let { token } = req.cookies;
-  // res.cookies("token", req.body);
-  const query = "SELECT count,domain,date FROM counts";
-  // console.log(token);
   try {
+    const query = "SELECT count,domain,date FROM counts";
+
     let { rows } = await db.execute(query);
 
     res.render("analytic.html", { title: "ANALYTICS", tab: rows });

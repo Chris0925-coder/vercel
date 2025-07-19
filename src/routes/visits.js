@@ -14,7 +14,12 @@ const router = express.Router();
 
 router.get("/", viewsControllers.login);
 
-router.post("/", validateSchema(loginSchema), login);
+router.post(
+  "/",
+  validateSchema(loginSchema),
+  login,
+  viewsControllers.analytics
+);
 
 router.get("/home", authRequired, viewsControllers.analytics);
 

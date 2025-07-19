@@ -71,7 +71,7 @@ async function formA() {
 
     // console.log("Message:", formData.get("username"), formData.get("password"));
 
-    let result = await fetch(url, {
+    let result = await fetch("/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -84,17 +84,14 @@ async function formA() {
       }),
     })
       .then((response) => response.json())
-      .then((data) => data)
       .catch((error) => {
         console.error("Error:", error);
         message.style.color = "#990000";
         message.innerText = error;
       });
 
-    // console.log(result);
-
     if (!result.error) {
-      setCookie("token", result);
+      setCookie("token", result, 14);
       window.location.reload();
     } else {
       message.style.color = "#990000";

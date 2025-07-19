@@ -7,26 +7,26 @@ import {
 import { authRequired } from "../middlewares/validateToken.js";
 import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
-import visitCount from "../controllers/visit.count.controller.js";
+import viewsControllers from "../controllers/visit.count.controller.js";
 import msg from "../controllers/messages.js";
 
 const router = express.Router();
 
-router.get("/", visitCount.login);
+router.get("/", viewsControllers.login);
 
 router.post("/", validateSchema(loginSchema), login);
 
-router.get("/home", authRequired, visitCount.analytics);
+router.get("/home", authRequired, viewsControllers.analytics);
 
 router.post("/register", validateSchema(registerSchema), register);
 
-router.post("/count", visitCount.count);
+router.post("/count", viewsControllers.count);
 
 router.get("/submit", authRequired, msg.reciveMSG);
 
 router.post("/submit", msg.messages);
 
-router.get("/recovery", visitCount.recovery);
+router.get("/recovery", viewsControllers.recovery);
 
 router.post("/recovery", uptdatePassword);
 

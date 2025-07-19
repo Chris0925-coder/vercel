@@ -45,7 +45,7 @@ app.set("port", port);
 
 // MIDDLEWARE
 // app.use(cors({ credentials: true, origin: true }))
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 app.use(cors(config.application.cors.server));
 app.use(express.json());
 app.use(express.text());

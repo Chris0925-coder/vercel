@@ -63,7 +63,9 @@ export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
     let users = User.User;
+
     const userFound = await users.findOne({ username });
+
     if (!userFound) {
       return res.status(401).json({ error: "Usuario Incorrecto" });
       // throw new ClientError("Usuario no encontrado", 400);

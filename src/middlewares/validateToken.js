@@ -8,7 +8,7 @@ export const authRequired = (req, res, next) => {
   if (!token) {
     return res.render("login.html", {
       title: "Login",
-      message: "No token, autorization denied",
+      message: [],
     });
     // return res.status(401).json({ message: "No token, autorization denied" });
   } else {
@@ -26,7 +26,6 @@ export const authRequired = (req, res, next) => {
         req.user = user;
         // res.cookie(user)
         // console.log(user);
-
         next();
       }
     });

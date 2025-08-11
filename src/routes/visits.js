@@ -12,7 +12,7 @@ import msg from "../controllers/messages.js";
 
 const router = express.Router();
 
-router.get("/", viewsControllers.login);
+router.get("/", authRequired, viewsControllers.analytics);
 
 router.post(
   "/",
@@ -20,8 +20,6 @@ router.post(
   login,
   viewsControllers.analytics
 );
-
-router.get("/home", authRequired, viewsControllers.analytics);
 
 router.post("/register", validateSchema(registerSchema), register);
 

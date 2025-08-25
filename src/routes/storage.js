@@ -4,10 +4,10 @@ import storageController from "../controllers/files.controller.js";
 // import { authRequired } from "../middlewares/validateToken.js";
 // import { validateSchema } from "../middlewares/validator.js";
 // import { registerSchema, loginSchema } from "../schemas/authentication.js";
-import {
-  uploadMiddleware,
-  uploadMiddlewareUpdate,
-} from "../utils/handleStorage.js";
+// import {
+//   uploadMiddleware,
+//   uploadMiddlewareUpdate,
+// } from "../utils/handleStorage.js";
 // import { put } from "@vercel/blob";
 // import { imageSchema,imgSchema } from '../schemas/files.js';
 

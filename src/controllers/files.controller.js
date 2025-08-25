@@ -3,6 +3,8 @@ let controller = {};
 
 import { createClient } from "@libsql/client";
 
+// import { put } from "@vercel/blob";
+
 const db = createClient({
   url: process.env.DB_URL,
   authToken: process.env.TURSO_AUTH_TOKEN,
@@ -72,6 +74,10 @@ controller.articles = async (req, res) => {
   const params = [title, paragraph, dest, link];
 
   try {
+    // const { url } = await put(dest, files, {
+    //   access: "public",
+    // });
+
     await db.execute(query, params);
 
     res.render("articles.html", { title: "Home", tab: data.rows });

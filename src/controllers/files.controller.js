@@ -1,51 +1,177 @@
-import sqlite3 from "sqlite3";
-const sqlite = sqlite3.verbose();
 let controller = {};
+// process.loadEnvFile();
 
-let db = new sqlite.Database("./database/#", sqlite.OPEN_READWRITE, (err) => {
-  if (err) {
-    console.error(err.message);
+import { createClient } from "@libsql/client";
+
+const db = createClient({
+  url: process.env.DB_URL,
+  authToken: process.env.TURSO_AUTH_TOKEN,
+});
+
+// db.serialize(() => {
+//   db.each(
+//     `SELECT *
+//   FROM articles`,
+//     (err, row) => {
+//       if (err) {
+//         console.error(err.message);
+//       }
+//     }
+//   );
+// });
+
+controller.homeArticles = async (req, res) => {
+  const query = "SELECT id,title,paragraph,images,link FROM articles";
+  try {
+    let { rows } = await db.execute(query);
+    // console.log(rows);
+
+    // res.json({
+    //   id: rows.id,
+    //   email: rows.email,
+    //   control: rows.control,
+    // });
+    res.render("articles.html", { title: "Home", tab: rows });
+    // res.sendStatus(200);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
-  console.log("Connected to the files database.");
-});
+};
 
-db.serialize(() => {
-  db.each(
-    `SELECT * 
-    FROM music`,
-    (err, row) => {
-      if (err) {
-        console.error(err.message);
-      }
-    }
-  );
-});
+controller.showArticles = async (req, res) => {
+  const query =
+    "SELECT id,title,paragraph,images,link FROM articles ORDER BY id DESC";
+  try {
+    let { rows } = await db.execute(query);
+    // console.log(rows);
 
-db.serialize(() => {
-  db.each(
-    `SELECT * 
-  FROM images`,
-    (err, row) => {
-      if (err) {
-        console.error(err.message);
-      }
-    }
-  );
-});
+    // res.json({
+    //   id: rows.id,
+    //   email: rows.email,
+    //   control: rows.control,
+    // });
+    res.status(200).json(rows);
+    // res.sendStatus(200);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
-db.serialize(() => {
-  db.each(
-    `SELECT * 
-  FROM videos`,
-    (err, row) => {
-      if (err) {
-        console.error(err.message);
-      }
-    }
-  );
-});
+controller.articles = async (req, res) => {
+  let files = req.file;
+  let { title, paragraph, link } = req.body;
+  let dest = files.filename;
 
-//  WHERE user_id='${id}'
+  let data = await db.execute({
+    sql: "SELECT id FROM articles",
+    // args: [userId],
+  });
+
+  const query =
+    "INSERT INTO articles (title,paragraph,images,link) VALUES (?,?,?,?)";
+  const params = [title, paragraph, dest, link];
+
+  try {
+    await db.execute(query, params);
+
+    res.render("articles.html", { title: "Home", tab: data.rows });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+  // });
+};
+
+controller.updateArticles = async (req, res) => {
+  let articlesData = req.body;
+  const userId = req.params.id;
+  let files = req.file;
+  // console.log(userId);
+  console.log(articlesData);
+  // console.log(files);
+
+  let existData = await db.execute({
+    sql: "SELECT id,title,images,paragraph,link FROM articles WHERE id = ?",
+    args: [userId],
+  });
+
+  if (!files) {
+    files = existData.rows[0].images;
+  } else {
+    files = files.filename;
+  }
+
+  if (!articlesData.title) articlesData.title = existData.rows[0].title;
+
+  if (!articlesData.paragraph)
+    articlesData.paragraph = existData.rows[0].paragraph;
+
+  if (!articlesData.link) articlesData.link = existData.rows[0].link;
+  // console.log(existData.rows[0].paragraph);
+  //
+  // console.log(dest);
+
+  // console.log(dest);
+
+  // let c = req.body;
+  // const clientIp = req.connection.remoteAddress;
+
+  // let c = JSON.parse(articlesData);
+  // console.log(c);
+  let data = await db.execute({
+    sql: "SELECT id FROM articles",
+    // args: [userId],
+  });
+
+  // console.log(data);
+  // let suma = data.rows[0].count + c.count;
+
+  const query =
+    "UPDATE articles SET title = ?, paragraph=?, images=?, link=? WHERE id = ?";
+  const params = [
+    articlesData.title,
+    articlesData.paragraph,
+    files,
+    articlesData.link,
+    userId,
+  ];
+
+  try {
+    await db.execute(query, params);
+    // console.log(`Web with ID ${c.domain} updated visit ${suma} successfully!`);
+    // res.sendStatus(200);
+    res.render("articles.html", { title: "Home", tab: data.rows });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+controller.deleteArticles = async (req, res) => {
+  const userId = req.params.id;
+  console.log(userId);
+
+  // const query = "DELETE FROM articles WHERE id = ?";
+  // const params = [userId];
+  try {
+    // let { rows } = await db.delete(query, params);
+    // console.log(rows);
+
+    let data = await db.execute({
+      sql: "DELETE FROM articles WHERE id = ?",
+      args: [userId],
+    });
+
+    // res.json({
+    //   id: rows.id,
+    //   email: rows.email,
+    //   control: rows.control,
+    // });
+    res.status(200).json(data);
+    // res.sendStatus(200);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 controller.profile = (req, res) => {
   let { id } = req.cookies;
   db.serialize(() => {
@@ -206,20 +332,6 @@ controller.saveIMG = (req, res) => {
         }
       );
     }
-
-    db.all(`SELECT * FROM images WHERE user_id='${id}'`, (err, rows) => {
-      if (err) {
-        res.json(err);
-      } else {
-        res.render("images.html", {
-          title: "IMAGES",
-          tab: rows,
-          tabB: [],
-          tabC: [],
-          tabD: [],
-        });
-      }
-    });
   });
 };
 

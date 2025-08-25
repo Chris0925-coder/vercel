@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="../public/styles/articles.css"
+    />
+    <script src="scripts/articles.js" defer></script>
+  </head>
+  <body>
+    <h1>ARTICLES</h1>
+    <section class="card-body">
+      <h3>Insert</h3>
+      <form
+        action="/articles"
+        method="POST"
+        id="form"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input name="title" type="text" id="title" />
+        </div>
+        <div class="form-group">
+          <label for="paraph">Paragraph</label>
+          <textarea type="text" name="paragraph" id="paraph"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="images">Images</label>
+          <input type="file" name="filename" id="images" />
+        </div>
+        <div class="form-group">
+          <label for="link">Link</label>
+          <input type="text" name="link" id="link" />
+        </div>
+        <div class="form-group">
+          <button type="submit">SEND</button>
+        </div>
+      </form>
+    </section>
+
+    <br />
+    <hr />
+    <br />
+
+    <section>
+      <h3>Update</h3>
+      <div class="card-body">
+        <form id="form-update" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input name="title" type="text" id="title" />
+          </div>
+          <div class="form-group">
+            <label for="paraph">Paragraph</label>
+            <textarea type="text" name="paragraph" id="paraph"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="images-update">Images</label>
+            <input type="file" name="filename-b" id="images-update" />
+          </div>
+
+          <div class="form-group">
+            <label for="link">Link</label>
+            <input type="text" name="link" id="link" />
+          </div>
+
+          <div class="form-group">
+            <% tab.forEach((data)=> { %>
+            <button
+              name="btn-id"
+              type="submit"
+              class="btn-update"
+              value="<%=data.id%>"
+              form="form-update"
+              formmethod="post"
+              formaction="/articles/<%= data.id %>"
+            >
+              <%= data.id %>
+            </button>
+            <% }) %>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- <section>
+      <form>
+        <div class="form-group">
+          <label for="images">Images</label>
+          <input type="file" name="update-file" id="images-update" />
+        </div>
+      </form>
+    </section> -->
+    <br />
+    <hr />
+    <br />
+    <section>
+      <h3>DELETE ARTICLE</h3>
+      <% tab.forEach((data)=> { %>
+      <button
+        name="btn-delete"
+        type="submit"
+        class="btn-delete"
+        value="<%=data.id%>"
+        formaction="/articles/<%= data.id %>"
+      >
+        <%= data.id %>
+      </button>
+      <% }) %>
+    </section>
+  </body>
+</html>

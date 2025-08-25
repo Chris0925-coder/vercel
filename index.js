@@ -6,7 +6,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 // import bodyParser from "body-parser";
 // import index from './routes/index.js';
-// import router from "./routes/storage.js";
+import articles from "./src/routes/storage.js";
 import routes from "./src/routes/visits.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -61,16 +61,17 @@ app.use(morgan("dev"));
 // app.use("/", index);
 // app.use("/storage", router);
 app.use("/", routes);
+app.use("/", articles);
 app.use((req, res) => {
   res.status(404).send(`<h1>404</h1>`);
 });
 
-// app.use((err,req,res,next) => {
-//   res.status(err.statusCode).json({
-//     error:true,
-//     message:err.message,
-//   })
-// })
+app.use((err, req, res, next) => {
+  res.status(err.statusCode).json({
+    error: true,
+    message: err.message,
+  });
+});
 
 // listening the server
 app.listen(port, () => {

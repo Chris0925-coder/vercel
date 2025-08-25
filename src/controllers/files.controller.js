@@ -63,6 +63,7 @@ controller.articles = async (req, res) => {
   let files = req.file;
   let { title, paragraph, link } = req.body;
   let dest = files.filename;
+  console.log(title, paragraph, link);
 
   let data = await db.execute({
     sql: "SELECT id FROM articles",

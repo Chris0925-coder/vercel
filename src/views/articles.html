@@ -18,9 +18,9 @@
     <section class="card-body">
       <h3>Add Article</h3>
       <form
-        action="/articles"
-        method="POST"
         id="form"
+        method="POST"
+        action="/articles"
         enctype="multipart/form-data"
       >
         <div class="form-group">
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
           <label for="link">Link</label>
-          <input type="url" name="link" id="link" />
+          <input type="url" name="link" id="link" value="https://" />
         </div>
         <div class="form-group">
           <button type="submit">SEND</button>

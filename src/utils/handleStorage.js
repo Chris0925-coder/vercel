@@ -1,4 +1,5 @@
 import multer from "multer";
+import os from "os";
 
 const fileFilter = (req, files, cb) => {
   // if (file.fieldname === "resume") {
@@ -42,15 +43,16 @@ const videoFilter = (req, file, cb) => {
 };
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    // let dest = files.filename;
-    const pathStorage = `src/storage/img`;
-
-    cb(null, pathStorage);
+  // destination: function (req, file, cb) {
+  //   const pathStorage = `src/storage/img`;
+  //   cb(null, pathStorage);
+  // },
+  destination: (req, file, cb) => {
+    const tempDir = os.tmpdir();
+    cb(null, tempDir);
   },
   filename: function (req, file, cb) {
     const ext = file.originalname.split(".").pop();
-    // const filename = `file-${Date.now()}.${ext}`;
     const filename = `file-${Date.now()}.${ext}`;
     cb(null, filename);
   },
@@ -59,7 +61,6 @@ const storage = multer.diskStorage({
 const storageUpdate = multer.diskStorage({
   destination: function (req, file, cb) {
     const pathStorage = `src/storage/img`;
-
     cb(null, pathStorage);
   },
   filename: function (req, file, cb) {

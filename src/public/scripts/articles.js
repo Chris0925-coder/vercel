@@ -4,45 +4,44 @@ const form = document.getElementById("form");
 // console.log(form);
 
 function update() {
-  updateBTN.forEach((btn) => {
-    // console.log(btn);
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-      const formData = new FormData(form);
-      // console.log(formData);
-      // console.log(updateBTN);
-      // console.log(formData.get("filename-b"));
+  // updateBTN.forEach((btn) => {
+  // console.log(btn);
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    // console.log(formData);
+    // console.log(updateBTN);
+    // console.log(formData.get("filename-b"));
 
-      let result = await fetch(`/articles/${btn.value}`, {
-        method: "POST",
-        // headers: {
-        //   "Content-Type": "application/json; charset=utf-8",
-        //   "Access-Control-Allow-Origin": "*",
-        //   "Access-Control-Methods": "GET,HEADERS,POST,OPTIONS",
-        // },
-        body: JSON.stringify({
-          id: btn.value,
-          title: formData.get("title"),
-          paragraph: formData.get("paragraph"),
-          images: formData.get("filename"),
-          link: formData.get("link"),
-        }),
+    let result = await fetch(`/articles`, {
+      method: "POST",
+      // headers: {
+      //   "Content-Type": "application/json; charset=utf-8",
+      //   "Access-Control-Allow-Origin": "*",
+      //   "Access-Control-Methods": "GET,HEADERS,POST,OPTIONS",
+      // },
+      body: JSON.stringify({
+        title: formData.get("title"),
+        paragraph: formData.get("paragraph"),
+        images: formData.get("filename"),
+        link: formData.get("link"),
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Update article successfully!");
+        } else {
+          alert("Failed to update the form submission.");
+        }
       })
-        .then((response) => {
-          if (response.ok) {
-            alert("Update article successfully!");
-          } else {
-            alert("Failed to update the form submission.");
-          }
-        })
-        .catch((error) => console.error("Error:", error));
+      .catch((error) => console.error("Error:", error));
 
-      // console.log(result);
-    });
+    console.log(result);
   });
+  // });
 }
 
-update();
+// update();
 
 const deleteBTN = document.getElementsByName("btn-delete");
 

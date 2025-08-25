@@ -52,11 +52,7 @@
     <section>
       <h3>Update</h3>
       <div class="card-body">
-        <form
-          id="form-update"
-          enctype="multipart/form-data"
-          action="/articles/:id"
-        >
+        <form id="form-update" enctype="multipart/form-data">
           <div class="form-group">
             <label for="title">Title</label>
             <input name="title" type="text" id="title" />
@@ -84,7 +80,8 @@
               class="btn-update"
               value="<%=data.id%>"
               form="form-update"
-              formmethod="post"
+              formmethod="POST"
+              formaction="/articles/<%= data.id %>"
             >
               <%= data.id %>
             </button>

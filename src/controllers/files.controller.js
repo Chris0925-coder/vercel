@@ -3,7 +3,7 @@ let controller = {};
 
 import { createClient } from "@libsql/client";
 
-import { put } from "@vercel/blob";
+// import { put } from "@vercel/blob";
 
 const db = createClient({
   url: process.env.DB_URL,

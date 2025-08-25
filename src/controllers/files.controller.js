@@ -74,7 +74,7 @@ controller.articles = async (req, res) => {
   const params = [title, paragraph, dest, link];
 
   try {
-    const blob = await put(dest, content, {
+    const blob = await put(dest, files, {
       access: "public", // o 'private'
       token: process.env.BLOB_READ_WRITE_TOKEN, // Usa el token de la variable de entorno
     });

@@ -3,7 +3,7 @@ let controller = {};
 
 import { createClient } from "@libsql/client";
 
-// import { put } from "@vercel/blob";
+import { put } from "@vercel/blob";
 
 const db = createClient({
   url: process.env.DB_URL,
@@ -74,9 +74,12 @@ controller.articles = async (req, res) => {
   const params = [title, paragraph, dest, link];
 
   try {
-    // const { url } = await put(dest, files, {
-    //   access: "public",
-    // });
+    const blob = await put(dest, content, {
+      access: "public", // o 'private'
+      token: process.env.BLOB_READ_WRITE_TOKEN, // Usa el token de la variable de entorno
+    });
+
+    console.log(blob);
 
     await db.execute(query, params);
 

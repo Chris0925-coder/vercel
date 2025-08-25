@@ -66,12 +66,12 @@ app.use((req, res) => {
   res.status(404).send(`<h1>404</h1>`);
 });
 
-app.use((err, req, res, next) => {
-  res.status(err.statusCode).json({
-    error: true,
-    message: err.message,
-  });
-});
+// app.use((err, req, res, next) => {
+//   res.status(err.statusCode).json({
+//     error: true,
+//     message: err.message,
+//   });
+// });
 
 // listening the server
 app.listen(port, () => {

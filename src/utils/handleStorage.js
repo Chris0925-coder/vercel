@@ -42,15 +42,15 @@ const videoFilter = (req, file, cb) => {
   }
 };
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const pathStorage = `src/storage/img`;
-    cb(null, pathStorage);
-  },
-  // destination: (req, file, cb) => {
-  //   const tempDir = os.tmpdir();
-  //   cb(null, tempDir);
+const storage = multer.memoryStorage({
+  // destination: function (req, file, cb) {
+  //   const pathStorage = `src/storage/img`;
+  //   cb(null, pathStorage);
   // },
+  destination: (req, file, cb) => {
+    const tempDir = os.tmpdir();
+    cb(null, tempDir);
+  },
   filename: function (req, file, cb) {
     const ext = file.originalname.split(".").pop();
     const filename = `file-${Date.now()}.${ext}`;

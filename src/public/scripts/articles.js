@@ -41,8 +41,6 @@ function update() {
   });
 }
 
-// update();
-
 const deleteBTN = document.getElementsByName("btn-delete");
 
 function deleteArticle() {

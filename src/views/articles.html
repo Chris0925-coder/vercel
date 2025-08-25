@@ -18,7 +18,7 @@
     <section class="card-body">
       <h3>Add Article</h3>
       <form
-        action="//visits-woad.vercel.app/articles"
+        action="/articles"
         method="POST"
         id="form"
         enctype="multipart/form-data"
@@ -52,7 +52,11 @@
     <section>
       <h3>Update</h3>
       <div class="card-body">
-        <form id="form-update" enctype="multipart/form-data">
+        <form
+          id="form-update"
+          enctype="multipart/form-data"
+          action="/articles/:id"
+        >
           <div class="form-group">
             <label for="title">Title</label>
             <input name="title" type="text" id="title" />
@@ -81,7 +85,6 @@
               value="<%=data.id%>"
               form="form-update"
               formmethod="post"
-              formaction="/articles/<%= data.id %>"
             >
               <%= data.id %>
             </button>

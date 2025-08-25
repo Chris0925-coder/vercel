@@ -18,6 +18,7 @@ import { put } from "@vercel/blob";
 export async function PUT(req, res, next) {
   const files = await req.file;
   const fileContent = files.buffer.toString();
+  console.log(fileContent);
   try {
     const blob = await put(files.filename, fileContent, {
       access: "public", // or "private" depending on your needs

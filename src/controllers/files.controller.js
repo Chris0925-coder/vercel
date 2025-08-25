@@ -62,7 +62,7 @@ controller.showArticles = async (req, res) => {
 controller.articles = async (req, res) => {
   let files = req.file;
   let { title, paragraph, link } = req.body;
-  let dest = files.filename;
+  let dest = files.originalname;
   // console.log(title, paragraph, link, files);
 
   let data = await db.execute({

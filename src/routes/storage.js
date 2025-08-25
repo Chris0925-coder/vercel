@@ -17,11 +17,7 @@ router.get("/articles", storageController.homeArticles);
 
 router.get("/articles/webdev", storageController.showArticles);
 
-router.post(
-  "/articles",
-  // uploadMiddleware.single("filename"),
-  storageController.articles
-);
+router.post("/articles", storageController.articles);
 
 // router.post(
 //   "/articles/:id",

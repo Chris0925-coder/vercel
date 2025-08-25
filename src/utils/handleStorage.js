@@ -43,6 +43,7 @@ const videoFilter = (req, file, cb) => {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
+    // let dest = files.filename;
     const pathStorage = `src/storage/img`;
 
     cb(null, pathStorage);

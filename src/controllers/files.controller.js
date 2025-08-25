@@ -65,6 +65,13 @@ controller.articles = async (req, res) => {
   let dest = files.filename;
   console.log(title, paragraph, link);
 
+  const blob = await put(files.pathname, files.filename, {
+    access: "public", // o 'private'
+    token: process.env.BLOB_READ_WRITE_TOKEN, // Usa el token de la variable de entorno
+  });
+
+  console.log(blob);
+
   let data = await db.execute({
     sql: "SELECT id FROM articles",
     // args: [userId],
@@ -75,13 +82,6 @@ controller.articles = async (req, res) => {
   const params = [title, paragraph, dest, link];
 
   try {
-    const blob = await put(dest, files, {
-      access: "public", // o 'private'
-      token: process.env.BLOB_READ_WRITE_TOKEN, // Usa el token de la variable de entorno
-    });
-
-    console.log(blob);
-
     await db.execute(query, params);
 
     res.render("articles.html", { title: "Home", tab: data.rows });

@@ -1,17 +1,18 @@
 const updateBTN = document.getElementsByName("btn-id");
-const form = document.getElementById("form-update");
+const form = document.getElementById("form");
 
 // console.log(form);
 
 function update() {
   updateBTN.forEach((btn) => {
     // console.log(btn);
-    btn.addEventListener("click", async function (event) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
       const formData = new FormData(form);
       // console.log(formData);
       // console.log(updateBTN);
       // console.log(formData.get("filename-b"));
-      event.preventDefault();
+
       let result = await fetch(`/articles/${btn.value}`, {
         method: "POST",
         // headers: {
@@ -23,7 +24,7 @@ function update() {
           id: btn.value,
           title: formData.get("title"),
           paragraph: formData.get("paragraph"),
-          images: formData.get("filename-b"),
+          images: formData.get("filename"),
           link: formData.get("link"),
         }),
       })
@@ -40,6 +41,8 @@ function update() {
     });
   });
 }
+
+update();
 
 const deleteBTN = document.getElementsByName("btn-delete");
 

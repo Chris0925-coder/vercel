@@ -60,12 +60,12 @@ controller.showArticles = async (req, res) => {
 };
 
 controller.articles = async (req, res) => {
-  let files = req.file;
-  let { title, paragraph, link, filename } = req.body;
-  let dest = files.filename;
-  console.log(title, paragraph, link, filename);
+  // let filename = req.images;
+  let { title, paragraph, link, images } = req.body;
+  // let dest = files.filename;
+  console.log(title, paragraph, link, images);
 
-  const blob = await put(filename.name, filename, {
+  const blob = await put(images.name, images, {
     access: "public", // o 'private'
     token: process.env.BLOB_READ_WRITE_TOKEN, // Usa el token de la variable de entorno
   });
@@ -79,7 +79,7 @@ controller.articles = async (req, res) => {
 
   const query =
     "INSERT INTO articles (title,paragraph,images,link) VALUES (?,?,?,?)";
-  const params = [title, paragraph, dest, link];
+  const params = [title, paragraph, images.name, link];
 
   try {
     await db.execute(query, params);

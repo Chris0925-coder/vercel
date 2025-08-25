@@ -19,7 +19,7 @@ export async function PUT(req, res, next) {
   const files = await req.file;
   const fileContent = files.buffer.toString();
   try {
-    const blob = await put(files, fileContent, {
+    const blob = await put(files.filename, fileContent, {
       access: "public", // or "private" depending on your needs
       token: process.env.BLOB_READ_WRITE_TOKEN, // Ensure this token is set in your environment variables
     });

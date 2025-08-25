@@ -19,7 +19,7 @@ router.get("/articles/webdev", storageController.showArticles);
 
 router.post(
   "/articles",
-  uploadMiddleware.single("filename"),
+  // uploadMiddleware.single("filename"),
   storageController.articles
 );
 

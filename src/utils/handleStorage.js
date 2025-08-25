@@ -43,8 +43,8 @@ const videoFilter = (req, file, cb) => {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // const pathStorage = `src/storage/img`;
-    const pathStorage = `src/uploads/`;
+    const pathStorage = `src/storage/img`;
+    // const pathStorage = `src/uploads/`;
     cb(null, pathStorage);
   },
   filename: function (req, file, cb) {
@@ -57,8 +57,8 @@ const storage = multer.diskStorage({
 
 const storageUpdate = multer.diskStorage({
   destination: function (req, file, cb) {
-    // const pathStorage = `src/storage/img`;
-    const pathStorage = `src/uploads/`;
+    const pathStorage = `src/storage/img`;
+    // const pathStorage = `src/uploads/`;
     cb(null, pathStorage);
   },
   filename: function (req, file, cb) {

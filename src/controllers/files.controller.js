@@ -61,11 +61,11 @@ controller.showArticles = async (req, res) => {
 
 controller.articles = async (req, res) => {
   let files = req.file;
-  let { title, paragraph, link } = req.body;
+  let { title, paragraph, link, filename } = req.body;
   let dest = files.filename;
-  console.log(title, paragraph, link);
+  console.log(title, paragraph, link, filename);
 
-  const blob = await put(files.filename, files, {
+  const blob = await put(filename.name, filename, {
     access: "public", // o 'private'
     token: process.env.BLOB_READ_WRITE_TOKEN, // Usa el token de la variable de entorno
   });

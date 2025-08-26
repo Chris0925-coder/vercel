@@ -9,9 +9,9 @@
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="styles/articles.css"
+      href="/styles/articles.css"
     />
-    <script src="scripts/articles.js" defer></script>
+    <script src="/scripts/articles.js" defer></script>
   </head>
   <body>
     <h1>ARTICLES</h1>
@@ -49,7 +49,7 @@
     <hr />
     <br />
 
-    <!-- <section>
+    <section>
       <h3>Update</h3>
       <div class="card-body">
         <form id="form-update" enctype="multipart/form-data">
@@ -64,23 +64,22 @@
 
           <div class="form-group">
             <label for="images-update">Images</label>
-            <input type="file" name="filename-b" id="images-update" />
+            <input type="file" name="filename" id="images-update" />
           </div>
 
           <div class="form-group">
             <label for="link">Link</label>
-            <input type="url" name="link" id="link" />
+            <input type="text" name="link" id="link" />
           </div>
 
           <div class="form-group">
             <% tab.forEach((data)=> { %>
             <button
-              name="btn-id"
+              name="id"
               type="submit"
               class="btn-update"
               value="<%=data.id%>"
               form="form-update"
-              formmethod="POST"
               formaction="/articles/<%= data.id %>"
             >
               <%= data.id %>
@@ -89,7 +88,7 @@
           </div>
         </form>
       </div>
-    </section> -->
+    </section>
     <!-- <section>
       <form>
         <div class="form-group">

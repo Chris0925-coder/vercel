@@ -22,11 +22,12 @@ router.post(
   storageController.articles
 );
 
-// router.post(
-//   "/articles/:id",
-//   uploadMiddlewareUpdate.single("filename-b"),
-//   storageController.updateArticles
-// );
+router.put(
+  "/articles/:id",
+  uploadMiddleware.single("filename"),
+  PUT,
+  storageController.updateArticles
+);
 
 router.delete("/articles/:id", storageController.deleteArticles);
 

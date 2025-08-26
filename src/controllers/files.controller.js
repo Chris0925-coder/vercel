@@ -89,7 +89,7 @@ controller.updateArticles = async (req, res) => {
   const userId = req.params.id;
   let files = req.file;
   // console.log(userId);
-  console.log(articlesData);
+  // console.log(articlesData.title);
   // console.log(files);
 
   let existData = await db.execute({
@@ -100,7 +100,7 @@ controller.updateArticles = async (req, res) => {
   if (!files) {
     files = existData.rows[0].images;
   } else {
-    files = files.filename;
+    files = files.originalname;
   }
 
   if (!articlesData.title) articlesData.title = existData.rows[0].title;

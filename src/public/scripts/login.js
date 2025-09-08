@@ -69,8 +69,6 @@ async function formA() {
     message.innerText = "Iniciando sesion...";
     const formData = new FormData(form1);
 
-    // console.log("Message:", formData.get("username"), formData.get("password"));
-
     let result = await fetch(url, {
       method: "POST",
       headers: {
@@ -100,4 +98,4 @@ async function formA() {
   });
 }
 
-formA();
+// formA();

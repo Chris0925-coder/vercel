@@ -10,18 +10,6 @@ const db = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
-// db.serialize(() => {
-//   db.each(
-//     `SELECT *
-//   FROM articles`,
-//     (err, row) => {
-//       if (err) {
-//         console.error(err.message);
-//       }
-//     }
-//   );
-// });
-
 controller.homeArticles = async (req, res) => {
   const query = "SELECT id,title,paragraph,images,link FROM articles";
   try {

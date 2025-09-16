@@ -65,7 +65,6 @@ controller.articles = async (req, res) => {
   try {
     await db.execute(query, params);
 
-    alert("Uploaded article succesfully");
     res.render("articles.html", { title: "Home", tab: data.rows });
   } catch (error) {
     res.status(500).json({ message: error.message });

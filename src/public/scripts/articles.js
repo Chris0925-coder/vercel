@@ -4,18 +4,12 @@ const fileInput = document.getElementById("images-update");
 const files = fileInput.files;
 
 // const formData = new FormData(form);
-// console.log(formData);
-console.log(fileInput);
-console.log(files);
+
 const data = fileInput.addEventListener("change", (e) => {
   const file = e.target.files[0];
-  console.log(e);
-  console.log(file);
 
   return file;
 });
-
-console.log(data);
 
 function update() {
   updateBTN.forEach((btn) => {
@@ -25,10 +19,6 @@ function update() {
       // formData.append("filename", file)
       const formData = new FormData(form);
       // const filename = formData.get("filename");
-      console.log(formData);
-      // console.log(filename);
-      // console.log(updateBTN);
-      // console.log(formData.get("filename-b"));
 
       let result = await fetch(`/articles/${btn.value}`, {
         method: "PUT",
@@ -48,7 +38,6 @@ function update() {
         })
         .catch((error) => console.error("Error:", error));
 
-      console.log(result);
     });
   });
 }
@@ -59,15 +48,10 @@ const deleteBTN = document.getElementsByName("btn-delete");
 
 function deleteArticle() {
   deleteBTN.forEach((btn) => {
-    // console.log(btn);
+
     btn.addEventListener("click", async function (event) {
-      // const formData = new FormData(form);
-      // console.log(formData);
-      // console.log(updateBTN);
-      // console.log(formData.get("filename-b"));
       event.preventDefault();
 
-      // console.log("Delete " + btn.value);
       let result = await fetch(`/articles/${btn.value}`, {
         method: "DELETE",
         // headers: {
@@ -92,7 +76,6 @@ function deleteArticle() {
         })
         .catch((error) => console.error("Error:", error));
 
-      // console.log(result);
     });
   });
 }

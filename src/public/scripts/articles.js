@@ -24,7 +24,7 @@ async function addArticle() {
   addBTN.addEventListener("click", async function (event) {
     event.preventDefault();
     // formData.append("filename", file)
-    const formData = new FormData(addForm);
+    let formData = new FormData(addForm);
     // const filename = formData.get("filename");
     console.log(formData);
     // console.log(filename);
@@ -64,7 +64,7 @@ function update() {
     btn.addEventListener("click", async function (event) {
       event.preventDefault();
       // formData.append("filename", file)
-      const formData = new FormData(form);
+      let formData = new FormData(form);
       // const filename = formData.get("filename");
       // console.log(formData);
       // console.log(filename);

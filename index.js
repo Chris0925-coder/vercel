@@ -10,7 +10,7 @@ import articles from "./src/routes/storage.js";
 import routes from "./src/routes/visits.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { dbConnect } from "./config/mongo.js";
+// import { dbConnect } from "./config/mongo.js";
 import { config } from "./src/config.js";
 import { findAvailablePort } from "./src/utils/desiredPort.js";
 
@@ -78,4 +78,4 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
 
-dbConnect();
+// dbConnect();

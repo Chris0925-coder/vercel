@@ -63,7 +63,7 @@ controller.articles = async (req, res) => {
   let files = req.file;
   let { title, paragraph, link } = req.body;
   let dest = files.originalname;
-  // console.log(title, paragraph, link, files);
+  console.log(title, paragraph, link, files);
 
   let data = await db.execute({
     sql: "SELECT id FROM articles",
@@ -151,7 +151,7 @@ controller.updateArticles = async (req, res) => {
 
 controller.deleteArticles = async (req, res) => {
   const userId = req.params.id;
-  console.log(userId);
+  // console.log(userId);
 
   // const query = "DELETE FROM articles WHERE id = ?";
   // const params = [userId];

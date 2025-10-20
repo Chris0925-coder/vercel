@@ -17,12 +17,7 @@
     <h1>ARTICLES</h1>
     <section class="card-body">
       <h3>Add Article</h3>
-      <form
-        id="form"
-        method="POST"
-        action="/articles"
-        enctype="multipart/form-data"
-      >
+      <form id="form" enctype="multipart/form-data">
         <div class="form-group">
           <label for="title">Title</label>
           <input name="title" type="text" id="title" />
@@ -40,7 +35,7 @@
           <input type="text" name="link" id="link" />
         </div>
         <div class="form-group">
-          <button type="submit">SEND</button>
+          <button id="add-btn" type="submit">SEND</button>
         </div>
       </form>
     </section>

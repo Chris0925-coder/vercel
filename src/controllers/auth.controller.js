@@ -95,7 +95,7 @@ export const uptdatePassword = async (req, res, next) => {
   if (!userFound) res.status(401).json({ error: "Email no encontrado" });
 
   const mail = userFound.email;
-  console.log(mail);
+  // console.log(mail);
 
   const transporter = nodemailer.createTransport({
     service: "gmail",

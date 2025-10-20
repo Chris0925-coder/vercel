@@ -6,7 +6,7 @@ import storageController from "../controllers/files.controller.js";
 // import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import { uploadMiddleware } from "../utils/handleStorage.js";
 
-import { PUT } from "../utils/vercel.handler.js";
+import { PUT, DELETE } from "../utils/vercel.handler.js";
 // import { imageSchema,imgSchema } from '../schemas/files.js';
 
 const router = express.Router();
@@ -29,6 +29,6 @@ router.put(
   storageController.updateArticles
 );
 
-router.delete("/articles/:id", storageController.deleteArticles);
+router.delete("/articles/:id", DELETE, storageController.deleteArticles);
 
 export default router;

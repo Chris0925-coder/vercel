@@ -1,4 +1,4 @@
-import { put } from "@vercel/blob";
+import { put, del } from "@vercel/blob";
 
 // export async function PUT(request, response, next) {
 //   const files = await request.file;
@@ -30,7 +30,7 @@ export async function PUT(req, res, next) {
         token: process.env.BLOB_READ_WRITE_TOKEN, // Ensure this token is set in your environment variables
         allowOverwrite: true,
       });
-      console.log("File uploaded successfully:", blob.url);
+      // console.log("File uploaded successfully:", blob.url);
       // return Response.json(blob);
       // Returns the public URL of the uploaded file
       // return blob.url;
@@ -40,4 +40,12 @@ export async function PUT(req, res, next) {
       throw error;
     }
   }
+}
+
+export async function DELETE(req) {
+  const { searchParams } = new URL(req.url);
+  const urlToDelete = searchParams.get("url");
+  await del(urlToDelete);
+
+  return new Response();
 }

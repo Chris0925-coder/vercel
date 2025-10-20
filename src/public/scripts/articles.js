@@ -21,12 +21,12 @@ const data = fileInput.addEventListener("change", (e) => {
 async function addArticle() {
   // addForm.forEach((btn) => {
   // console.log(btn.value);
-  addForm.addEventListener("submit", async function (event) {
+  addBTN.addEventListener("click", async function (event) {
     event.preventDefault();
     // formData.append("filename", file)
     const formData = new FormData(addForm);
     // const filename = formData.get("filename");
-    // console.log(formData);
+    console.log(formData);
     // console.log(filename);
     // console.log(updateBTN);
     // console.log(formData.get("filename-b"));
@@ -41,6 +41,7 @@ async function addArticle() {
       body: formData,
     })
       .then((response) => {
+        console.log(response);
         if (response.ok) {
           alert("Added article successfully!");
           window.location.reload();

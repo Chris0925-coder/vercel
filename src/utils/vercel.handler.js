@@ -1,4 +1,4 @@
-import { put, del } from "@vercel/blob";
+import { put } from "@vercel/blob";
 
 // export async function PUT(request, response, next) {
 //   const files = await request.file;
@@ -42,10 +42,10 @@ export async function PUT(req, res, next) {
   }
 }
 
-export async function DELETE(req) {
-  const { searchParams } = new URL(req.url);
-  const urlToDelete = searchParams.get("url");
-  await del(urlToDelete);
+// export async function DELETE(req) {
+//   const { searchParams } = new URL(req.url);
+//   const urlToDelete = searchParams.get("url");
+//   await del(urlToDelete);
 
-  return new Response();
-}
+//   return new Response();
+// }

@@ -64,24 +64,25 @@ controller.articles = async (req, res) => {
   let { title, paragraph, link } = req.body;
   let dest = files.originalname;
   console.log(title, paragraph, link, files);
-
-  let data = await db.execute({
-    sql: "SELECT id FROM articles",
-    // args: [userId],
-  });
-
-  const query =
-    "INSERT INTO articles (title,paragraph,images,link) VALUES (?,?,?,?)";
-  const params = [title, paragraph, dest, link];
-
   try {
+    let data = await db.execute({
+      sql: "SELECT id FROM articles",
+      // args: [userId],
+    });
+
+    let query =
+      "INSERT INTO articles (title,paragraph,images,link) VALUES (?,?,?,?)";
+    let params = [title, paragraph, dest, link];
+
     await db.execute(query, params);
 
-    alert("Uploaded article succesfully");
-    res.render("articles.html", { title: "Home", tab: data.rows });
+    res.status(200).json(data);
+
+    // alert("Uploaded article succesfully");
+    // res.render("articles.html", { title: "Home", tab: data.rows });
   } catch (error) {
-    res.json(error);
-    // res.status(500).json({ message: error.message });
+    // res.json(error);
+    res.status(500).json({ message: error.message });
   }
   // });
 };

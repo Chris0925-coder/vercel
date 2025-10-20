@@ -50,7 +50,7 @@ async function addArticle() {
       })
       .catch((error) => console.error("Error:", error));
 
-    // console.log(result);
+    console.log(result);
     // });
   });
 }

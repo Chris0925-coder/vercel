@@ -23,7 +23,7 @@ app.disable("x-powered-by");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const hostname = "192.168.0.87";
+const hostname = process.env.PUBLIC_URL || "localhost";
 //  process.env.PUBLIC_URL ||
 const portFinded = await findAvailablePort(3000).then((port) => port);
 const port = process.env.PORT || portFinded;

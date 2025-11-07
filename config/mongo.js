@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-process.loadEnvFile();
+// process.loadEnvFile();
 // const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 // const mongoAtlas=[];
 // const passwordDB = [];

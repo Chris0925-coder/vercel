@@ -23,7 +23,7 @@ app.disable("x-powered-by");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const hostname = process.env.PUBLIC_URL || "localhost";
+// const hostname = process.env.PUBLIC_URL || "localhost";
 //  process.env.PUBLIC_URL ||
 const portFinded = await findAvailablePort(3000).then((port) => port);
 const port = process.env.PORT || portFinded;
@@ -75,7 +75,7 @@ app.use((req, res) => {
 
 // listening the server
 app.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://localhost:${port}/`);
 });
 
 dbConnect();

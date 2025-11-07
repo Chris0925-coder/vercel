@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get("/articles", authRequired, storageController.homeArticles);
 
-router.get("/articles/webdev", authRequired, storageController.showArticles);
+router.get("/articles/webdev", storageController.showArticles);
 
 router.post(
   "/articles",

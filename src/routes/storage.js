@@ -1,7 +1,7 @@
 import express from "express";
 import storageController from "../controllers/files.controller.js";
 // import { login, register, logout } from "../controllers/auth.controller.js";
-// import { authRequired } from "../middlewares/validateToken.js";
+import { authRequired } from "../middlewares/validateToken.js";
 // import { validateSchema } from "../middlewares/validator.js";
 // import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import { uploadMiddleware } from "../utils/handleStorage.js";
@@ -11,9 +11,9 @@ import { PUT } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 
-router.get("/articles", storageController.homeArticles);
+router.get("/articles", authRequired, storageController.homeArticles);
 
-router.get("/articles/webdev", storageController.showArticles);
+router.get("/articles/webdev", authRequired, storageController.showArticles);
 
 router.post(
   "/articles",

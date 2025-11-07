@@ -5,18 +5,15 @@ import { createAccesToken } from "../libs/jwt.js";
 // import { response } from '../utils/response.js';
 // import { catchedAsync } from '../utils/catchedAsync.js';
 
-export const register = async (req, res, next) => {
+export const register = async (req, res) => {
   const { name, email, password, username } = req.body;
-  // console.log(User.User);
   let users = User.User;
-  // console.log(users);
   try {
     const userFound = await users.findOne({ username });
     // console.log(userFound);
 
-    if (userFound) {
-      return res.status(401);
-    }
+    if (userFound)
+      return res.status(401).json({ message: "Username en uso..." });
 
     const passwordHash = await bcrypt.hash(password, 10);
 
@@ -46,6 +43,7 @@ export const register = async (req, res, next) => {
       name: userSaved.name,
       username: userSaved.username,
       email: userSaved.email,
+      token: token,
       created: userSaved.createdAt,
       updated: userSaved.updatedAt,
     });
@@ -53,7 +51,7 @@ export const register = async (req, res, next) => {
     // });
     // res.render('welcome.html',{title:'WELCOME', tab:data});
     // res.sendStatus(200);
-    next();
+    // next();
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

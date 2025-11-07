@@ -59,9 +59,10 @@ function detectCookie(cname) {
 //       })
 const message = document.getElementById("message");
 const form1 = document.getElementById("login");
-const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
+const form2 = document.getElementById("register");
+// const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
 
-async function formA() {
+async function login() {
   form1.addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -69,7 +70,7 @@ async function formA() {
     message.innerText = "Iniciando sesion...";
     const formData = new FormData(form1);
 
-    let result = await fetch(url, {
+    let result = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -98,4 +99,44 @@ async function formA() {
   });
 }
 
-// formA();
+login();
+
+async function register() {
+  form2.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    message.style.color = "#009900";
+    message.innerText = "Registro de usuario completado...";
+    const formData = new FormData(form2);
+
+    let result = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+      },
+      body: JSON.stringify({
+        name: formData.get("name"),
+        username: formData.get("username"),
+        email: formData.get("email"),
+        password: formData.get("password"),
+      }),
+    })
+      .then((response) => response.json())
+      .catch((error) => {
+        console.error("Error:", error);
+        message.style.color = "#990000";
+        message.innerText = error;
+      });
+
+    if (!result.error) {
+      setCookie("token", result.token, 14);
+      window.location.reload();
+    } else {
+      message.style.color = "#990000";
+      message.innerText = result.error;
+    }
+  });
+}
+register();

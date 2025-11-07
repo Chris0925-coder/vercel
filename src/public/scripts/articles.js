@@ -25,8 +25,6 @@ async function addArticle() {
     event.preventDefault();
     // formData.append("filename", file)
     let formData = new FormData(addForm);
-    // const filename = formData.get("filename");
-    console.log(formData);
     // console.log(filename);
     // console.log(updateBTN);
     // console.log(formData.get("filename-b"));
@@ -50,8 +48,6 @@ async function addArticle() {
         }
       })
       .catch((error) => console.error("Error:", error));
-
-    console.log(result);
     // });
   });
 }

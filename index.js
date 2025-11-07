@@ -10,7 +10,7 @@ import articles from "./src/routes/storage.js";
 import routes from "./src/routes/visits.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-// import { dbConnect } from "./config/mongo.js";
+import { dbConnect } from "./config/mongo.js";
 import { config } from "./src/config.js";
 import { findAvailablePort } from "./src/utils/desiredPort.js";
 
@@ -23,8 +23,8 @@ app.disable("x-powered-by");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// const hostname = process.env.PUBLIC_URL || "localhost";
-
+const hostname = "192.168.0.87";
+//  process.env.PUBLIC_URL ||
 const portFinded = await findAvailablePort(3000).then((port) => port);
 const port = process.env.PORT || portFinded;
 // console.log(process.env.PORT);
@@ -75,7 +75,7 @@ app.use((req, res) => {
 
 // listening the server
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
 
-// dbConnect();
+dbConnect();

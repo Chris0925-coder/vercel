@@ -139,4 +139,4 @@ async function register() {
     }
   });
 }
-register();
+// register();

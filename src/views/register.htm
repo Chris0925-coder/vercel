@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/styles/login.css"
+    />
+    <!-- <script src="main.js"></script> -->
+  </head>
+  <body>
+    <section>
+      <h2>Registro</h2>
+      <div class="container">
+        <div class="body-card">
+          <form id="register">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input name="name" type="text" placeholder="Nombre" />
+            </div>
+            <div class="form-group">
+              <label>Usuario</label>
+              <input name="username" type="text" placeholder="usuario" />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input name="email" type="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+              <label>Contraseña</label>
+              <input name="password" type="password" placeholder="contraseña" />
+            </div>
+            <div class="form-group">
+              <button type="submit" form="register">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div id="message"><%=message%></div>
+    </section>
+  </body>
+</html>

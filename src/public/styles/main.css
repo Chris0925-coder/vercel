@@ -8,6 +8,11 @@ h1 {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: #2b2b2b;
+}
+
 .msg {
   width: 200px;
   border: 2px solid;

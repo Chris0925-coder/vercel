@@ -22,3 +22,10 @@ a {
   overflow: hidden;
   font-size: 0.6rem;
 }
+
+button {
+  width: 60px;
+  height: 20px;
+  border-radius: 6px;
+  border: none;
+}

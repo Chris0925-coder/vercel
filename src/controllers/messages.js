@@ -53,15 +53,15 @@ msg.messages = async (req, res) => {
 };
 
 msg.delete = async (req, res) => {
-  const { del } = req.body;
-  console.log(del);
+  const { id } = req.params;
+  console.log(id);
 
-  const query = "DELETE FROM webdev WHERE id = ?";
-  const params = [del];
+  const query = "DELETE FROM webdev WHERE id = (?)";
+  const params = [id];
 
   try {
     await db.execute(query, params);
-    console.log(`Delete with ID ${del} successfully!`);
+    console.log(`Delete with ID ${id} successfully!`);
     res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });

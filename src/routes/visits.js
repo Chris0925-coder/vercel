@@ -35,4 +35,6 @@ router.get("/recovery", authRequired, viewsControllers.recovery);
 
 router.post("/recovery", uptdatePassword);
 
+router.delete("/submit", msg.delete);
+
 export default router;

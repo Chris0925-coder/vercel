@@ -3,11 +3,13 @@ async function messages() {
   // console.log(url);
 
   url.forEach((element) => {
-    // console.log(element);
+    console.log(element);
 
-    document.querySelector(
-      "#messages"
-    ).innerHTML += `<article class="msg"><p>Email: ${element.email}</p><p>Message: ${element.control}</p></article>`;
+    document.querySelector("#messages").innerHTML += `
+                    <article class="msg">
+                      <p>Email: ${element.email}</p><p>Message: ${element.control}</p>
+                      <button name="del">${element.id}</button>
+                    </article>`;
   });
 }
 

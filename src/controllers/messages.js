@@ -29,7 +29,7 @@ msg.reciveMSG = async (req, res) => {
 msg.messages = async (req, res) => {
   const formData = req.body;
   // Aquí se capturan los datos del FormData
-  console.log("Datos recibidos:", formData);
+  // console.log("Datos recibidos:", formData);
 
   let c = JSON.parse(formData);
   //   let data = await db.execute({
@@ -46,6 +46,22 @@ msg.messages = async (req, res) => {
     console.log(
       `Web with ID ${c.email} send message ${c.control} successfully!`
     );
+    res.sendStatus(200);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+msg.delete = async (req, res) => {
+  const { del } = req.body;
+  console.log(del);
+
+  const query = "DELETE FROM webdev WHERE id = ?";
+  const params = [del];
+
+  try {
+    await db.execute(query, params);
+    console.log(`Delete with ID ${del} successfully!`);
     res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });

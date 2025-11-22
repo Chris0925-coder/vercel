@@ -70,7 +70,7 @@ async function login() {
     message.innerText = "Iniciando sesion...";
     const formData = new FormData(form1);
 
-    let result = await fetch("/login", {
+    let result = await fetch("/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -91,7 +91,7 @@ async function login() {
 
     if (!result.error) {
       setCookie("token", result, 365);
-      window.location.reload();
+      window.location.replace("/home");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;

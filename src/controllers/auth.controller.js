@@ -78,6 +78,8 @@ export const login = async (req, res) => {
 
     const token = await createAccesToken({ id: userFound._id });
 
+    console.log(token);
+
     res.json(token);
   } catch (err) {
     res.status(500).json({ message: err.message });

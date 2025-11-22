@@ -13,12 +13,12 @@ import msg from "../controllers/messages.js";
 
 const router = express.Router();
 
-router.get("/login", viewsControllers.login);
+router.get("/", viewsControllers.login);
 
-router.get("/", authRequired, viewsControllers.analytics);
+router.get("/home", authRequired, viewsControllers.analytics);
 
 router.post(
-  "/login",
+  "/",
   validateSchema(loginSchema),
   login,
   viewsControllers.analytics

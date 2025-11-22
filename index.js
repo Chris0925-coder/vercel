@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 // import index from './routes/index.js';
 import articles from "./src/routes/storage.js";
 import routes from "./src/routes/visits.js";
+import crcv from "./src/routes/crcv.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { dbConnect } from "./config/mongo.js";
@@ -45,7 +46,7 @@ app.set("port", port);
 
 // MIDDLEWARE
 // app.use(cors({ credentials: true, origin: true }))
-// app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(config.application.cors.server));
 app.use(express.json());
 app.use(express.text());
@@ -62,6 +63,7 @@ app.use(morgan("dev"));
 // app.use("/storage", router);
 app.use("/", routes);
 app.use("/", articles);
+app.use("/crcv", crcv);
 app.use((req, res) => {
   res.status(404).send(`<h1>404</h1>`);
 });

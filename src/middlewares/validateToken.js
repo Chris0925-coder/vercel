@@ -25,9 +25,9 @@ export const authRequired = (req, res, next) => {
         req.user = user;
         // res.cookie(user)
         // console.log(user);
-        next();
       }
     });
   }
   console.log("Validing Token");
+  next();
 };

@@ -77,7 +77,7 @@ async function register() {
     if (!result.error) {
       console.log(result.token);
       setCookie("token", result.token, 1);
-      // window.location.replace("/home");
+      window.location.replace("/home");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;

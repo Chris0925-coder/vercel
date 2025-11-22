@@ -90,7 +90,8 @@ async function login() {
       });
 
     if (!result.error) {
-      setCookie("token", result, 14);
+      console.log(result);
+      setCookie("token", result, 365);
       window.location.reload();
     } else {
       message.style.color = "#990000";
@@ -131,7 +132,7 @@ async function register() {
       });
 
     if (!result.error) {
-      setCookie("token", result.token, 14);
+      setCookie("token", result.token, 365);
       window.location.reload();
     } else {
       message.style.color = "#990000";

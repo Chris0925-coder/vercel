@@ -90,8 +90,9 @@ async function login() {
       });
 
     if (!result.error) {
-      setCookie("token", result, 365);
-      window.location.replace("/home");
+      console.log(result);
+      setCookie("token", result, 1);
+      // window.location.replace("/home");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;

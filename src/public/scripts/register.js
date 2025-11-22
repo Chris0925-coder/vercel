@@ -75,8 +75,9 @@ async function register() {
       });
 
     if (!result.error) {
-      setCookie("token", result.token, 365);
-      window.location.replace("/");
+      console.log(result.token);
+      setCookie("token", result.token, 1);
+      // window.location.replace("/home");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;

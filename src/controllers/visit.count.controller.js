@@ -55,6 +55,10 @@ controller.count = async (req, res) => {
   }
 };
 
+controller.reg = async (req, res) => {
+  res.render("register.html", { title: "REG", tab: [], message: [] });
+};
+
 controller.recovery = async (req, res) => {
   res.render("recovery.html", { title: "RECOVERY", tab: [] });
 };

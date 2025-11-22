@@ -43,34 +43,17 @@ function detectCookie(cname) {
   return false;
 }
 
-//  headers: {
-//         "Content-Type": "application/json; charset=utf-8",
-//         "Access-Control-Allow-Origin": "*",
-//         "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
-//       },
-// Accept: "application/json, text/plain, */*",
+const form2 = document.getElementById("register");
 
-// .then((data) => {
-//         console.log(data);
-//         if (data.ok) {
-
-//           setCookie("token", data);
-//         }
-//       })
-const message = document.getElementById("message");
-const form1 = document.getElementById("login");
-
-// const url = `//wvlhqwzk-3000.use2.devtunnels.ms/`;
-
-async function login() {
-  form1.addEventListener("submit", async function (event) {
+async function register() {
+  form2.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     message.style.color = "#009900";
-    message.innerText = "Iniciando sesion...";
-    const formData = new FormData(form1);
+    message.innerText = "Registro de usuario completado...";
+    const formData = new FormData(form2);
 
-    let result = await fetch("/login", {
+    let result = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -78,7 +61,9 @@ async function login() {
         "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
       },
       body: JSON.stringify({
+        name: formData.get("name"),
         username: formData.get("username"),
+        email: formData.get("email"),
         password: formData.get("password"),
       }),
     })
@@ -90,13 +75,12 @@ async function login() {
       });
 
     if (!result.error) {
-      setCookie("token", result, 365);
-      window.location.reload();
+      setCookie("token", result.token, 365);
+      window.location.replace("/");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;
     }
   });
 }
-
-login();
+register();

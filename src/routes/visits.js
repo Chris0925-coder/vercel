@@ -9,10 +9,11 @@ import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import viewsControllers from "../controllers/visit.count.controller.js";
 import msg from "../controllers/messages.js";
+// import recaptcha from "../controllers/comment.submit.controller.js";
 
 const router = express.Router();
 
-router.get("/login", login, viewsControllers.analytics);
+router.get("/login", viewsControllers.login);
 
 router.get("/", authRequired, viewsControllers.analytics);
 
@@ -22,6 +23,8 @@ router.post(
   login,
   viewsControllers.analytics
 );
+
+router.get("/register", viewsControllers.reg);
 
 router.post("/register", validateSchema(registerSchema), register);
 

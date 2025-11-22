@@ -1,4 +1,4 @@
-export const TOKEN_SECRET = process.env.TOKEN_SECRET;
+export const TOKEN_SECRET = process.env.JW_SECRET;
 // process.loadEnvFile();
 
 export const config = {

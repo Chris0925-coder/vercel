@@ -3,9 +3,6 @@ import { TOKEN_SECRET } from "../config.js";
 
 export const authRequired = (req, res, next) => {
   let { token } = req.cookies;
-  // let { webToken } = req.body;
-  console.log(token);
-  console.log(req.body);
 
   if (!token) {
     // return res.render("login.html", {
@@ -28,9 +25,9 @@ export const authRequired = (req, res, next) => {
         req.user = user;
         // res.cookie(user)
         // console.log(user);
-        next();
       }
     });
   }
   console.log("Validing Token");
+  next();
 };

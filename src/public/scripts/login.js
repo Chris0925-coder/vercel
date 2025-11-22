@@ -90,7 +90,6 @@ async function login() {
       });
 
     if (!result.error) {
-      console.log(result);
       setCookie("token", result, 365);
       window.location.reload();
     } else {

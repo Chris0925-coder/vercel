@@ -17,12 +17,7 @@ router.get("/", viewsControllers.login);
 
 router.get("/home", authRequired, viewsControllers.analytics);
 
-router.post(
-  "/",
-  validateSchema(loginSchema),
-  login,
-  viewsControllers.analytics
-);
+router.post("/", validateSchema(loginSchema), login);
 
 router.get("/register", viewsControllers.reg);
 

@@ -9,9 +9,9 @@ const db = createClient({
 });
 
 controller.login = async (req, res) => {
-  // const { token } = req.cookies;
+  const { token } = req.cookies;
   try {
-    // if (token) return res.redirect("/home");
+    if (token) return res.redirect("/home");
     res.render("login.html", { title: "LOGIN", tab: [], message: [] });
   } catch (error) {
     res.status(500).json({ message: error.message });

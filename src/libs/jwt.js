@@ -9,7 +9,7 @@ export function createAccesToken(payload) {
       },
       TOKEN_SECRET,
       {
-        expiresIn: "1d",
+        expiresIn: "7d",
       },
       (err, token) => {
         if (err) {

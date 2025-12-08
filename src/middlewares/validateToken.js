@@ -4,9 +4,9 @@ import { TOKEN_SECRET } from "../config.js";
 export const authRequired = (req, res, next) => {
   // let { token } = req.cookies;
   const authHeader = req.headers["authorization"];
-  // if (!authHeader) return res.status(403).json({ error: "Token requerido" });
+  let token = authHeader.split(" ")[1];
 
-  const token = authHeader.split(" ")[1];
+  if (!authHeader) token = req.cookies.token;
 
   if (!token) {
     // return res.render("login.html", {

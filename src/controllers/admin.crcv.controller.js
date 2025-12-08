@@ -16,7 +16,7 @@ controller.admin = async (req, res) => {
     // let { rows } = await db.execute(query);
 
     let rows = await db.execute({
-      sql: "SELECT count,domain,date,(SELECT count,domain,date FROM counts WHERE id=6) as services FROM counts WHERE domain=?",
+      sql: "SELECT count,domain,date,(SELECT count FROM counts WHERE id=6) as countServices,(SELECT date FROM counts WHERE id=6) as dateServices,(SELECT domain FROM counts WHERE id=6) as domainServices FROM counts WHERE domain=?",
       args: [domain],
     });
 

@@ -2,7 +2,11 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
 
 export const authRequired = (req, res, next) => {
-  let { token } = req.cookies;
+  // let { token } = req.cookies;
+  const authHeader = req.headers["authorization"];
+  // if (!authHeader) return res.status(403).json({ error: "Token requerido" });
+
+  const token = authHeader.split(" ")[1];
 
   if (!token) {
     // return res.render("login.html", {
@@ -23,11 +27,10 @@ export const authRequired = (req, res, next) => {
         // res.render("employee.html", { title: "Login", message: [] });
         // let { user } = req.cookies;
         req.user = user;
-        // res.cookie(user)
-        // console.log(user);
+
+        next();
       }
     });
   }
   console.log("Validing Token");
-  next();
 };

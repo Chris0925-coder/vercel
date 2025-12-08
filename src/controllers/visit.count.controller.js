@@ -43,8 +43,8 @@ controller.count = async (req, res) => {
   });
   let suma = data.rows[0].count + c.count;
 
-  const query = "UPDATE counts SET count = ?, domain=? WHERE id = ?";
-  const params = [suma, c.domain, c.id];
+  const query = "UPDATE counts SET count = ?, domain=?, date=? WHERE id = ?";
+  const params = [suma, c.domain, c.date, c.id];
 
   try {
     await db.execute(query, params);

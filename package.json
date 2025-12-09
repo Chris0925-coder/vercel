@@ -19,7 +19,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@google-cloud/recaptcha-enterprise": "^6.3.1",
     "@libsql/client": "0.15.9",
     "@vercel/blob": "^1.1.1",
     "bcryptjs": "3.0.2",
@@ -35,7 +34,6 @@
     "nodemailer": "7.0.4",
     "path": "0.12.7",
     "picocolors": "1.1.1",
-    "properties-reader": "^2.3.0",
     "sqlite3": "5.1.7",
     "zod": "3.25.67"
   }

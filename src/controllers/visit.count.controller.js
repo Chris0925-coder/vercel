@@ -47,7 +47,7 @@ controller.count = async (req, res) => {
   let suma = data.rows[0].count + c.count;
   console.log(suma);
 
-  let addClicks = data.rows[3].count + c.clicks;
+  let addClicks = data.rows[0].clicks + c.clicks;
   console.log(addClicks);
 
   const query =

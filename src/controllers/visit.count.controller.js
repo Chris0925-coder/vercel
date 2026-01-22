@@ -42,13 +42,9 @@ controller.count = async (req, res) => {
     args: [c.id],
   });
 
-  console.log(data);
-
   let suma = data.rows[0].count + c.count;
-  console.log(suma);
 
   let addClicks = data.rows[0].clicks + c.clicks;
-  console.log(addClicks);
 
   const query =
     "UPDATE counts SET count = ?, domain=?, date=?, clicks=? WHERE id = ?";

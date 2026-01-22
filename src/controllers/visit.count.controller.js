@@ -20,7 +20,7 @@ controller.login = async (req, res) => {
 
 controller.analytics = async (req, res) => {
   try {
-    const query = "SELECT count,domain,date FROM counts";
+    const query = "SELECT count,domain,date,clicks FROM counts";
 
     let { rows } = await db.execute(query);
 
@@ -38,14 +38,16 @@ controller.count = async (req, res) => {
 
   let c = JSON.parse(analyticsData);
   let data = await db.execute({
-    sql: "SELECT id,count,domain FROM counts WHERE id=?",
+    sql: "SELECT id,count,domain,clicks FROM counts WHERE id=?",
     args: [c.id],
   });
   let suma = data.rows[0].count + c.count;
 
+  let addClicks = data.rows[2].count + c.clicks;
+
   const query =
     "UPDATE counts SET count = ?, domain=?, date=?, clicks=? WHERE id = ?";
-  const params = [suma, c.domain, c.date, c.clicks, c.id];
+  const params = [suma, c.domain, c.date, addClicks, c.id];
 
   try {
     await db.execute(query, params);

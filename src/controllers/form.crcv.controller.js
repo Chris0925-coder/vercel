@@ -8,8 +8,9 @@ const db = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
-msg.reciveMSG = async (req, res) => {
-  const query = "SELECT id,email,control FROM webdev ORDER BY id DESC";
+msg.showMSG = async (req, res) => {
+  const query =
+    "SELECT id,name,email,phone,control FROM formCRCV ORDER BY id DESC";
   try {
     let { rows } = await db.execute(query);
     // console.log(rows);
@@ -38,15 +39,16 @@ msg.messages = async (req, res) => {
   //   });
   //   let suma = data.rows[0].count + c.count;
 
-  const query = "INSERT INTO webdev (email, control) VALUES (?,?)";
-  const params = [c.email, c.control];
+  const query =
+    "INSERT INTO formCRCV (name, email, phone, control) VALUES (?,?,?,?)";
+  const params = [c.name, c.email, c.phone, c.control];
 
   try {
     await db.execute(query, params);
-    console.log(
-      `Web with ID ${c.email} send message ${c.control} successfully!`,
-    );
-    res.sendStatus(200);
+
+    res.sendStatus(200).json({
+      message: `User with email: ${c.email} send message ${c.control} successfully!`,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -56,7 +58,7 @@ msg.delete = async (req, res) => {
   const { id } = req.params;
   console.log(id);
 
-  const query = "DELETE FROM webdev WHERE id = (?)";
+  const query = "DELETE FROM formCRCV WHERE id = (?)";
   const params = [id];
 
   try {

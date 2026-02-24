@@ -8,6 +8,7 @@ import { authRequired } from "../middlewares/validateToken.js";
 import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import crcvControllers from "../controllers/admin.crcv.controller.js";
+import formControllers from "../controllers/form.crcv.controller.js";
 // import msg from "../controllers/messages.js";
 // import recaptcha from "../controllers/comment.submit.controller.js";
 
@@ -19,7 +20,9 @@ router.post(
   "/login",
   validateSchema(loginSchema),
   login,
-  crcvControllers.admin
+  crcvControllers.admin,
 );
+
+router.post("/submit", formControllers.messages);
 
 export default router;

@@ -9,6 +9,7 @@ import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import crcvControllers from "../controllers/admin.crcv.controller.js";
 import formControllers from "../controllers/form.crcv.controller.js";
+import { enviarCorreo } from "../utils/nodeMailer.js";
 // import msg from "../controllers/messages.js";
 // import recaptcha from "../controllers/comment.submit.controller.js";
 
@@ -25,6 +26,10 @@ router.post(
 
 router.patch("/submit", authRequired, formControllers.showMSG);
 
-router.post("/submit", formControllers.messages);
+router.post(
+  "/submit",
+  formControllers.messages,
+  enviarCorreo(c.email, c.control),
+);
 
 export default router;

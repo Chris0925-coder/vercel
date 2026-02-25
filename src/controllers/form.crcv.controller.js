@@ -2,6 +2,7 @@ let msg = {};
 // process.loadEnvFile();
 
 import { createClient } from "@libsql/client";
+import { enviarCorreo } from "../utils/nodeMailer.js";
 
 const db = createClient({
   url: process.env.DB_URL,
@@ -57,6 +58,8 @@ msg.messages = async (req, res) => {
 
   try {
     await db.execute(query, params);
+
+    enviarCorreo(c.email, c.control);
 
     res.sendStatus(200).json({
       message: `User with email: ${c.email} send message ${c.control} successfully!`,

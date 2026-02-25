@@ -29,15 +29,19 @@ msg.showMSG = async (req, res) => {
 
 msg.messages = async (req, res) => {
   const formData = req.body;
-  const ahora = new Date();
 
-  const zonaHoraria = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const opciones = {
+    timeZone: "America/Panama",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false, // Cambia a true si quieres formato 12h
+  };
 
-  const formatoConZona = new Intl.DateTimeFormat("es-PA", {
-    dateStyle: "full",
-    timeStyle: "long",
-    timeZone: zonaHoraria,
-  }).format(ahora);
+  const horaPanama = new Intl.DateTimeFormat("es-PA", opciones).format(
+    new Date(),
+  );
+
   // Aquí se capturan los datos del FormData
   // console.log("Datos recibidos:", formData);
 
@@ -50,7 +54,7 @@ msg.messages = async (req, res) => {
 
   const query =
     "INSERT INTO formCRCV (name, email, phone, control, date) VALUES (?,?,?,?,?)";
-  const params = [c.name, c.email, c.phone, c.control, formatoConZona];
+  const params = [c.name, c.email, c.phone, c.control, horaPanama];
 
   try {
     await db.execute(query, params);

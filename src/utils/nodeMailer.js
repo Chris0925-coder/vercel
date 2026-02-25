@@ -10,7 +10,7 @@ export async function enviarCorreo(email, control) {
       secure: true, // true para 465, false para otros puertos
       auth: {
         user: "christianguardia@outlook.es",
-        pass: "tu_contraseña_o_token_app", // Usa contraseñas de aplicación
+        pass: `${process.env.OUTLOOK}`, // Usa contraseñas de aplicación
       },
     });
 

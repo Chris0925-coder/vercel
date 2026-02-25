@@ -23,7 +23,7 @@ router.post(
   crcvControllers.admin,
 );
 
-router.patch("/submit", authRequired, formControllers.showMSG);
+router.get("/submit", authRequired, formControllers.showMSG);
 
 router.post("/submit", formControllers.messages);
 

@@ -16,7 +16,7 @@ export async function enviarCorreo(control) {
     // Datos del correo
     let info = await transporter.sendMail({
       from: '"CRCV Panamá" <christianguardia@outlook.es>',
-      to: "christianguardia@outlook.es",
+      to: "christianguardia0@gmail.com",
       subject: "Prueba de envío",
       text: `${control}`,
       html: `<div class="foot-rights">

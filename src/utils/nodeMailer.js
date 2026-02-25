@@ -4,9 +4,9 @@ export async function enviarCorreo(control) {
   try {
     // Configuración del transporte SMTP
     let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com", // Servidor SMTP
-      port: 465,
-      secure: true, // true para 465, false para otros puertos
+      host: "smtp.office365.com", // Servidor SMTP
+      port: 587,
+      secure: false, // true para 465, false para otros puertos
       auth: {
         user: "christianguardia@outlook.es",
         pass: `${process.env.OUTLOOK}`, // Usa contraseñas de aplicación

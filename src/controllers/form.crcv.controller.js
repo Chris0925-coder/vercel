@@ -32,10 +32,9 @@ msg.messages = async (req, res) => {
 
   const opciones = {
     timeZone: "America/Panama",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false, // Cambia a true si quieres formato 12h
+    dateStyle: "full",
+    timeStyle: "long",
+    hour12: false,
   };
 
   const horaPanama = new Intl.DateTimeFormat("es-PA", opciones).format(

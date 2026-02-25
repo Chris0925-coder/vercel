@@ -23,6 +23,8 @@ router.post(
   crcvControllers.admin,
 );
 
+router.patch("/submit", authRequired, formControllers.showMSG);
+
 router.post("/submit", formControllers.messages);
 
 export default router;

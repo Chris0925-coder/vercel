@@ -10,7 +10,7 @@ const db = createClient({
 
 msg.showMSG = async (req, res) => {
   const query =
-    "SELECT id,name,email,phone,control FROM formCRCV ORDER BY id DESC";
+    "SELECT id,name,email,phone,control,date FROM formCRCV ORDER BY id DESC";
   try {
     let { rows } = await db.execute(query);
     // console.log(rows);
@@ -29,6 +29,15 @@ msg.showMSG = async (req, res) => {
 
 msg.messages = async (req, res) => {
   const formData = req.body;
+  const ahora = new Date();
+
+  const zonaHoraria = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  const formatoConZona = new Intl.DateTimeFormat("es-PA", {
+    dateStyle: "full",
+    timeStyle: "long",
+    timeZone: zonaHoraria,
+  }).format(ahora);
   // Aquí se capturan los datos del FormData
   // console.log("Datos recibidos:", formData);
 
@@ -40,8 +49,8 @@ msg.messages = async (req, res) => {
   //   let suma = data.rows[0].count + c.count;
 
   const query =
-    "INSERT INTO formCRCV (name, email, phone, control) VALUES (?,?,?,?)";
-  const params = [c.name, c.email, c.phone, c.control];
+    "INSERT INTO formCRCV (name, email, phone, control, date) VALUES (?,?,?,?,?)";
+  const params = [c.name, c.email, c.phone, c.control, formatoConZona];
 
   try {
     await db.execute(query, params);

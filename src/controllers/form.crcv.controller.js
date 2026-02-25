@@ -59,7 +59,7 @@ msg.messages = async (req, res) => {
   try {
     await db.execute(query, params);
 
-    await enviarCorreo(formData.email, formData.control);
+    await enviarCorreo(formData.control);
     res.sendStatus(200).json({
       message: `User with email: ${c.email} send message ${c.control} successfully!`,
     });

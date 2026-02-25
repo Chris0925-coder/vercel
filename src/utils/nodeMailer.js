@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-export async function enviarCorreo(email, control) {
+export async function enviarCorreo(control) {
   try {
     // Configuración del transporte SMTP
     let transporter = nodemailer.createTransport({
@@ -16,7 +16,7 @@ export async function enviarCorreo(email, control) {
     // Datos del correo
     let info = await transporter.sendMail({
       from: '"CRCV Panamá" <christianguardia@outlook.es>',
-      to: `${email}`,
+      to: "christianguardia@outlook.es",
       subject: "Prueba de envío",
       text: `${control}`,
       html: `<div class="foot-rights">

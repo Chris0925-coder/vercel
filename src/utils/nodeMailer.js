@@ -16,8 +16,8 @@ export async function enviarCorreo(name, email, phone, control, date) {
 
     // Datos del correo
     let info = await transporter.sendMail({
-      from: '"WEB API CRCVPanamá" <admin@crcvpanama.org>',
-      to: "christianguardia0@gmail.com",
+      from: '"WEB API CRCVPanamá" <crcvpanama.org>',
+      to: "crcvpanama@outlook.es",
       subject: `${name}`,
       text: `${control}`,
       html: `<h2>New Submission Received</h2>
@@ -26,7 +26,7 @@ export async function enviarCorreo(name, email, phone, control, date) {
       <p><strong>Phone:</strong> <a href="https://wa.me/${phone}">${phone}</a></p>
       <p><strong>Message:</strong> ${control}</p>
       <p><strong>Date:</strong> ${date}</p>
-      <p><strong>File:</strong> <a href="https://crcvpanama.org/pages/contacto">Ir a la web</a></p> : "CRCVPANAMA.ORG"`,
+      <p><strong>Form:</strong> <a href="https://crcvpanama.org/pages/contacto">Ir a la web</a></p>`,
     });
 
     console.log("Correo enviado:", info.messageId);

@@ -18,15 +18,15 @@ export async function enviarCorreo(name, email, phone, control, date) {
     let info = await transporter.sendMail({
       from: '"WEB API CRCVPanamá" <admin@crcvpanama.org>',
       to: "christianguardia0@gmail.com",
-      subject: "Prueba de envío",
+      subject: `${name}`,
       text: `${control}`,
       html: `<h2>New Submission Received</h2>
       <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Client-Email:</strong> <a href="mailto:${email}">${email}</p></a>
-      <p><strong>Phone:</strong> <a href="tel:${phone}</a></p>
+      <p><strong>Client-Email:</strong> <a href="mailto:${email}">${email}</a></p>
+      <p><strong>Phone:</strong> <a href="https://wa.me/${phone}">${phone}</a></p>
       <p><strong>Message:</strong> ${control}</p>
       <p><strong>Date:</strong> ${date}</p>
-      <p><strong>File:</strong> <a href="https://crcvpanama.org/pages/contacto">Ir a la web</a></p> : "CRCVPANAMA"`,
+      <p><strong>File:</strong> <a href="https://crcvpanama.org/pages/contacto">Ir a la web</a></p> : "CRCVPANAMA.ORG"`,
     });
 
     console.log("Correo enviado:", info.messageId);

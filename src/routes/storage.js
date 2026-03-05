@@ -19,14 +19,14 @@ router.post(
   "/articles",
   uploadMiddleware.single("filename"),
   PUT,
-  storageController.articles
+  storageController.articles,
 );
 
 router.put(
   "/articles/:id",
   uploadMiddleware.single("filename"),
   PUT,
-  storageController.updateArticles
+  storageController.updateArticles,
 );
 
 router.delete("/articles/:id", storageController.deleteArticles);

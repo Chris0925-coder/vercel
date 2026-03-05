@@ -63,7 +63,6 @@ controller.articles = async (req, res) => {
   let files = req.file;
   let { title, paragraph, link } = req.body;
   let dest = files.originalname;
-  console.log(title, paragraph, link, files);
   try {
     let data = await db.execute({
       sql: "SELECT id FROM articles",
@@ -215,12 +214,12 @@ controller.profile = (req, res) => {
                     tabD: [],
                     tabE: rowsC[0].video,
                   });
-                }
+                },
               );
-            }
+            },
           );
         }
-      }
+      },
     );
   });
 };
@@ -313,10 +312,10 @@ controller.save = (req, res) => {
                   tabE: [],
                 });
               }
-            }
+            },
           );
         }
-      }
+      },
     );
   });
 };
@@ -335,7 +334,7 @@ controller.saveIMG = (req, res) => {
           if (err) {
             res.json(err);
           }
-        }
+        },
       );
     }
   });
@@ -446,14 +445,41 @@ controller.saveVideo = (req, res) => {
                       tabE: rowsC[0].video,
                     });
                   }
-                }
+                },
               );
             }
           });
-        }
+        },
       );
     });
   });
+};
+
+controller.crcvAd = async (req, res) => {
+  let files = req.file;
+  let { title, description, link } = req.body;
+  let dest = files.originalname;
+  try {
+    // let data = await db.execute({
+    // sql: "SELECT id FROM articles",
+    // args: [userId],
+    // });
+
+    let query =
+      "INSERT INTO crcvAd (title,filename,description,link) VALUES (?,?,?,?)";
+    let params = [title, dest, description, link];
+
+    await db.execute(query, params);
+
+    res.status(200).json(data);
+
+    // alert("Uploaded article succesfully");
+    // res.render("articles.html", { title: "Home", tab: data.rows });
+  } catch (error) {
+    // res.json(error);
+    res.status(500).json({ message: error.message });
+  }
+  // });
 };
 
 export default controller;

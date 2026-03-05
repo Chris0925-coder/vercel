@@ -9,6 +9,10 @@ import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import crcvControllers from "../controllers/admin.crcv.controller.js";
 import formControllers from "../controllers/form.crcv.controller.js";
+import storageController from "../controllers/files.controller.js";
+import { uploadMiddleware } from "../utils/handleStorage.js";
+
+import { PUT } from "../utils/vercel.handler.js";
 
 // import msg from "../controllers/messages.js";
 // import recaptcha from "../controllers/comment.submit.controller.js";
@@ -27,5 +31,12 @@ router.post(
 router.patch("/submit", authRequired, formControllers.showMSG);
 
 router.post("/submit", formControllers.messages);
+
+router.post(
+  "/submitad",
+  uploadMiddleware.single("filename"),
+  PUT,
+  storageController.crcvAd,
+);
 
 export default router;

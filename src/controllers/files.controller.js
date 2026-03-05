@@ -471,7 +471,7 @@ controller.crcvAd = async (req, res) => {
 
     await db.execute(query, params);
 
-    res.status(200).json(data);
+    res.status(200).json({ message: "Uploaded image succesfully" });
 
     // alert("Uploaded article succesfully");
     // res.render("articles.html", { title: "Home", tab: data.rows });

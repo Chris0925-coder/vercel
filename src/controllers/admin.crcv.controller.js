@@ -9,15 +9,16 @@ const db = createClient({
 });
 
 controller.admin = async (req, res) => {
-  const domain = "https://www.crcvpanama.org";
+  // const domain = "https://www.crcvpanama.org";
+  const id = 3;
   try {
     // const query = "SELECT count,domain,date FROM counts WHERE domain=?";
 
     // let { rows } = await db.execute(query);
 
     let rows = await db.execute({
-      sql: "SELECT count,domain,date,clicks,(SELECT count FROM counts WHERE id=6) as countServices,(SELECT date FROM counts WHERE id=6) as dateServices,(SELECT domain FROM counts WHERE id=6) as domainServices FROM counts WHERE domain=?",
-      args: [domain],
+      sql: "SELECT count,domain,date,clicks,(SELECT count FROM counts WHERE id=6) as countServices,(SELECT date FROM counts WHERE id=6) as dateServices,(SELECT domain FROM counts WHERE id=6) as domainServices FROM counts WHERE id=?",
+      args: [id],
     });
 
     res.json(rows);

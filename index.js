@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 // import bodyParser from "body-parser";
 // import index from './routes/index.js';
 import articles from "./src/routes/storage.js";
-import routes from "./src/routes/visits.js";
+import routes from "./src/routes/views.js";
 import crcv from "./src/routes/crcv.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -33,7 +33,6 @@ const port = process.env.PORT || portFinded;
 // static files
 app.use(express.static(path.join(__dirname, "src/public")));
 app.use(express.static(path.join(__dirname, "src/storage")));
-app.use("favicon.ico", express.static(path.join(__dirname, "src/favicon.ico")));
 // app.use(express.static(path.join(__dirname, "src/favicon.ico")));
 
 // SETTINGS
@@ -62,7 +61,7 @@ app.use(morgan("dev"));
 // app.use("/", index);
 // app.use("/storage", router);
 app.use("/", routes);
-app.use("/", articles);
+app.use("/upload", articles);
 app.use("/crcv", crcv);
 app.use((req, res) => {
   res.status(404).send(`<h1>404</h1>`);

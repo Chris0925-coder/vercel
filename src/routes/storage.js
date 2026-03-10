@@ -11,24 +11,24 @@ import { PUT } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 
-router.get("/articles", authRequired, storageController.homeArticles);
+router.get("/", authRequired, storageController.homeArticles);
 
-router.get("/articles/webdev", storageController.showArticles);
+router.get("/webdev", storageController.showArticles);
 
 router.post(
-  "/articles",
+  "/",
   uploadMiddleware.single("filename"),
   PUT,
   storageController.articles,
 );
 
 router.put(
-  "/articles/:id",
+  "/:id",
   uploadMiddleware.single("filename"),
   PUT,
   storageController.updateArticles,
 );
 
-router.delete("/articles/:id", storageController.deleteArticles);
+router.delete("/:id", storageController.deleteArticles);
 
 export default router;

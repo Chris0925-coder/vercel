@@ -7,7 +7,7 @@ import {
 import { authRequired } from "../middlewares/validateToken.js";
 import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
-import viewsControllers from "../controllers/visit.count.controller.js";
+import viewsControllers from "../controllers/views.count.controller.js";
 import msg from "../controllers/messages.js";
 // import recaptcha from "../controllers/comment.submit.controller.js";
 

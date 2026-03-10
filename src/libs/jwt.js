@@ -17,7 +17,7 @@ export function createAccesToken(payload) {
         } else {
           resolve(token);
         }
-      }
+      },
     );
   });
 }

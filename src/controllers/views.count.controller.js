@@ -8,11 +8,16 @@ const db = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
-controller.login = async (req, res) => {
+controller.loginPage = async (req, res, next) => {
   const { token } = req.cookies;
+  console.log(token);
   try {
-    if (token) return res.redirect("/home");
-    res.render("login.html", { title: "LOGIN", tab: [], message: [] });
+    console.log(!token);
+    if (!token)
+      return res.render("login.html", { title: "LOGIN", tab: [], message: [] });
+
+    // res.redirect("/home");
+    next();
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -32,9 +37,6 @@ controller.analytics = async (req, res) => {
 
 controller.count = async (req, res) => {
   let analyticsData = req.body;
-  // console.log(analyticsData);
-  // let c = req.body;
-  // const clientIp = req.connection.remoteAddress;
 
   let c = JSON.parse(analyticsData);
   let data = await db.execute({

@@ -24,7 +24,7 @@ function getCookie(cname) {
 }
 
 function removeCookie(cname) {
-  getCookie(cname, "", -1);
+  getCookie(cname, " ", -1);
 }
 
 function detectCookie(cname) {

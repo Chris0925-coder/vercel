@@ -47,7 +47,6 @@ function delBTN(a) {
   // console.log(a.value);
   a.addEventListener("click", async (e) => {
     e.preventDefault();
-    console.log(a.value);
     await fetch(`/submit/${a.value}`, {
       method: "DELETE",
       body: a.value,

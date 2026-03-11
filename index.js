@@ -15,7 +15,6 @@ import { dbConnect } from "./config/mongo.js";
 import { config } from "./src/config.js";
 import { findAvailablePort } from "./src/utils/desiredPort.js";
 
-// dotenv.config();
 const ejs = pkg;
 const app = express();
 

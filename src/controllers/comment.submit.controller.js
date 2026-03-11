@@ -40,7 +40,7 @@ controller.onCommentSubmit = async (req, res) => {
       context.project_id,
       context.site_key,
       req.body.token,
-      recaptchaAction
+      recaptchaAction,
     );
     console.log(req.body.token);
 

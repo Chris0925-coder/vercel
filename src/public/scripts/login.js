@@ -88,15 +88,10 @@ async function login() {
         message.style.color = "#990000";
         message.innerText = error;
       });
-    console.log(result);
-    if (result.message === "Invalid token") {
-      removeCookie("token", -1);
-      window.location.replace("/");
-    }
 
     if (!result.error) {
       setCookie("token", result, 365);
-      window.location.replace("/");
+      window.location.replace("/home");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;

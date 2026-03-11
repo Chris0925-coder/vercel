@@ -8,13 +8,14 @@ const db = createClient({
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
-controller.loginPage = async (req, res) => {
+controller.loginPage = async (req, res, next) => {
   const { token } = req.cookies;
   try {
     if (!token)
       return res.render("login.html", { title: "LOGIN", tab: [], message: [] });
 
-    res.redirect("/home");
+    // res.redirect("/home");
+    next();
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -89,6 +89,8 @@ async function login() {
         message.innerText = error;
       });
 
+    console.log(result);
+
     if (!result.error) {
       setCookie("token", result, 365);
       window.location.replace("/home");

@@ -84,6 +84,8 @@ async function login() {
     })
       .then((response) => response.json())
       .catch((error) => {
+        removeCookie("token");
+        window.location.replace("/");
         console.error("Error:", error);
         message.style.color = "#990000";
         message.innerText = error;
@@ -95,8 +97,6 @@ async function login() {
       setCookie("token", result, 365);
       window.location.replace("/home");
     } else {
-      removeCookie("token");
-      window.location.replace("/");
       message.style.color = "#990000";
       message.innerText = result.error;
     }

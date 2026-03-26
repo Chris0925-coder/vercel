@@ -84,14 +84,10 @@ async function login() {
     })
       .then((response) => response.json())
       .catch((error) => {
-        removeCookie("token");
-        window.location.replace("/");
         console.error("Error:", error);
         message.style.color = "#990000";
         message.innerText = error;
       });
-
-    console.log(result);
 
     if (!result.error) {
       setCookie("token", result, 365);

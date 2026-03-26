@@ -79,6 +79,7 @@ function update() {
         .then((response) => {
           if (response.ok) {
             alert("Update article successfully!");
+            window.location.reload();
           } else {
             alert("Failed to update the form submission.");
           }

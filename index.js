@@ -9,6 +9,7 @@ import cookieParser from "cookie-parser";
 import articles from "./src/routes/storage.js";
 import routes from "./src/routes/views.js";
 import crcv from "./src/routes/crcv.js";
+import webs from "./src/routes/webs.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { dbConnect } from "./config/mongo.js";
@@ -62,6 +63,7 @@ app.use(morgan("dev"));
 app.use("/", routes);
 app.use("/upload", articles);
 app.use("/crcv", crcv);
+app.use("/webs", webs);
 app.use((req, res) => {
   res.status(404).send(`<h1>404</h1>`);
 });

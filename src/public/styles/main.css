@@ -23,6 +23,7 @@ a {
   padding: 7px;
   text-align: center;
   overflow: scroll;
+  scrollbar-width: none;
   font-size: 0.7rem;
 }
 

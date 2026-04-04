@@ -36,29 +36,31 @@
       "
     >
       <% tab.forEach((data) => { %>
-      <a href="<%=data.domain%>">
-        <article
-          style="
-            display: grid;
-            place-content: center;
-            border: 2px solid;
-            border-radius: 10px;
-            padding: 5px;
-            margin: 7px;
-            font-size: 0.6rem;
-            place-content: center;
-          "
-        >
-          <h2><%=data.domain%></h2>
-          <p>CONTEO de VISITAS: <%=data.count%></p>
-          <p>Desde: <span><%=data.date%></span></p>
-          <p>Clicks: <span><%=data.clicks%></span></p>
-        </article>
-      </a>
+
+      <article
+        style="
+          display: grid;
+          border: 2px solid;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 7px;
+          font-size: 0.7rem;
+          place-content: center;
+          overflow: auto;
+        "
+      >
+        <h2><a href="<%=data.domain%>" target="_blank"><%=data.domain%></a></h2>
+        <p>CONTEO de VISITAS: <%=data.count%></p>
+        <p>Desde: <span><%=data.date%></span></p>
+        <p>Clicks: <span><%=data.clicks%></span></p>
+      </article>
+
       <% }) %>
     </div>
 
     <hr />
+    <br />
+
     <section
       style="
         width: 90vw;
@@ -66,14 +68,15 @@
         overflow: scroll;
         margin: 0 auto;
         scrollbar-width: none;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
       "
     >
       <h2>Form WebDev</h2>
       <div
         style="
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
+          justify-content: center;
           width: 100%;
           flex-wrap: wrap;
         "

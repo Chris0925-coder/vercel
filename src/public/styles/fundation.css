@@ -492,6 +492,7 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    transform: translateY(1px);
   }
 
   .card {

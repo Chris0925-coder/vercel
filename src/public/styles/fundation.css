@@ -208,7 +208,7 @@ button {
       object-fit: contain;
       /*border-radius: 10px;*/
       /*border-radius: 45% 10% 45% 10%;*/
-      /* border-radius: 10% 20%; */
+      /*border-radius: 10% 20%;*/
     }
     animation: fadein-left-to-right 4s forwards;
   }
@@ -474,7 +474,13 @@ button {
 @media (width <= 768px) {
   .container {
     /*width: 100%;*/
-    min-height: 100dvh;
+    min-height: 70dvh;
+    place-content: flex-start;
+  }
+
+  #main {
+    height: 300px;
+    /*place-content: top;*/
   }
 
   .btn-menu {
@@ -492,13 +498,14 @@ button {
     overflow: hidden;
     width: auto;
     height: auto;
+    padding: 0;
   }
 
   .first-content picture {
     flex: none;
-    width: 100vh;
-    max-height: 300px;
-    border: 1px solids;
+    width: 100%;
+    max-height: 500px;
+    /*border: 1px solids;*/
     img {
       display: block;
       width: 100%;
@@ -510,6 +517,7 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    top: 97%;
   }
 
   .card {

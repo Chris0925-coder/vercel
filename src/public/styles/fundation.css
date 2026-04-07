@@ -196,6 +196,7 @@ button {
   /*align-self: center;*/
   /*border: 1px solid;*/
   /*margin: auto;*/
+  overflow: hidden;
   picture {
     flex: 0.6;
     /*border: 1px solid;*/

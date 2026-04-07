@@ -454,6 +454,11 @@ button {
 }
 
 @media (width <= 768px) {
+  #main {
+    height: auto;
+    min-height: 80dvh;
+  }
+
   .container {
     /*width: 100%;*/
     min-height: 100dvh;
@@ -492,7 +497,7 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    transform: translateY(1px);
+    transform: translateY(0);
   }
 
   .card {

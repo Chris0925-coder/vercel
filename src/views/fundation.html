@@ -8,12 +8,19 @@
     <link rel="stylesheet" type="text/css" href="/styles/fundation.css" />
 
     <script type="text/javascript" src="/scripts/fundation.js" defer></script>
+
+    <link
+      rel="icon"
+      type="image/jpg"
+      sizes="any"
+      href="/img/fundation/logo.jpg"
+    />
   </head>
   <body>
     <header>
       <nav class="navbar">
         <div class="logo">
-          <span>LOGO</span>
+          <!-- <span>LOGO</span> -->
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav-bar">
@@ -22,36 +29,40 @@
             </li>
             <!-- <li class="nav-item showQS"><a class="nav-link" href="#about"> ¿Quiénes Somos? </a></li> -->
             <li class="nav-item">
-              <a class="nav-link" href="#"> Historia </a>
+              <a class="nav-link" href="#history"> Historia </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"> Programas </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"> Blog </a>
+              <a class="nav-link" href="#program"> Programas </a>
             </li>
             <!-- <li class="nav-item">
-              <a class="nav-link" href="#"> Patrocinadores </a>
-            </li> -->
+						<a class="nav-link" href="#"> Blog </a>
+					</li> -->
+            <!-- <li class="nav-item">
+						<a class="nav-link" href="#"> Patrocinadores </a>
+					</li> -->
 
             <!-- <li class="nav-item showFQs"><a class="nav-link" href="#frequences"> Preguntas Frecuentes </a></li> -->
           </ul>
         </div>
+        <button class="btn-menu" title="menu"></button>
       </nav>
     </header>
     <main>
-      <section class="container">
+      <section class="container" controls>
         <div class="first-content">
-          <picture>
-            <img src="/img/test/OIP.webp" alt="#" />
-          </picture>
+          <!-- <picture>
+					<img src="public/img/test/OIP.webp" alt="#">
+				</picture> -->
+
+          <video autoplay>
+            <source src="/video/main.mp4" type="video/mp4" />
+          </video>
 
           <div class="title">
-            <h1>Lorem ipsum dolor sit amet</h1>
+            <h1>COMPARTIENDO SONRISAS CON FE Y ESPERANZA</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
+              Nuestro objetivo es apoyar a las familias en situación de
+              necesidad en la comunidad.
             </p>
           </div>
         </div>
@@ -66,61 +77,120 @@
           <!-- From Uiverse.io by alexruix -->
           <div class="card">
             <div class="card-details">
-              <p class="text-title">Card title</p>
-              <p class="text-body">Here are the details of the card</p>
+              <p class="text-title">Escribenos</p>
+              <!-- <p class="text-body">Formulario</p> -->
             </div>
-            <button class="card-button">More info</button>
+            <button class="card-button">Ir a...</button>
           </div>
 
           <!-- From Uiverse.io by gharsh11032000 -->
           <!-- From Uiverse.io by alexruix -->
           <div class="card">
             <div class="card-details">
-              <p class="text-title">Card title</p>
-              <p class="text-body">Here are the details of the card</p>
+              <p class="text-title">Videos</p>
+              <!-- <p class="text-body">Videos</p> -->
             </div>
-            <button class="card-button">More info</button>
+            <button class="card-button">Ir a...</button>
           </div>
 
           <!-- From Uiverse.io by gharsh11032000 -->
           <!-- From Uiverse.io by alexruix -->
           <div class="card">
             <div class="card-details">
-              <p class="text-title">Card title</p>
-              <p class="text-body">Here are the details of the card</p>
+              <p class="text-title">Donaciones</p>
+              <!-- <p class="text-body">Contribuye a más sonrisas</p> -->
             </div>
-            <button class="card-button">More info</button>
+            <button class="card-button">Ir a...</button>
           </div>
         </div>
       </section>
 
-      <section class="container">
+      <section class="container" id="history">
         <h2>Historia</h2>
 
         <div class="history">
           <p class="parraf">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            En la comunidad de San Miguelito, a los 05 días del mes de mayo del
+            año 2025, nos reunimos las abajo firmantes con el fin de constituir
+            formalmente el Grupo Comunitario de Mujeres Voluntarias COMPARTIENDO
+            SONRISAS CON FE Y ESPERANZA, con el objetivo de apoyar a las
+            familias de nuestra comunidad en situación de necesidad, mediante
+            actividades solidarias, recolecta de alimentos y otros programas de
+            beneficio social.
           </p>
+        </div>
+
+        <div class="mision-vision">
+          <article class="mision">
+            <h3>Misión</h3>
+            <p class="parraf">
+              Brindar apoyo solidario a familias en situación de vulnerabilidad
+              en la comunidad de San Miguelito, mediante actividades sociales,
+              recolección de alimentos y acompañamiento emocional y espiritual,
+              promoviendo la solidaridad y el bienestar comunitario.
+            </p>
+          </article>
+
+          <article class="vision">
+            <h3>Visión</h3>
+            <p class="parraf">
+              Ser un grupo comunitario reconocido por su compromiso y labor
+              social, que contribuya a mejorar la calidad de vida de las
+              familias necesitadas, fomentando una comunidad más unida,
+              solidaria y llena de fe y esperanza.
+            </p>
+          </article>
         </div>
       </section>
 
-      <section class="container">
+      <section class="container" id="program">
         <h2>Programas</h2>
         <p class="parraf">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          Podrán ser integrantes todas las personas mayores de edad que deseen
+          participar voluntariamente y cumplan con las normas del grupo.
         </p>
+        <ul class="program-list">
+          <li>Ofrecer asistencia directa a familias.</li>
+          <li>Promover la solidaridad comunitaria.</li>
+          <li>Ofrecer apoyo emocional y espiritual.</li>
+        </ul>
+
+        <div class="images-content">
+          <picture
+            ><img
+              src="/img/fundation/644963196_122123658255082145_7861592502207344555_n_.jpg"
+          /></picture>
+
+          <picture
+            ><img
+              src="/img/fundation/645302926_122123658573082145_7812428749982802116_n_.jpg"
+          /></picture>
+
+          <picture
+            ><img
+              src="/img/fundation/646377186_122123658339082145_8781551563745798074_n_.jpg"
+          /></picture>
+
+          <picture
+            ><img
+              src="/img/fundation/646407219_122123658513082145_2299101496271544037_n_.jpg"
+          /></picture>
+
+          <picture
+            ><img
+              src="/img/fundation/646454457_122123658471082145_5059191120632262630_n_.jpg"
+          /></picture>
+
+          <picture
+            ><img
+              src="/img/fundation/646468067_122123658381082145_4855597248081070575_n_.jpg"
+          /></picture>
+
+          <picture
+            ><img
+              src="/img/fundation/646716339_122123658297082145_1618010219896545606_n_.jpg"
+          /></picture>
+        </div>
       </section>
     </main>
     <footer>
@@ -161,7 +231,9 @@
       <div class="footer-rights">
         <p>
           Copyright © <span class="date"></span>
-          <a href="#" target="_blank"> Fundación </a>
+          <a href="#" target="_blank">
+            COMPARTIENDO SONRISAS CON FE Y ESPERANZA
+          </a>
         </p>
       </div>
     </footer>

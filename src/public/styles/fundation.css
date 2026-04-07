@@ -1,16 +1,19 @@
 :root {
   /*--color: #E1E1E1;*/
   /*--sub-color: hsla(0, 10%, 10%, 0.4);*/
-  --parraf: hsl(0, 0%, 60%);
-  --color: #b6e693;
-  --sub-color: #9be69b;
-  --transparent-color: #b6e69399;
-  --transparent-sub-color: #9be69b99;
+  --parraf: hsl(0, 0%, 40%);
+  /*--color: #B6E693;
+  --sub-color: #9BE69B;
+  --transparent-color: #B6E69399;
+  --transparent-sub-color: #9BE69B99;*/
   /*--color: #4e69e6;
   --sub-color: #9ba8e6;
   --transparent-color: #4e69e699;
-  --transparent-sub-color: #9ba8e699;
-*/
+  --transparent-sub-color: #9ba8e699;*/
+  --color: #f0120c;
+  --sub-color: #f08e54;
+  --transparent-color: #f0120c59;
+  --transparent-sub-color: #f08e5459;
 }
 
 * {
@@ -22,6 +25,7 @@
 body {
   font-family: "Roboto", system-ui, sans-serif;
   /*background-color: black;*/
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -34,16 +38,21 @@ h2 {
   margin-bottom: 15px;
 }
 
+h3 {
+  text-align: center;
+}
+
 p {
   max-width: 75ch;
-  width: auto;
+  width: fit-content;
   margin: 0 auto;
   margin-block: 1lh;
   /*text-align: justify;*/
-  text-wrap: balance;
+  /*text-wrap: balance;*/
   hyphenate-limit-chars: 7;
   hyphens: auto;
   line-height: 1.4;
+  padding: 20px;
   /*border: 1px solid;*/
 }
 
@@ -95,11 +104,30 @@ button {
   border-radius: 10px;
   cursor: pointer;
   &:hover {
-    background-color: var(--parraf);
+    background: var(--parraf);
   }
   &:active {
     scale: 0.92;
   }
+}
+
+.btn-menu {
+  background: url("/svg/menu.svg") center center / cover no-repeat;
+  width: 32px;
+  height: 32px;
+  /*color: white;*/
+  transition: background 0.4s ease-in;
+
+  &:hover {
+    background: #5f5f5f99;
+    /*color: #1b1b1b;*/
+  }
+}
+
+.logo {
+  background: url("/img/fundation/logo.jpg") center / contain no-repeat;
+  width: 60px;
+  height: 60px;
 }
 
 .navbar {
@@ -107,28 +135,23 @@ button {
   justify-content: space-between;
   font-size: 0.8rem;
   align-items: center;
-  /* .logo span { */
-  /*display: grid;
-    place-content: center;
-    align-items: center;*/
-  /* } */
-  .collapse {
-    .nav-bar {
-      display: flex;
-      justify-self: flex-end;
-      list-style: none;
+}
 
-      .nav-item {
-        padding: 7px 15px;
-      }
-    }
+.nav-bar {
+  display: flex;
+  justify-self: flex-end;
+  list-style: none;
+
+  .nav-item {
+    padding: 7px 15px;
   }
 }
 
 /* From Uiverse.io by kennyotsu-monochromia */
 .container {
   width: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
+  padding: 30px 0;
   /*background-color: #F3F3F3;*/
   /*background: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),*/
   /*linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);*/
@@ -160,23 +183,25 @@ button {
   align-self: center;
   border: 1px solid;
   margin: auto;*/
-  picture {
+  video {
+    flex: 0.3;
     /*border: 1px solid;*/
-    width: 500px;
+    width: 100%;
     height: 250px;
     img {
       display: block;
-      width: 100%;
+      width: 10%;
       height: 100%;
       object-fit: cover;
       border-radius: 45% 10% 45% 10%;
     }
-    animation: fadein-left-to-right 4s forwards;
+    /*animation: fadein-left-to-right 4s forwards;*/
   }
 }
 
 .title {
   display: flex;
+  flex: 0.7;
   flex-direction: column;
   min-width: 350px;
   max-width: 450px;
@@ -191,8 +216,9 @@ button {
 
   p {
     color: var(--parraf);
+    margin: 0;
   }
-  animation: fadein-right-to-left 4s forwards;
+  /*animation: fadein-right-to-left 4s forwards;*/
 }
 
 /* From Uiverse.io by vinodjangid07 */
@@ -289,7 +315,7 @@ button {
 /* From Uiverse.io by alexruix */
 .card {
   width: 190px;
-  height: 254px;
+  height: 154px;
   border-radius: 20px;
   background: #f5f5f5;
   position: relative;
@@ -346,22 +372,143 @@ button {
   opacity: 1;
 }
 
+.history {
+  padding: 0 20px;
+}
+
+.mision-vision {
+  display: flex;
+  margin: 40px auto;
+  /*border: 1px solid;*/
+  /*article {*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  justify-content: center;
+  /*margin: 0 auto;*/
+  p {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    padding: 0 20px;
+    width: 80%;
+    /*border:1px solid;*/
+    /*padding-left: auto;*/
+    /*text-align: center;*/
+  }
+  /*}*/
+}
+
+.program-list {
+  color: var(--parraf);
+  margin: 0 auto;
+  justify-self: center;
+  text-align: center;
+  list-style: upper-latin;
+}
+
+.images-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+
+  picture {
+    width: 250px;
+    height: 250px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
 .footer-rights {
   display: flex;
   text-align: center;
   color: #fafafa;
-  background-color: #2b2b2b;
+  background-color: var(--parraf);
   height: 100px;
   align-items: flex-end;
-
+  text-transform: lowercase;
   a {
     color: inherit;
   }
 }
 
+.btn-menu {
+  display: none;
+}
+
 @media (width <= 768px) {
+  .btn-menu {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 6000;
+    background-color: var(--parraf);
+  }
+
   .first-content {
     /*display: flex;*/
     flex-direction: column;
+  }
+
+  .first-content video {
+    flex: none;
+    /*width: 100vh;*/
+    height: 500px;
+  }
+
+  .card-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card {
+    margin: 0 auto;
+  }
+
+  .mision-vision {
+    flex-direction: column;
+  }
+
+  .nav-bar {
+    /*display: grid;
+    flex-direction: column;
+    place-content: center;*/
+    display: none;
+    flex-direction: column;
+    text-align: right;
+    position: fixed;
+    z-index: 6000;
+    width: 100vw;
+    height: 100vh;
+    top: 10%;
+    left: 0;
+    background-color: #fafafaea;
+    place-content: center;
+    padding: 0 20px 0 0;
+  }
+
+  .nav-item {
+    border-bottom: 2px solid transparent;
+    margin-bottom: 20px;
+    /*padding: 30px 0;*/
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      border-bottom: 2px solid #2b2b2b;
+      /*padding-bottom: 4px;  */
+      /*display: inline-block;  */
+      /*text-decoration-thickness: 2px; */
+      /*text-underline-offset: 4px; */
+    }
+  }
+
+  .show {
+    display: flex;
   }
 }

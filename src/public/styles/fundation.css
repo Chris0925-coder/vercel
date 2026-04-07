@@ -125,7 +125,7 @@ button {
 }
 
 .logo {
-  background: url("/img/logo.jpg") center / contain no-repeat;
+  background: url("/img/fundation/logo.jpg") center / contain no-repeat;
   width: 60px;
   height: 60px;
 }
@@ -321,7 +321,7 @@ button {
   gap: 1em;
   justify-content: center;
   margin: 40px auto;
-  transform: translateY(21px);
+  transform: translateY(31px);
 }
 
 /* From Uiverse.io by alexruix */

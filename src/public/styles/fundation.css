@@ -12,7 +12,7 @@
   --transparent-sub-color: #9ba8e699;*/
   --color: #f0120c;
   --sub-color: #f08e54;
-  --transparent-color: #f0120c59;
+  --transparent-color: #f0120c99;
   --transparent-sub-color: #f08e5459;
 }
 
@@ -125,7 +125,7 @@ button {
 }
 
 .logo {
-  background: url("/img/fundation/logo.jpg") center / contain no-repeat;
+  background: url("/img/logo.jpg") center / contain no-repeat;
   width: 60px;
   height: 60px;
 }
@@ -147,10 +147,19 @@ button {
   }
 }
 
+#main {
+  height: 450px;
+}
+
+#history {
+  padding-top: 150px;
+}
+
 /* From Uiverse.io by kennyotsu-monochromia */
 .container {
   width: 100%;
-  min-height: 100dvh;
+  /*min-height: 100dvh;*/
+  height: auto;
   padding: 30px 0;
   /*background-color: #F3F3F3;*/
   /*background: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),*/
@@ -183,19 +192,21 @@ button {
   align-self: center;
   border: 1px solid;
   margin: auto;*/
-  video {
+  picture {
     flex: 0.3;
     /*border: 1px solid;*/
     width: 100%;
     height: 250px;
     img {
       display: block;
-      width: 10%;
+      width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-radius: 45% 10% 45% 10%;
+      object-fit: contain;
+      /*border-radius: 10px;*/
+      /*border-radius: 45% 10% 45% 10%;*/
+      border-radius: 10% 25%;
     }
-    /*animation: fadein-left-to-right 4s forwards;*/
+    animation: fadein-left-to-right 4s forwards;
   }
 }
 
@@ -218,7 +229,7 @@ button {
     color: var(--parraf);
     margin: 0;
   }
-  /*animation: fadein-right-to-left 4s forwards;*/
+  animation: fadein-right-to-left 4s forwards;
 }
 
 /* From Uiverse.io by vinodjangid07 */
@@ -310,6 +321,7 @@ button {
   gap: 1em;
   justify-content: center;
   margin: 40px auto;
+  transform: translateY(21px);
 }
 
 /* From Uiverse.io by alexruix */
@@ -322,7 +334,7 @@ button {
   padding: 1.8rem;
   border: 2px solid var(--sub-color);
   transition: 0.5s ease-out;
-  overflow: visible;
+  /*overflow: visible;*/
 }
 
 .card-details {
@@ -442,6 +454,11 @@ button {
 }
 
 @media (width <= 768px) {
+  .container {
+    /*width: 100%;*/
+    min-height: 100dvh;
+  }
+
   .btn-menu {
     display: block;
     position: fixed;
@@ -454,16 +471,26 @@ button {
   .first-content {
     /*display: flex;*/
     flex-direction: column;
+    overflow: hidden;
+    width: auto;
+    height: auto;
   }
 
-  .first-content video {
+  .first-content picture {
     flex: none;
-    /*width: 100vh;*/
-    height: 500px;
+    width: 100vh;
+    max-height: 300px;
+    border: 1px solids;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .card-container {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
   }
 

@@ -111,14 +111,6 @@ button {
   }
 }
 
-.btn-menu {
-  background: url("/svg/menu.svg") center center / cover no-repeat;
-  width: 32px;
-  height: 32px;
-  /*color: white;*/
-  transition: background 0.4s ease-in;
-}
-
 .logo {
   background: url("/img/fundation/logo.jpg") center / contain no-repeat;
   width: 60px;
@@ -148,7 +140,7 @@ button {
 }
 
 #history {
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 /* From Uiverse.io by kennyotsu-monochromia */
@@ -273,8 +265,8 @@ button {
 
 /* for all social containers*/
 .socialContainer {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   background-color: rgb(44, 44, 44);
   display: flex;
   align-items: center;
@@ -498,7 +490,7 @@ button {
 
   #main {
     /*height: 300px;*/
-    min-height: 550px;
+    min-height: 450px;
     /*place-content: top;*/
   }
 
@@ -513,6 +505,13 @@ button {
   .title-mobile {
     display: block;
     margin-bottom: 0;
+
+    font-size: 26px;
+
+    span {
+      margin-top: 10px;
+      display: block;
+    }
   }
 
   .btn-menu {
@@ -522,6 +521,10 @@ button {
     right: 10px;
     z-index: 6000;
     /*background-color: var(--parraf);*/
+    background: url("/svg/menu.svg") center center / contain no-repeat;
+    width: 32px;
+    height: 32px;
+    transition: background 0.4s ease-in;
     &:hover {
       background: none;
     }
@@ -539,7 +542,8 @@ button {
   .first-content picture {
     flex: none;
     width: 100%;
-    max-height: 500px;
+    /*max-height: 500px;*/
+    height: 200px;
     /*border: 1px solids;*/
     img {
       display: block;

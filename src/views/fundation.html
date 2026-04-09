@@ -3,18 +3,107 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fundación</title>
+    <title>COMPARTIENDO SONRISAS CON FE Y ESPERANZA</title>
 
-    <link rel="stylesheet" type="text/css" href="/styles/fundation.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/fundation/nav.css" />
+
+    <link rel="stylesheet" type="text/css" href="/styles/fundation/main.css" />
+
+    <!-- <script
+      type="text/javascript"
+      src="public/scripts/cookies.js"
+      defer
+    ></script> -->
+
+    <!-- <script type="text/javascript" src="public/scripts/views.js" defer></script> -->
 
     <script type="text/javascript" src="/scripts/fundation.js" defer></script>
 
+    <!-- <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/favicons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/favicons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/favicons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/favicons/apple-icon-76x76.png"
+    />
     <link
       rel="icon"
-      type="image/jpg"
-      sizes="any"
-      href="/img/fundation/logo.jpg"
+      type="image/png"
+      href="/favicons/favicon-96x96.png"
+      sizes="96x96"
     />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/favicons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/favicons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/favicons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/favicons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/favicons/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/favicons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-title" content="Compartiendo Sonrisas" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="/favicons/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" /> -->
   </head>
   <body>
     <header>
@@ -35,10 +124,15 @@
               <a class="nav-link" href="#program"> Programas </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"> Blog </a>
+              <a class="nav-link" href="./pages/video.html"> Videos </a>
             </li>
+            <!-- <li class="nav-item">
+						<a class="nav-link" href="#"> Videos </a>
+					</li> -->
             <li class="nav-item">
-              <a class="nav-link" href="#"> Contacto </a>
+              <a class="nav-link" href="./pages/contacto.html#form">
+                Contacto
+              </a>
             </li>
 
             <!-- <li class="nav-item showFQs"><a class="nav-link" href="#frequences"> Preguntas Frecuentes </a></li> -->
@@ -46,38 +140,33 @@
         </div>
         <button class="btn-menu" title="menu"></button>
       </nav>
+
+      <div class="first-content">
+        <h1 class="title-mobile">
+          COMPARTIENDO SONRISAS
+          <span>CON FE Y ESPERANZA</span>
+        </h1>
+        <picture>
+          <img src="/img/fundation/main.png" alt="#" />
+        </picture>
+        <!-- <video autoplay>
+				<source src="./public/video/main.mp4" type="video/mp4">
+			</video> -->
+
+        <div class="title">
+          <h1>
+            COMPARTIENDO SONRISAS
+            <span>CON FE Y ESPERANZA</span>
+          </h1>
+          <p>
+            Nuestro objetivo es apoyar a las familias en situación de necesidad
+            en la comunidad.
+          </p>
+        </div>
+      </div>
     </header>
     <main>
-      <section class="container" id="main">
-        <div class="first-content">
-          <h1 class="title-mobile">
-            COMPARTIENDO SONRISAS
-            <!-- <span>CON FE Y ESPERANZA</span> -->
-          </h1>
-          <picture>
-            <img src="/img/fundation/main.png" alt="#" />
-          </picture>
-
-          <div class="title-mobile">
-            <span>CON FE Y ESPERANZA</span>
-          </div>
-
-          <!-- <video autoplay>
-					<source src="./public/video/main.mp4" type="video/mp4">
-				</video> -->
-
-          <div class="title">
-            <h1>
-              COMPARTIENDO SONRISAS
-              <span>CON FE Y ESPERANZA</span>
-            </h1>
-            <p>
-              Nuestro objetivo es apoyar a las familias en situación de
-              necesidad en la comunidad.
-            </p>
-          </div>
-        </div>
-
+      <section id="main">
         <div class="card-container">
           <!-- From Uiverse.io by gharsh11032000 -->
           <!-- From Uiverse.io by alexruix -->
@@ -86,7 +175,9 @@
               <p class="text-title">Escribenos</p>
               <!-- <p class="text-body">Formulario</p> -->
             </div>
-            <button class="card-button">Ir a...</button>
+            <button class="card-button">
+              <a href="./pages/contacto.html#form">Ir a...</a>
+            </button>
           </div>
 
           <!-- From Uiverse.io by gharsh11032000 -->
@@ -96,7 +187,9 @@
               <p class="text-title">Videos</p>
               <!-- <p class="text-body">Videos</p> -->
             </div>
-            <button class="card-button">Ir a...</button>
+            <button class="card-button">
+              <a href="./pages/video.html">Ir a...</a>
+            </button>
           </div>
 
           <!-- From Uiverse.io by gharsh11032000 -->
@@ -113,23 +206,20 @@
 
       <section class="container" id="history">
         <h2>Sobre nosotros</h2>
-        <!-- <div class="history">
-				<p class="parraf">En la comunidad de San Miguelito, a los 05 días del mes de mayo del año 2025, nos reunimos las abajo firmantes con el fin de constituir formalmente el Grupo Comunitario de Mujeres Voluntarias COMPARTIENDO SONRISAS CON FE Y ESPERANZA, con el objetivo de apoyar a las familias de nuestra comunidad en situación de necesidad, mediante actividades solidarias, recolecta de alimentos y otros programas de beneficio social.</p>
-			</div> -->
-
         <div class="mision-vision">
           <article class="mision">
             <h3>Historia</h3>
             <p class="parraf">
               En la comunidad de San Miguelito, a los 05 días del mes de mayo
-              del año 2025, nos reunimos las abajo firmantes con el fin de
-              constituir formalmente el Grupo Comunitario de Mujeres Voluntarias
-              COMPARTIENDO SONRISAS CON FE Y ESPERANZA, con el objetivo de
-              apoyar a las familias de nuestra comunidad en situación de
-              necesidad, mediante actividades solidarias, recolecta de alimentos
-              y otros programas de beneficio social.
+              del año 2025, nos reunimos con el fin de constituir formalmente el
+              Grupo Comunitario de Mujeres Voluntarias COMPARTIENDO SONRISAS CON
+              FE Y ESPERANZA, con el objetivo de apoyar a las familias de
+              nuestra comunidad en situación de necesidad, mediante actividades
+              solidarias, recolecta de alimentos y otros programas de beneficio
+              social.
             </p>
           </article>
+
           <article class="mision">
             <h3>Misión</h3>
             <p class="parraf">

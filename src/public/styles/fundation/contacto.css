@@ -1,0 +1,22 @@
+main {
+  margin: 30px auto;
+}
+
+input,
+textarea {
+  border: none;
+}
+
+.card-body {
+  display: grid;
+  background: var(--transparent-sub-color);
+  min-width: 300px;
+  margin: 0 auto;
+  place-content: center;
+  border-radius: 20px;
+  padding: 20px 5px;
+}
+
+#form {
+  margin: 0 auto;
+}

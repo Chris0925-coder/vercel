@@ -7,17 +7,61 @@
   padding-top: 70px;
 }
 
-.text-body {
-  /*color: rgb(134, 134, 134);*/
-  color: var(--parraf);
+.card-container {
+  display: flex;
+  position: absolute;
+  gap: 1em;
+  justify-content: center;
+  margin: 10px auto;
+  width: 100vw;
+  /*bottom: 0;*/
+  /*left: 0;*/
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*transform: translateY(111px);*/
 }
 
-/*Text*/
-/*.text-title {*/
-/*font-size: 1.5em;*/
-/*font-weight: bold;*/
-/*}*/
+/* From Uiverse.io by alexruix */
+.card {
+  width: 120px;
+  height: 44px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  position: relative;
+  padding: 0.5rem 1.3rem;
+  border: 2px solid var(--sub-color);
+  transition: 0.5s ease-out;
+  /*overflow: visible;*/
+}
 
+.card-details {
+  color: black;
+  height: 100%;
+  gap: 0.5em;
+  display: grid;
+  place-content: center;
+}
+
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  /*background-color: #008bf8;*/
+  background-color: var(--sub-color);
+  color: #fff;
+  /*font-size: 1rem;*/
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  a {
+    color: inherit;
+  }
+}
 /*Hover*/
 .card:hover {
   border-color: var(--sub-color);
@@ -29,13 +73,15 @@
   opacity: 1;
 }
 
+/*Text*/
+.text-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 .mision-vision {
   display: flex;
   margin: 40px auto;
-  /*border: 1px solid;*/
-  /*article {*/
-  /*display: flex;*/
-  /*flex-direction: column;*/
   justify-content: center;
   align-items: baseline;
 

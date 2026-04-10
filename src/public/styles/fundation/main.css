@@ -13,7 +13,7 @@
   gap: 1em;
   justify-content: center;
   margin: 10px auto;
-  width: 100vw;
+  width: 100%;
   /*bottom: 0;*/
   /*left: 0;*/
   top: 100%;
@@ -130,16 +130,17 @@
   align-items: center;
   margin: 0 auto;
   min-height: fit-content;
+  width: 100%;
   height: auto;
   overflow: hidden;
-  margin: 0 10px;
+  /*margin: 0 10px;*/
   /*text-align: center;*/
   /*text-wrap: block;*/
 }
 
 .program-text {
   /*display: flex;*/
-  flex: 0.4;
+  flex: 0.6;
   p {
     padding: 0;
     padding-left: 10px;
@@ -149,12 +150,12 @@
 .program-list {
   color: var(--parraf);
   /*margin: 0 auto;*/
-  /*justify-self: center;*/
+  justify-self: center;
   /*text-align: center;*/
   list-style: upper-latin;
   /*padding: 0 10px;*/
   padding-left: 20px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .images-content {
@@ -162,7 +163,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5em;
-  flex: 0.6;
+  flex: 0.4;
   /*padding: 1em;*/
 
   picture {

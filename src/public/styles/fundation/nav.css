@@ -26,6 +26,7 @@ body {
   font-family: "Roboto", system-ui, sans-serif;
   /*background-color: black;*/
   scroll-behavior: smooth;
+  /*place-content: center;*/
 }
 
 h1 {
@@ -88,7 +89,8 @@ a {
 }
 
 nav,
-section {
+section,
+header {
   padding: 0 30px;
   max-width: 1800px;
   margin: 0 auto;
@@ -112,6 +114,7 @@ button {
 }
 
 .logo {
+  /* background: url("../img/logo.jpg") center / contain no-repeat; */
   background: url("/img/fundation/logo.jpg") center / contain no-repeat;
   width: 60px;
   height: 60px;
@@ -424,6 +427,7 @@ button {
   .btn-menu {
     display: block;
     position: fixed;
+    /* background: url('../svg/menu.svg') center center / contain no-repeat; */
     background: url("/svg/menu.svg") center center / contain no-repeat;
     border: none;
     cursor: pointer;

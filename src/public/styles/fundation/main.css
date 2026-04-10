@@ -197,4 +197,24 @@
   .mision-vision {
     flex-direction: column;
   }
+
+  .images-content {
+    /* display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  flex: 0.4; */
+    /*padding: 1em;*/
+
+    picture {
+      width: 90px;
+      height: 90px;
+
+      /* img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      } */
+    }
+  }
 }

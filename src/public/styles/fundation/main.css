@@ -73,6 +73,11 @@
   opacity: 1;
 }
 
+/*.text-body {*/
+/*color: rgb(134, 134, 134);*/
+/*color: var(--parraf);*/
+/*}*/
+
 /*Text*/
 .text-title {
   font-size: 0.8rem;
@@ -82,6 +87,10 @@
 .mision-vision {
   display: flex;
   margin: 40px auto;
+  /*border: 1px solid;*/
+  /*article {*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
   justify-content: center;
   align-items: baseline;
 
@@ -116,24 +125,49 @@
   /*}*/
 }
 
+#program {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  min-height: fit-content;
+  height: auto;
+  overflow: hidden;
+  margin: 0 10px;
+  /*text-align: center;*/
+  /*text-wrap: block;*/
+}
+
+.program-text {
+  /*display: flex;*/
+  flex: 0.4;
+  p {
+    padding: 0;
+    padding-left: 10px;
+  }
+}
+
 .program-list {
   color: var(--parraf);
-  margin: 0 auto;
-  justify-self: center;
-  text-align: center;
+  /*margin: 0 auto;*/
+  /*justify-self: center;*/
+  /*text-align: center;*/
   list-style: upper-latin;
+  /*padding: 0 10px;*/
+  padding-left: 20px;
+  margin: 0;
 }
 
 .images-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1em;
-  padding: 1em;
+  gap: 0.5em;
+  flex: 0.6;
+  /*padding: 1em;*/
 
   picture {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
 
     img {
       display: block;

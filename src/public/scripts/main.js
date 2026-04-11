@@ -1,6 +1,8 @@
+console.log();
+
 async function messages() {
   const url = await fetch("/submit").then((msg) => msg.json());
-  console.log(url);
+  console.log(message);
 
   let messages = document.querySelector("#messages");
   let item = messages.querySelector("item:nth-child(2)");

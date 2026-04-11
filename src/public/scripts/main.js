@@ -1,6 +1,6 @@
 async function messages() {
   const url = await fetch("/submit").then((msg) => msg.json());
-  // console.log(url);
+  console.log(url);
 
   let messages = document.querySelector("#messages");
   let item = messages.querySelector("item:nth-child(2)");
@@ -53,7 +53,7 @@ function delBTN(a) {
     })
       .then((response) => response.text())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         // window.location.href = "https://soporte-tecnico.pages.dev/";
         window.location.reload();
       })

@@ -82,30 +82,15 @@ async function login() {
         password: formData.get("password"),
       }),
     })
-      .then((response) => {
-        console.log(response);
-        if (
-          response.message == "Invalid token" ||
-          response.message == "No token, autorization denied"
-        ) {
-          removeCookie("token");
-          return window.location.replace("/");
-        }
-        // response.json();
-        message.style.color = "#990000";
-        message.innerText = response.message;
-      })
+      .then((response) => response.json())
       .catch((error) => {
         console.error("Error:", error);
         message.style.color = "#990000";
         message.innerText = error;
       });
 
-    console.log(result);
-
     if (!result.error) {
-      console.log(result);
-
+      removeCookie("token");
       setCookie("token", result, 7);
       window.location.replace("/home");
     } else {

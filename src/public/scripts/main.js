@@ -1,5 +1,3 @@
-console.log(message);
-
 async function messages() {
   const url = await fetch("/submit").then((msg) => msg.json());
 

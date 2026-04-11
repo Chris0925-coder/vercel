@@ -90,7 +90,11 @@ async function login() {
       });
 
     if (!result.error) {
-      if (result.message == "Invalid token") {
+      console.log(result.message);
+      if (
+        result.message == "Invalid token" ||
+        result.message == "No token, autorization denied"
+      ) {
         removeCookie("token");
         return window.location.replace("/");
       }

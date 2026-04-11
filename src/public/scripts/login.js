@@ -90,7 +90,12 @@ async function login() {
       });
 
     if (!result.error) {
-      setCookie("token", result, 365);
+      if (result.message == "Invalid token") {
+        removeCookie("token");
+        return window.location.replace("/");
+      }
+
+      setCookie("token", result, 7);
       window.location.replace("/home");
     } else {
       message.style.color = "#990000";

@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 // process.loadEnvFile();
-// const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
+const clientOptions = {
+  serverApi: { version: "1", strict: true, deprecationErrors: true },
+};
 // const mongoAtlas=[];
 // const passwordDB = [];
 // const mongoAtlas = `mongodb+srv://chris30:`+encodeURIComponent(passwordDB)+`@cluster0.jkdgz4b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
@@ -10,10 +12,11 @@ const mongoDBLocal = process.env.DB_URI;
 // || process.env.DB_URI
 export const dbConnect = async () => {
   try {
-    await mongoose.connect(mongoDBLocal);
-    // await mongoose.connection.db.admin().command({ ping: 1 });
+    await mongoose.connect(mongoDBLocal, clientOptions);
+    await mongoose.connection.db.admin().command({ ping: 1 });
     console.log("MongoDB is connected");
-  } catch (error) {
-    console.log(error);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await mongoose.disconnect();
   }
 };

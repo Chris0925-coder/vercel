@@ -12,7 +12,7 @@ import crcv from "./src/routes/crcv.js";
 import webs from "./src/routes/webs.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { dbConnect, closeConnection } from "./config/mongo.js";
+import { dbConnect } from "./config/mongo.js";
 import { config } from "./src/config.js";
 import { findAvailablePort } from "./src/utils/desiredPort.js";
 
@@ -81,5 +81,3 @@ app.listen(port, () => {
 });
 
 dbConnect();
-
-closeConnection();

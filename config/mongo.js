@@ -21,10 +21,12 @@ export const dbConnect = async () => {
 };
 
 export const closeConnection = async () => {
-  try {
-    await mongoose.disconnect();
-    console.log("🔒 Conexión a la base de datos cerrada correctamente");
-  } catch (err) {
-    console.error("❌ Error al cerrar la conexión:", err.message);
+  if (dbConnect) {
+    try {
+      await mongoose.disconnect();
+      console.log("🔒 Conexión a la base de datos cerrada correctamente");
+    } catch (err) {
+      console.error("❌ Error al cerrar la conexión:", err.message);
+    }
   }
 };

@@ -20,11 +20,11 @@ function getCookie(cname) {
       return c.substring(name.length, c.length);
     }
   }
-  return "";
+  return " ";
 }
 
 function removeCookie(cname) {
-  getCookie(cname, "", -1);
+  getCookie(cname, " ", -1);
 }
 
 function detectCookie(cname) {
@@ -88,9 +88,8 @@ async function login() {
         message.style.color = "#990000";
         message.innerText = error;
       });
-
+    if (getCookie("token")) removeCookie("token");
     if (!result.error) {
-      removeCookie("token");
       setCookie("token", result, 7);
       window.location.replace("/home");
     } else {

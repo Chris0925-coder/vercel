@@ -18,5 +18,5 @@ export const dbConnect = async () => {
   } catch (error) {
     console.log(error);
   }
-  await mongoose.disconnect();
+  // await mongoose.disconnect();
 };

@@ -65,11 +65,10 @@ app.use("/upload", articles);
 app.use("/crcv", crcv);
 // app.use("/webs", webs);
 app.use((req, res) => {
-  res
-    .status(404)
-    .send(
-      `<div style="display:grid;palce-content:center;"><img src="img/logo.png" width=150 height=150 alt="logo" /><h1>404</h1></div>`,
-    );
+  res.status(404).send(
+    `<div style="display:grid;place-content:center; height: 100%;
+    text-align: center;"><img src="img/logo.png" width=150 height=150 alt="logo" /><h1>404</h1><p>File not found, or it has been deleted</p></div>`,
+  );
 });
 
 // app.use((err, req, res, next) => {

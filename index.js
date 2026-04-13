@@ -65,7 +65,11 @@ app.use("/upload", articles);
 app.use("/crcv", crcv);
 // app.use("/webs", webs);
 app.use((req, res) => {
-  res.status(404).send(`<h1>404</h1>`);
+  res
+    .status(404)
+    .send(
+      `<div><img src="favicon.ico" width=200 height=200 alt="favicon"><h1>404</h1></div>`,
+    );
 });
 
 // app.use((err, req, res, next) => {

@@ -66,8 +66,12 @@ app.use("/crcv", crcv);
 // app.use("/webs", webs);
 app.use((req, res) => {
   res.status(404).send(
-    `<div style="display:grid;place-content:center; height: 100%;
-    text-align: center;"><img src="img/logo.png" width=150 height=150 alt="logo" /><h1>404</h1><p>File not found, or it has been deleted</p></div>`,
+    `<div style=" display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;"><img src="img/logo.png" width=150 height=150 alt="logo" /><h1>404</h1><p>File not found, or it has been deleted</p></div>`,
   );
 });
 

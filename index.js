@@ -68,7 +68,7 @@ app.use((req, res) => {
   res
     .status(404)
     .send(
-      `<div><img src="favicon.ico" width=200 height=200 alt="favicon"><h1>404</h1></div>`,
+      `<div style="display:grid;palce-content:center;"><img src="img/logo.png" width=150 height=150 alt="logo" /><h1>404</h1></div>`,
     );
 });
 

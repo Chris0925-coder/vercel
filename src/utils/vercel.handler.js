@@ -41,7 +41,7 @@ export async function PUT(req, res, next) {
   }
 }
 
-export async function PUT_SALES(req, res, next) {
+export async function PUT_LMP(req, res, next) {
   const files = await req.file;
   // console.log(!files);
   if (!files) {
@@ -51,11 +51,15 @@ export async function PUT_SALES(req, res, next) {
     try {
       const fileContent = files.buffer;
 
-      const blob = await put(`sales/${files.originalname}`, fileContent, {
-        access: "public", // or "private" depending on your needs
-        token: process.env.BLOB_READ_WRITE_TOKEN, // Ensure this token is set in your environment variables
-        allowOverwrite: true,
-      });
+      const blob = await put(
+        `lovingmypets/${files.originalname}`,
+        fileContent,
+        {
+          access: "public", // or "private" depending on your needs
+          token: process.env.BLOB_READ_WRITE_TOKEN, // Ensure this token is set in your environment variables
+          allowOverwrite: true,
+        },
+      );
       // console.log("File uploaded successfully:", blob.url);
       // return Response.json(blob);
       // Returns the public URL of the uploaded file

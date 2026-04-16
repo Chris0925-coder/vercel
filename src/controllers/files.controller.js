@@ -61,7 +61,7 @@ controller.showArticles = async (req, res) => {
 
 controller.articles = async (req, res) => {
   let files = req.file;
-  let { title, paragraph, link } = req.body;
+  let { title, paragraph, link, origin } = req.body;
   let dest = files.originalname;
   try {
     let data = await db.execute({
@@ -70,8 +70,8 @@ controller.articles = async (req, res) => {
     });
 
     let query =
-      "INSERT INTO articles (title,paragraph,images,link) VALUES (?,?,?,?)";
-    let params = [title, paragraph, dest, link];
+      "INSERT INTO articles (title,paragraph,images,link, origin) VALUES (?,?,?,?,?)";
+    let params = [title, paragraph, dest, link, origin];
 
     await db.execute(query, params);
 

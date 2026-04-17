@@ -23,6 +23,7 @@ async function addArticle() {
   // console.log(btn.value);
   addBTN.addEventListener("click", async function (event) {
     event.preventDefault();
+    addBTN.disabled = true;
     // formData.append("filename", file)
     let formData = new FormData(addForm);
     // console.log(filename);

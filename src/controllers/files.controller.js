@@ -42,7 +42,7 @@ controller.homeArticles = async (req, res) => {
 
 controller.showArticles = async (req, res) => {
   const query =
-    "SELECT id,title,paragraph,images,link,origin FROM articles WHERE origin=chwebdev ORDER BY id DESC";
+    "SELECT id,title,paragraph,images,link,origin FROM articles WHERE origin = 'chwebdev' ORDER BY id DESC";
   try {
     let { rows } = await db.execute(query);
     // console.log(rows);

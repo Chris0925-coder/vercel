@@ -9,7 +9,7 @@ import { validateSchema } from "../middlewares/validator.js";
 import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import crcvControllers from "../controllers/admin.crcv.controller.js";
 import formControllers from "../controllers/form.crcv.controller.js";
-import storageController from "../controllers/files.controller.js";
+import storageController from "../controllers/lmp.files.controller.js";
 import { uploadMiddleware } from "../utils/handleStorage.js";
 
 import { PUT_LMP } from "../utils/vercel.handler.js";
@@ -19,7 +19,7 @@ import { PUT_LMP } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 
-// router.get("/", authRequired, storageController.homeArticles);
+router.get("/", authRequired, storageController.admin);
 
 router.post("/login", validateSchema(loginSchema), login);
 

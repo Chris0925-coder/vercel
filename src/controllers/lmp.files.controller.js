@@ -87,4 +87,50 @@ controller.articles = async (req, res) => {
   // });
 };
 
+controller.updateArticles = async (req, res) => {
+  let articlesData = req.body;
+  const userId = req.params.id;
+  let files = req.file;
+
+  let existData = await db.execute({
+    sql: "SELECT id,title,images,paragraph,link FROM articles WHERE id = ?",
+    args: [userId],
+  });
+
+  if (!files) {
+    files = existData.rows[0].images;
+  } else {
+    files = files.originalname;
+  }
+
+  if (!articlesData.title) articlesData.title = existData.rows[0].title;
+
+  if (!articlesData.paragraph)
+    articlesData.paragraph = existData.rows[0].paragraph;
+
+  if (!articlesData.link) articlesData.link = existData.rows[0].link;
+
+  let data = await db.execute({
+    sql: "SELECT id FROM articles",
+  });
+
+  const query =
+    "UPDATE articles SET title = ?, paragraph=?, images=?, link=? WHERE id = ?";
+  const params = [
+    articlesData.title,
+    articlesData.paragraph,
+    files,
+    articlesData.link,
+    userId,
+  ];
+
+  try {
+    await db.execute(query, params);
+    // res.render("articles.html", { title: "Home", tab: data.rows });
+    res.resStatus(200);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export default controller;

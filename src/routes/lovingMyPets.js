@@ -31,6 +31,13 @@ router.post(
   storageController.articles,
 );
 
+router.put(
+  "/:id",
+  uploadMiddleware.single("filename"),
+  PUT_LMP,
+  storageController.updateArticles,
+);
+
 // router.patch("/submit", authRequired, formControllers.showMSG);
 
 // router.post("/submit", formControllers.messages);

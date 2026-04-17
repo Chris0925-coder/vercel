@@ -60,4 +60,31 @@ controller.showArticles = async (req, res) => {
   }
 };
 
+controller.articles = async (req, res) => {
+  let files = req.file;
+  let { title, paragraph, link, origin } = req.body;
+  let dest = files.originalname;
+  try {
+    let data = await db.execute({
+      sql: "SELECT id FROM articles",
+      // args: [userId],
+    });
+
+    let query =
+      "INSERT INTO articles (title,paragraph,images,link, origin) VALUES (?,?,?,?,?)";
+    let params = [title, paragraph, dest, link, origin];
+
+    await db.execute(query, params);
+
+    res.status(200).json(data);
+
+    // alert("Uploaded article succesfully");
+    // res.render("articles.html", { title: "Home", tab: data.rows });
+  } catch (error) {
+    // res.json(error);
+    res.status(500).json({ message: error.message });
+  }
+  // });
+};
+
 export default controller;

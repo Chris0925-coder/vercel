@@ -24,7 +24,7 @@ const db = createClient({
 
 controller.homeArticles = async (req, res) => {
   const query =
-    "SELECT id,title,paragraph,images,link,origin WHERE origin='chwebdev' FROM articles";
+    "SELECT id,title,paragraph,images,link,origin FROM articles WHERE origin='chwebdev'";
   try {
     let { rows } = await db.execute(query);
     // console.log(rows);

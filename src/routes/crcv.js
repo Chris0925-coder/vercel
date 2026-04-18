@@ -21,12 +21,7 @@ const router = express.Router();
 
 router.get("/login", authRequired, crcvControllers.admin);
 
-router.post(
-  "/login",
-  validateSchema(loginSchema),
-  login,
-  crcvControllers.admin,
-);
+router.post("/login", validateSchema(loginSchema), login);
 
 router.patch("/submit", authRequired, formControllers.showMSG);
 

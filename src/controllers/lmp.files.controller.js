@@ -134,4 +134,19 @@ controller.updateArticles = async (req, res) => {
   }
 };
 
+controller.delete = async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+    let data = await db.execute({
+      sql: "DELETE FROM articles WHERE id = ?",
+      args: [userId],
+    });
+
+    res.status(204).json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export default controller;

@@ -38,6 +38,8 @@ router.put(
   storageController.updateArticles,
 );
 
+router.delete("/:id", storageController.delete);
+
 // router.patch("/submit", authRequired, formControllers.showMSG);
 
 // router.post("/submit", formControllers.messages);

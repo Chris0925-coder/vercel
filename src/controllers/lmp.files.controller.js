@@ -128,7 +128,7 @@ controller.updateArticles = async (req, res) => {
   try {
     await db.execute(query, params);
     // res.render("articles.html", { title: "Home", tab: data.rows });
-    res.resStatus(200);
+    res.sendStatus(201);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

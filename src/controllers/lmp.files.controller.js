@@ -110,9 +110,9 @@ controller.updateArticles = async (req, res) => {
 
   if (!articlesData.link) articlesData.link = existData.rows[0].link;
 
-  let data = await db.execute({
-    sql: "SELECT id FROM articles",
-  });
+  // let data = await db.execute({
+  //   sql: "SELECT id FROM articles",
+  // });
 
   const query =
     "UPDATE articles SET title = ?, paragraph=?, images=?, link=?, origin=? WHERE id = ?";

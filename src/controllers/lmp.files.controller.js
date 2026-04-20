@@ -90,10 +90,10 @@ controller.articles = async (req, res) => {
 controller.updateArticles = async (req, res) => {
   let articlesData = req.body;
   const userId = req.params.id;
-  let files = req.file;
+  let files = req.filename;
 
   let existData = await db.execute({
-    sql: "SELECT id,title,images,paragraph,link FROM articles WHERE id = ?",
+    sql: "SELECT id,title,images,paragraph,link,origin FROM articles WHERE id = ?",
     args: [userId],
   });
 
@@ -115,12 +115,13 @@ controller.updateArticles = async (req, res) => {
   });
 
   const query =
-    "UPDATE articles SET title = ?, paragraph=?, images=?, link=? WHERE id = ?";
+    "UPDATE articles SET title = ?, paragraph=?, images=?, link=?, origin=? WHERE id = ?";
   const params = [
     articlesData.title,
     articlesData.paragraph,
     files,
     articlesData.link,
+    articlesData.origin,
     userId,
   ];
 

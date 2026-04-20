@@ -1,4 +1,3 @@
-// const mongoose = require("mongoose");
 import mongoose from "mongoose";
 
 const UserScheme = new mongoose.Schema(
@@ -29,7 +28,7 @@ const UserScheme = new mongoose.Schema(
   {
     timestamps: true,
     versionKey: false,
-  }
+  },
 );
 
 export default mongoose.model("User", UserScheme);

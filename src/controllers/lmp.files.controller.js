@@ -46,15 +46,8 @@ controller.showArticles = async (req, res) => {
     "SELECT id,title,paragraph,images,link,origin FROM articles WHERE origin = 'lmp' ORDER BY id DESC";
   try {
     let { rows } = await db.execute(query);
-    // console.log(rows);
 
-    // res.json({
-    //   id: rows.id,
-    //   email: rows.email,
-    //   control: rows.control,
-    // });
     res.json(rows);
-    // res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -6,7 +6,7 @@ export const config = {
     cors: {
       server: [
         {
-          origin: "*, https://admin.lovingmypets.pro/", //servidor que deseas que consuma o (*) en caso que sea acceso libre 127.0.0.1
+          origin: "*", //servidor que deseas que consuma o (*) en caso que sea acceso libre 127.0.0.1
           credentials: true,
         },
       ],

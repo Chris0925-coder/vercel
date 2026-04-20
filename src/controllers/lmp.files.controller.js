@@ -90,7 +90,7 @@ controller.articles = async (req, res) => {
 controller.updateArticles = async (req, res) => {
   let articlesData = req.body;
   const userId = req.params.id;
-  let files = req.filename;
+  let files = req.file;
 
   let existData = await db.execute({
     sql: "SELECT id,title,images,paragraph,link,origin FROM articles WHERE id = ?",

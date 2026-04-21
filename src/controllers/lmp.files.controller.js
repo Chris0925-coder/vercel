@@ -71,7 +71,7 @@ controller.showArticle = async (req, res) => {
 
 controller.article = async (req, res) => {
   let files = req.file;
-  let { title, paragraph, link, origin } = req.body;
+  let { title, paragraph, link, origin, date } = req.body;
   let dest = files.originalname;
   try {
     let data = await db.execute({
@@ -80,8 +80,8 @@ controller.article = async (req, res) => {
     });
 
     let query =
-      "INSERT INTO articles (title,paragraph,images,link, origin) VALUES (?,?,?,?,?)";
-    let params = [title, paragraph, dest, link, origin];
+      "INSERT INTO articles (title, paragraph, images, link, origin, date) VALUES (?,?,?,?,?)";
+    let params = [title, paragraph, dest, link, origin, date];
 
     await db.execute(query, params);
 
@@ -102,7 +102,7 @@ controller.updateArticles = async (req, res) => {
   let files = req.file;
 
   let existData = await db.execute({
-    sql: "SELECT id,title,images,paragraph,link,origin FROM articles WHERE id = ?",
+    sql: "SELECT id,title,images,paragraph,link,origin,date FROM articles WHERE id = ?",
     args: [userId],
   });
 
@@ -119,18 +119,21 @@ controller.updateArticles = async (req, res) => {
 
   if (!articlesData.link) articlesData.link = existData.rows[0].link;
 
+  articlesData.date = existData.rows[0].date;
   // let data = await db.execute({
   //   sql: "SELECT id FROM articles",
   // });
 
   const query =
-    "UPDATE articles SET title = ?, paragraph=?, images=?, link=?, origin=? WHERE id = ?";
+    "UPDATE articles SET title = ?, paragraph=?, images=?, link=?, origin=?, date=?, update=? WHERE id = ?";
   const params = [
     articlesData.title,
     articlesData.paragraph,
     files,
     articlesData.link,
     articlesData.origin,
+    articlesData.date,
+    articlesData.update,
     userId,
   ];
 

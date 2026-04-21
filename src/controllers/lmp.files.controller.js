@@ -24,7 +24,7 @@ const db = createClient({
 
 controller.admin = async (req, res) => {
   const query =
-    "SELECT id,title,paragraph,images,link,origin,date,update FROM articles WHERE origin='lmp'";
+    "SELECT id,title,paragraph,images,link,origin,date,modify FROM articles WHERE origin='lmp'";
   try {
     let { rows } = await db.execute(query);
     // console.log(rows);
@@ -43,7 +43,7 @@ controller.admin = async (req, res) => {
 
 controller.showArticles = async (req, res) => {
   const query =
-    "SELECT id,title,paragraph,images,link,origin,date,update FROM articles WHERE origin = 'lmp' ORDER BY id DESC";
+    "SELECT id,title,paragraph,images,link,origin,date,modify FROM articles WHERE origin = 'lmp' ORDER BY id DESC";
   try {
     let { rows } = await db.execute(query);
 
@@ -58,7 +58,7 @@ controller.showArticle = async (req, res) => {
 
   try {
     let rows = await db.execute({
-      sql: "SELECT id,title,images,paragraph,link,origin,date,update FROM articles WHERE id = ?",
+      sql: "SELECT id,title,images,paragraph,link,origin,date,modify FROM articles WHERE id = ?",
       args: [userId],
     });
     // let { rows } = await db.execute(query, params);
@@ -125,7 +125,7 @@ controller.updateArticles = async (req, res) => {
   // });
 
   const query =
-    "UPDATE articles SET title = ?, paragraph=?, images=?, link=?, origin=?, date=?, update=? WHERE id = ?";
+    "UPDATE articles SET title = ?, paragraph=?, images=?, link=?, origin=?, date=?, modify=? WHERE id = ?";
   const params = [
     articlesData.title,
     articlesData.paragraph,

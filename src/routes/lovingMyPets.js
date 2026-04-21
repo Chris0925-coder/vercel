@@ -40,9 +40,9 @@ router.put(
 
 router.delete("/:id", storageController.delete);
 
-router.get("/home", storageController.showArticles);
+router.get("/blog", storageController.showArticles);
 
-router.get("/:id", storageController.showArticle);
+router.get("/blog/:id", storageController.showArticle);
 // router.patch("/submit", authRequired, formControllers.showMSG);
 
 // router.post("/submit", formControllers.messages);

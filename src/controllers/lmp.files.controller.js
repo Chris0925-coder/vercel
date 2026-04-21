@@ -43,7 +43,7 @@ controller.admin = async (req, res) => {
 
 controller.showArticles = async (req, res) => {
   const query =
-    "SELECT id,title,paragraph,images,link,origin FROM articles WHERE origin = 'lmp' ORDER BY id DESC";
+    "SELECT id,title,paragraph,images,link,origin,date,update FROM articles WHERE origin = 'lmp' ORDER BY id DESC";
   try {
     let { rows } = await db.execute(query);
 
@@ -58,7 +58,7 @@ controller.showArticle = async (req, res) => {
 
   try {
     let rows = await db.execute({
-      sql: "SELECT id,title,images,paragraph,link,origin FROM articles WHERE id = ?",
+      sql: "SELECT id,title,images,paragraph,link,origin,date,update FROM articles WHERE id = ?",
       args: [userId],
     });
     // let { rows } = await db.execute(query, params);

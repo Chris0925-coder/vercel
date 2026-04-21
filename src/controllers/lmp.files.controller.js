@@ -55,12 +55,13 @@ controller.showArticles = async (req, res) => {
 
 controller.showArticle = async (req, res) => {
   const userId = req.params.id;
-  const query =
-    "SELECT id,title,paragraph,images,link,origin FROM articles WHERE id = ?";
 
-  const params = [userId];
   try {
-    let { rows } = await db.execute(query, params);
+    let rows = await db.execute({
+      sql: "SELECT id,title,images,paragraph,link,origin FROM articles WHERE id = ?",
+      args: [userId],
+    });
+    // let { rows } = await db.execute(query, params);
 
     res.json(rows);
   } catch (error) {

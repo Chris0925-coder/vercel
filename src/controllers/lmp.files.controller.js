@@ -58,7 +58,7 @@ controller.showArticle = async (req, res) => {
   const query =
     "SELECT id,title,paragraph,images,link,origin FROM articles WHERE id = ?";
 
-  const params = userId;
+  const params = [userId];
   try {
     let { rows } = await db.execute(query, params);
 

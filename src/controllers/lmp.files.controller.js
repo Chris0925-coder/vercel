@@ -119,7 +119,7 @@ controller.updateArticles = async (req, res) => {
 
   if (!articlesData.link) articlesData.link = existData.rows[0].link;
 
-  articlesData.date = existData.rows[0].date;
+  if (!articlesData.date) articlesData.date = existData.rows[0].date;
   // let data = await db.execute({
   //   sql: "SELECT id FROM articles",
   // });

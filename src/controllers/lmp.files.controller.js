@@ -24,7 +24,7 @@ const db = createClient({
 
 controller.admin = async (req, res) => {
   const query =
-    "SELECT id,title,paragraph,images,link,origin FROM articles WHERE origin='lmp'";
+    "SELECT id,title,paragraph,images,link,origin,date,update FROM articles WHERE origin='lmp'";
   try {
     let { rows } = await db.execute(query);
     // console.log(rows);
@@ -80,7 +80,7 @@ controller.article = async (req, res) => {
     });
 
     let query =
-      "INSERT INTO articles (title, paragraph, images, link, origin, date) VALUES (?,?,?,?,?)";
+      "INSERT INTO articles (title, paragraph, images, link, origin, date) VALUES (?,?,?,?,?,?)";
     let params = [title, paragraph, dest, link, origin, date];
 
     await db.execute(query, params);

@@ -102,7 +102,7 @@ controller.updateArticles = async (req, res) => {
   let files = req.file;
 
   let existData = await db.execute({
-    sql: "SELECT id,title,images,paragraph,link,origin,date FROM articles WHERE id = ?",
+    sql: "SELECT id,title,images,paragraph,link,origin,date,modify FROM articles WHERE id = ?",
     args: [userId],
   });
 
@@ -119,7 +119,9 @@ controller.updateArticles = async (req, res) => {
 
   if (!articlesData.link) articlesData.link = existData.rows[0].link;
 
-  if (!articlesData.date) articlesData.date = existData.rows[0].date;
+  articlesData.date = existData.rows[0].date;
+
+  if (!articlesData.update) existData.rows[0].modify;
   // let data = await db.execute({
   //   sql: "SELECT id FROM articles",
   // });

@@ -28,7 +28,7 @@ router.post(
   authRequired,
   uploadMiddleware.single("filename"),
   PUT_LMP,
-  storageController.articles,
+  storageController.article,
 );
 
 router.put(

@@ -1,5 +1,5 @@
 import multer from "multer";
-import uploadMiddleware from "./handleStorage,js";
+import uploadMiddleware from "./handleStorage.js";
 
 export class ClientError extends Error {
   constructor(message, status = 400) {

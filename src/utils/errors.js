@@ -22,17 +22,12 @@ export const multerErr = (req, res, next) => {
       console.error("ErrMulter: ", err.code);
       if (err.code === "LIMIT_FILE_SIZE") {
         console.error("File size too large");
-        // return res.json({ error: "File size too large" + err.code });
-        // throw err;
+
         return res.send(err);
-        // return res.json({ message: "File size too large" + err.code });
       }
     } else if (err) {
-      console.error(err);
-      // next(err);
-      // An unknown error occurred when uploading.
+      next(err);
     }
     next();
-    // Everything went fine.
   });
 };

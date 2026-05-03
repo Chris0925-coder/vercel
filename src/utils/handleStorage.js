@@ -17,7 +17,9 @@ const fileFilter = (req, files, cb) => {
     files.mimetype === "image/png" ||
     files.mimetype === "image/jpg" ||
     files.mimetype === "image/jpeg" ||
-    files.mimetype === "image/webp"
+    files.mimetype === "image/webp" ||
+    files.mimetype === "image/gif" ||
+    files.mimetype === "image/avif"
   ) {
     cb(null, true);
   } else {
@@ -99,7 +101,7 @@ const video = multer.diskStorage({
 export const uploadMiddleware = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024 * 1,
+    fileSize: 1024 * 1024 * 10,
   },
   fileFilter: fileFilter,
 });

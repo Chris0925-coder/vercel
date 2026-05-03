@@ -15,7 +15,7 @@ export class ServerError extends Error {
 
 const uploadImg = uploadMiddleware.single("filename");
 
-export const multerErr = (req, res, next) => {
+export async const multerErr = (req, res, next) => {
   uploadImg(req, res, function (err) {
     // console.error(err);
     if (err instanceof multer.MulterError) {
@@ -23,7 +23,7 @@ export const multerErr = (req, res, next) => {
       if (err.code === "LIMIT_FILE_SIZE") {
         console.error("File size too large");
 
-        return res.send(err.code);
+        return await res.send(err);
       }
     } else if (err) {
       console.error(err);

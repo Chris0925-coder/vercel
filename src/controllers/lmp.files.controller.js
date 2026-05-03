@@ -97,7 +97,7 @@ controller.article = async (req, res) => {
 
     await db.execute(query, params);
 
-    res.sendStatus(201);
+    res.status(201).json({ message: "Upload Successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -24,8 +24,8 @@ export const multerErr = (req, res, next) => {
         console.error("File size too large");
         // return res.json({ error: "File size too large" + err.code });
         // throw err;
-        // return res.send(err);
-        return res.json({ message: "File size too large" + err.code });
+        return res.send(err);
+        // return res.json({ message: "File size too large" + err.code });
       }
     } else if (err) {
       console.error(err);

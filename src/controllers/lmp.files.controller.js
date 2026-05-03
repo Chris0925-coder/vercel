@@ -81,7 +81,6 @@ controller.article = async (req, res) => {
   try {
     let data = await db.execute({
       sql: "SELECT id FROM articles",
-      // args: [userId],
     });
 
     let query =
@@ -98,15 +97,10 @@ controller.article = async (req, res) => {
 
     await db.execute(query, params);
 
-    res.status(200).json(data);
-
-    // alert("Uploaded article succesfully");
-    // res.render("articles.html", { title: "Home", tab: data.rows });
+    res.sendStatus(201);
   } catch (error) {
-    // res.json(error);
     res.status(500).json({ message: error.message });
   }
-  // });
 };
 
 controller.updateArticles = async (req, res) => {

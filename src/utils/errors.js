@@ -23,10 +23,10 @@ export const multerErr = (req, res, next) => {
       if (err.code === "LIMIT_FILE_SIZE") {
         console.error("File size too large");
 
-        return res.send(err);
+        return res.send(err.code);
       }
     } else if (err) {
-      next(err);
+      console.error(err);
     }
     next();
   });

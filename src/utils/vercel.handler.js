@@ -16,8 +16,8 @@ import { put } from "@vercel/blob";
 // }
 
 export async function PUT_LMP(req, res, next) {
-  const files = await req.file;
-  // const { files } = await req;
+  // const files = await req.file;
+  const { files } = await req;
   // console.log(!files);
   if (!files) {
     // files = existData.rows[0].images;

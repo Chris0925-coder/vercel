@@ -70,7 +70,7 @@ controller.showArticle = async (req, res) => {
 };
 
 controller.article = async (req, res) => {
-  let files = req.file;
+  let { files } = req;
   let { title, paragraph, paragraphs, link, origin, date } = req.body;
 
   if (files === undefined) {

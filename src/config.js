@@ -1,4 +1,4 @@
-// process.loadEnvFile();
+process.loadEnvFile();
 export const TOKEN_SECRET = process.env.JW_SECRET;
 
 export const config = {

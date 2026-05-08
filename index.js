@@ -1,4 +1,4 @@
-// process.loadEnvFile();
+process.loadEnvFile();
 import express from "express";
 import morgan from "morgan";
 import pkg from "ejs";

@@ -1,5 +1,5 @@
 let controller = {};
-// process.loadEnvFile();
+process.loadEnvFile();
 
 import { createClient } from "@libsql/client";
 

@@ -43,15 +43,5 @@ router.delete("/:id", storageController.delete);
 router.get("/blog", storageController.showArticles);
 
 router.get("/blog/:id", storageController.showArticle);
-// router.patch("/submit", authRequired, formControllers.showMSG);
-
-// router.post("/submit", formControllers.messages);
-
-// router.post(
-//   "/submitad",
-//   uploadMiddleware.single("filename"),
-//   PUT,
-//   storageController.crcvAd,
-// );
 
 export default router;

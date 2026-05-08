@@ -11,7 +11,7 @@ import { registerSchema, loginSchema } from "../schemas/authentication.js";
 // import formControllers from "../controllers/form.crcv.controller.js";
 import storageController from "../controllers/lmp.files.controller.js";
 import { uploadMiddleware } from "../utils/handleStorage.js";
-import { multerErr } from "../utils/errors.js";
+// import { multerErr } from "../utils/errors.js";
 import { PUT_LMP } from "../utils/vercel.handler.js";
 
 // import msg from "../controllers/messages.js";
@@ -23,7 +23,13 @@ router.get("/", authRequired, storageController.admin);
 
 router.post("/login", validateSchema(loginSchema), login);
 
-router.post("/", authRequired, multerErr, PUT_LMP, storageController.article);
+router.post(
+  "/",
+  authRequired,
+  uploadMiddleware.array("filename[]", 3),
+  PUT_LMP,
+  storageController.article,
+);
 
 router.put(
   "/:id",

@@ -16,19 +16,21 @@ import { put } from "@vercel/blob";
 // }
 
 export async function PUT(req, res, next) {
-  const files = await req.file;
+  const { files, body } = await req;
   // console.log(!files);
   if (!files) {
     // files = existData.rows[0].images;
     next();
   } else {
     try {
-      const fileContent = files.buffer;
-      const blob = await put(files.originalname, fileContent, {
-        access: "public", // or "private" depending on your needs
-        token: process.env.BLOB_READ_WRITE_TOKEN, // Ensure this token is set in your environment variables
-        allowOverwrite: true,
-      });
+      for (let i = 0; i < files.length; i++) {
+        const fileContent = files[i].buffer;
+        const blob = await put(files[i].originalname, fileContent, {
+          access: "public", // or "private" depending on your needs
+          token: process.env.BLOB_READ_WRITE_TOKEN, // Ensure this token is set in your environment variables
+          allowOverwrite: true,
+        });
+      }
       // console.log("File uploaded successfully:", blob.url);
       // return Response.json(blob);
       // Returns the public URL of the uploaded file

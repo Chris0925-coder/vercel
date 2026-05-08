@@ -1,5 +1,5 @@
 let msg = {};
-process.loadEnvFile();
+// process.loadEnvFile();
 
 import { createClient } from "@libsql/client";
 import { enviarCorreo } from "../utils/nodeMailer.js";

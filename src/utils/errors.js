@@ -13,7 +13,7 @@ export class ServerError extends Error {
   }
 }
 
-const uploadImg = uploadMiddleware.array("filename[]", 3);
+const uploadImg = uploadMiddleware.array("filename[]");
 
 export const multerErr = (req, res, next) => {
   uploadImg(req, res, function (err) {

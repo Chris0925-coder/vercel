@@ -26,7 +26,7 @@ router.post("/login", validateSchema(loginSchema), login);
 router.post(
   "/",
   authRequired,
-  uploadMiddleware.single("filename"),
+  uploadMiddleware.array("filename"),
   PUT_LMP,
   storageController.article,
 );

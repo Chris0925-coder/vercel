@@ -16,8 +16,8 @@ import { put } from "@vercel/blob";
 // }
 
 export async function PUT_LMP(req, res, next) {
-  const files = await req.file;
-  // const { files, body } = await req;
+  // const files = await req.file;
+  const { files } = await req;
   // console.log(!files);
   if (!files) {
     // files = existData.rows[0].images;
@@ -30,8 +30,8 @@ export async function PUT_LMP(req, res, next) {
           `lovingmypets/${files[i].originalname}`,
           fileContent,
           {
-            access: "public", // or "private" depending on your needs
-            token: process.env.BLOB_READ_WRITE_TOKEN, // Ensure this token is set in your environment variables
+            access: "public",
+            token: process.env.BLOB_READ_WRITE_TOKEN,
             allowOverwrite: true,
           },
         );

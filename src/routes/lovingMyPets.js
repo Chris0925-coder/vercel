@@ -31,6 +31,14 @@ router.post(
   storageController.article,
 );
 
+router.post(
+  "/array",
+  authRequired,
+  uploadMiddleware.array("filename[]"),
+  PUT_LMP,
+  storageController.article,
+);
+
 router.put(
   "/:id",
   uploadMiddleware.single("filename"),

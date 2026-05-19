@@ -48,6 +48,39 @@ export async function PUT_LMP(req, res, next) {
   }
 }
 
+export async function PUT_ARRAY(req, res, next) {
+  const { files, body } = await req;
+  // const { files } = await req;
+  // console.log(!files);
+  if (!files) {
+    // files = existData.rows[0].images;
+    next();
+  } else {
+    try {
+      for (let i = 0; i < files.length; i++) {
+        const fileContent = files[i].buffer;
+        const blob = await put(
+          `lovingmypets/${files[i].originalname}`,
+          fileContent,
+          {
+            access: "public",
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+            allowOverwrite: true,
+          },
+        );
+      }
+      // console.log("File uploaded successfully:", blob.url);
+      // return Response.json(blob);
+      // Returns the public URL of the uploaded file
+      // return blob.url;
+      next();
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      throw error;
+    }
+  }
+}
+
 export async function PUT(req, res, next) {
   const files = await req.file;
   // console.log(!files);

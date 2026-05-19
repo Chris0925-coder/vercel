@@ -103,6 +103,49 @@ controller.article = async (req, res) => {
   }
 };
 
+controller.articleArray = async (req, res) => {
+  let { files } = req;
+  let { title, paragraph, paragraphs, link, origin, date } = req.body;
+
+  if (files === undefined) {
+    files = {
+      originalname: "logo.jpg",
+    };
+  }
+
+  let fileName = files.map((f, index) => {
+    let filesArray = {
+      [index]: f.originalname,
+    };
+
+    return filesArray[index];
+  });
+
+  try {
+    let data = await db.execute({
+      sql: "SELECT id FROM articles",
+    });
+
+    let query =
+      "INSERT INTO articles (title, paragraph, paragraphs, images, link, origin, date) VALUES (?,?,?,?,?,?,?)";
+    let params = [
+      JSON.stringify(title),
+      JSON.stringify(paragraph),
+      JSON.stringify(paragraphs),
+      JSON.stringify(fileName),
+      link,
+      origin,
+      date,
+    ];
+
+    await db.execute(query, params);
+
+    res.status(201).json({ message: "Upload Successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 controller.updateArticles = async (req, res) => {
   let articlesData = req.body;
   const userId = req.params.id;

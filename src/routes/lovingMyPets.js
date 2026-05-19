@@ -12,7 +12,7 @@ import { registerSchema, loginSchema } from "../schemas/authentication.js";
 import storageController from "../controllers/lmp.files.controller.js";
 import { uploadMiddleware } from "../utils/handleStorage.js";
 // import { multerErr } from "../utils/errors.js";
-import { PUT_LMP } from "../utils/vercel.handler.js";
+import { PUT_LMP, PUT_ARRAY } from "../utils/vercel.handler.js";
 
 // import msg from "../controllers/messages.js";
 // import recaptcha from "../controllers/comment.submit.controller.js";
@@ -35,8 +35,8 @@ router.post(
   "/array",
   authRequired,
   uploadMiddleware.array("filename"),
-  PUT_LMP,
-  storageController.article,
+  PUT_ARRAY,
+  storageController.articleArray,
 );
 
 router.put(

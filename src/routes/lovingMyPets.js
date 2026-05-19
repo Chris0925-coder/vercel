@@ -34,7 +34,7 @@ router.post(
 router.post(
   "/array",
   authRequired,
-  uploadMiddleware.array("filename[]"),
+  uploadMiddleware.array("filename"),
   PUT_LMP,
   storageController.article,
 );

@@ -24,18 +24,18 @@ export async function PUT_LMP(req, res, next) {
     next();
   } else {
     try {
-      for (let i = 0; i < files.length; i++) {
-        const fileContent = files[i].buffer;
-        const blob = await put(
-          `lovingmypets/${files[i].originalname}`,
-          fileContent,
-          {
-            access: "public",
-            token: process.env.BLOB_READ_WRITE_TOKEN,
-            allowOverwrite: true,
-          },
-        );
-      }
+      // for (let i = 0; i < files.length; i++) {
+      const fileContent = files.buffer;
+      const blob = await put(
+        `lovingmypets/${files.originalname}`,
+        fileContent,
+        {
+          access: "public",
+          token: process.env.BLOB_READ_WRITE_TOKEN,
+          allowOverwrite: true,
+        },
+      );
+      // }
       // console.log("File uploaded successfully:", blob.url);
       // return Response.json(blob);
       // Returns the public URL of the uploaded file

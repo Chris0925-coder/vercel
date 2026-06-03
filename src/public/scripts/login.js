@@ -88,13 +88,16 @@ async function login() {
         message.style.color = "#990000";
         message.innerText = error;
       });
-    // if (getCookie("token")) removeCookie("token");
+
+    console.log(!result.error);
+    console.log(result);
     if (!result.error) {
       setCookie("token", result, 7);
       window.location.replace("/home");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;
+      removeCookie("token");
     }
   });
 }

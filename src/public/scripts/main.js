@@ -99,3 +99,15 @@ function delBTN(a) {
 // }
 
 // form();
+
+function dif() {
+  let c = document.getElementsByClassName("content");
+
+  console.log(c);
+
+  let d = c[0].split(":");
+
+  console.log(d);
+}
+
+dif();

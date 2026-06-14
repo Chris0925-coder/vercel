@@ -23,6 +23,8 @@ router.get("/login", authRequired, crcvControllers.admin);
 
 router.post("/login", validateSchema(loginSchema), login);
 
+router.post("/test", validateSchema(loginSchema), login);
+
 router.patch("/submit", authRequired, formControllers.showMSG);
 
 router.post("/submit", formControllers.messages);

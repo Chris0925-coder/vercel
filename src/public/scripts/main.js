@@ -105,8 +105,8 @@ function dif() {
   let c = document.getElementsByClassName("count-views");
 
   let m = Object.values(c).map((item, index) => {
-    console.log(!detectCookie(`count0`));
-    if (!detectCookie("count0")) setCookie(`count${index}`, "0");
+    // console.log(!detectCookie(`count${index}`));
+    if (!detectCookie(`count${index}`)) setCookie(`count${index}`, "0");
     let e = item.textContent;
 
     let s = { [index]: c[index].textContent };

@@ -1,7 +1,7 @@
 let controller = {};
 
 controller.fundation = async (req, res) => {
-  res.render("fundation.html", { title: "COMPARTIENDO SONRISAS" });
+  res.render("crcv.html", { title: "CRCV" });
 };
 
 controller.contacto = async (req, res) => {

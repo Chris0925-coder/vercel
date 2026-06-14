@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-// process.loadEnvFile();
+process.loadEnvFile();
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
 };
@@ -9,7 +9,7 @@ const clientOptions = {
 //mongodb+srv://chris30:<db_password>@cluster0.jkdgz4b.mongodb.net/?appName=Cluster0
 const mongoDBLocal = process.env.DB_URI;
 // const mongoDBLocal = "mongodb://localhost:27017/webdev";
-// || process.env.DB_URI
+
 export const dbConnect = async () => {
   try {
     await mongoose.connect(mongoDBLocal, clientOptions);

@@ -1,4 +1,4 @@
-// process.loadEnvFile();
+process.loadEnvFile();
 import express from "express";
 import morgan from "morgan";
 import pkg from "ejs";
@@ -9,6 +9,7 @@ import cookieParser from "cookie-parser";
 import articles from "./src/routes/storage.js";
 import routes from "./src/routes/views.js";
 import crcv from "./src/routes/crcv.js";
+// import webs from "./src/routes/webs.js";
 import lmp from "./src/routes/lovingMyPets.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -59,7 +60,7 @@ app.use(morgan("dev"));
 // })
 // routes
 // app.use("/", index);
-// app.use("/storage", router);
+// app.use("/webs", webs);
 app.use("/", routes);
 app.use("/upload", articles);
 app.use("/crcv", crcv);

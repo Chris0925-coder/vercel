@@ -109,7 +109,7 @@ function dif() {
   // console.log(d);
 
   for (let index in c) {
-    console.log(d[index]);
+    console.log(c[index]);
     // console.log(d[index].includes("VISITAS"));
   }
 }

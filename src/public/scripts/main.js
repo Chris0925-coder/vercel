@@ -99,22 +99,24 @@ function delBTN(a) {
 // }
 
 // form();
+let dd = document.getElementsByClassName("diff");
 
 function dif() {
   let c = document.getElementsByClassName("count-views");
 
-  console.log(c[0].textContent);
+  let m = Object.values(c).map((item, index) => {
+    let e = item.textContent;
 
-  // let d = c[0].textContent.split(/\r\n\r\n/);
-  // console.log(d);
+    let s = { [index]: c[index].textContent };
 
-  for (let index in c[0].textContent) {
-    console.log(c[index]);
-    let s = {
-      count: c[index],
-    };
-    console.log(s);
-  }
+    let oldcc = getCookie(`count${index}`);
+
+    let r = JSON.parse(c[index].textContent) - JSON.parse(oldcc);
+
+    dd[index].innerText = r;
+
+    setCookie(`count${index}`, JSON.stringify(e));
+  });
 }
-// no haz construido una mierda haciendo papeles payaso
+
 dif();

@@ -54,9 +54,20 @@
         "
       >
         <h2><a href="<%=data.domain%>" target="_blank"><%=data.domain%></a></h2>
-        <p>
-          CONTEO de VISITAS: <span class="count-views"><%=data.count%></span>
-        </p>
+
+        <div style="font-size: 18px; font-weight: 900">
+          <p>
+            CONTEO de VISITAS: <span class="count-views"><%=data.count%></span>
+            <span
+              class="diff"
+              style="color: darkgreen"
+              ;
+              font-weight:
+              900;
+            ></span>
+          </p>
+        </div>
+
         <p>Desde: <span><%=data.date%></span></p>
         <p>Clicks: <span><%=data.clicks%></span></p>
       </article>

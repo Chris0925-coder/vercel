@@ -107,11 +107,14 @@ function dif() {
   let m = Object.values(c).map((item, index) => {
     // console.log(!detectCookie(`count${index}`));
     if (!detectCookie(`count${index}`)) setCookie(`count${index}`, "0");
+
     let e = item.textContent;
 
     let s = { [index]: c[index].textContent };
 
     let oldcc = getCookie(`count${index}`);
+
+    console.log(oldcc);
 
     let r = JSON.parse(c[index].textContent) - JSON.parse(oldcc);
 

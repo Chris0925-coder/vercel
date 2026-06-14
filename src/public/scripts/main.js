@@ -103,14 +103,17 @@ function delBTN(a) {
 function dif() {
   let c = document.getElementsByClassName("count-views");
 
-  console.log(c);
+  console.log(c[0].textContent);
 
   // let d = c[0].textContent.split(/\r\n\r\n/);
   // console.log(d);
 
-  for (let index in c) {
+  for (let index in c[0].textContent) {
     console.log(c[index]);
-    // console.log(d[index].includes("VISITAS"));
+    let s = {
+      count: c[index],
+    };
+    console.log(s);
   }
 }
 // no haz construido una mierda haciendo papeles payaso

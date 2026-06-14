@@ -101,22 +101,16 @@ function delBTN(a) {
 // form();
 
 function dif() {
-  let c = document.getElementsByClassName("content");
+  let c = document.getElementsByClassName("count-views");
 
   console.log(c);
 
-  let d = c[0].textContent.split(/\r\n\r\n/);
-  console.log(d);
+  // let d = c[0].textContent.split(/\r\n\r\n/);
+  // console.log(d);
 
-  for (let index in d) {
+  for (let index in c) {
     console.log(d[index]);
     // console.log(d[index].includes("VISITAS"));
-
-    if (d[index].includes("VISITAS")) {
-      let s = d[index].split(":");
-
-      console.log(s);
-    }
   }
 }
 // no haz construido una mierda haciendo papeles payaso

@@ -106,7 +106,7 @@ function dif() {
 
   let m = Object.values(c).map((item, index) => {
     console.log(!detectCookie(`count0`));
-    if (!detectCookie(`count0`)) setCookie(`count${index}`, "");
+    if (!detectCookie("count0")) setCookie(`count${index}`, "0");
     let e = item.textContent;
 
     let s = { [index]: c[index].textContent };

@@ -105,9 +105,13 @@ function dif() {
 
   console.log(c);
 
-  let d = c[0].split(":");
+  let d = c[0].textContent.split(":");
 
-  console.log(d);
+  for (let index in d) {
+    console.log(d[index].includes("VISITAS"));
+
+    if (d[index].includes("VISITAS")) console.log(d[index]);
+  }
 }
-
+// no haz construido una mierda haciendo papeles payaso
 dif();

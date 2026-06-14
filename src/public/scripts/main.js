@@ -112,11 +112,12 @@ function dif() {
 
     let s = { [index]: c[index].textContent };
 
+    if (!detectCookie(`count${index}`)) {
+      setCookie(`count${index}`, "0");
+      return (dd[index].innerText =
+        JSON.parse(c[index].textContent) - JSON.parse(c[index].textContent));
+    }
     let oldcc = getCookie(`count${index}`);
-
-    console.log(!oldcc);
-    if (!detectCookie(`count${index}`)) setCookie(`count${index}`, "0");
-
     let r = JSON.parse(c[index].textContent) - JSON.parse(oldcc);
 
     dd[index].innerText = r;

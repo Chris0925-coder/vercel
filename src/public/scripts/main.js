@@ -113,7 +113,7 @@ function dif() {
     let s = { [index]: c[index].textContent };
 
     if (!detectCookie(`count${index}`)) {
-      setCookie(`count${index}`, "0");
+      setCookie(`count${index}`, JSON.stringify(e));
       return (dd[index].innerText =
         JSON.parse(c[index].textContent) - JSON.parse(c[index].textContent));
     }

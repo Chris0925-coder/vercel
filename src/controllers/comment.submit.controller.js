@@ -1,5 +1,5 @@
 let controller = {};
-process.loadEnvFile();
+// process.loadEnvFile();
 
 import { createAssessment } from "../utils/createAssessment.js";
 import PropertiesReader from "properties-reader";

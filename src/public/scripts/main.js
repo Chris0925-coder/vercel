@@ -115,7 +115,7 @@ function dif() {
     let oldcc = getCookie(`count${index}`);
 
     console.log(!oldcc);
-    if (!oldcc) setCookie(`count${index}`, "0");
+    if (!detectCookie(`count${index}`)) setCookie(`count${index}`, "0");
 
     let r = JSON.parse(c[index].textContent) - JSON.parse(oldcc);
 

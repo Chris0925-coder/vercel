@@ -19,7 +19,7 @@ import { PUT } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 
-router.get("/login", authRequired, crcvControllers.admin);
+router.get("/", authRequired, crcvControllers.admin);
 
 router.post("/login", validateSchema(loginSchema), login);
 

@@ -9,25 +9,34 @@ const clientOptions = {
 //mongodb+srv://chris30:<db_password>@cluster0.jkdgz4b.mongodb.net/?appName=Cluster0
 const mongoDBLocal = process.env.DB_URI;
 // const mongoDBLocal = "mongodb://localhost:27017/webdev";
+// const client = new MongoClient(uri, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   },
+// });
 
 export const dbConnect = async () => {
   try {
     await mongoose.connect(mongoDBLocal, clientOptions);
     await mongoose.connection.db.admin().command({ ping: 1 });
+    // await client.db("admin").command({ ping: 1 });
     console.log("MongoDB is connected");
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    // await client.close();
+    await mongoose.connection.close();
   }
 };
 
-export const closeConnection = async () => {
-  if (dbConnect) {
-    try {
-      await mongoose.disconnect();
-      console.log("🔒 Conexión a la base de datos cerrada correctamente");
-    } catch (err) {
-      console.error("❌ Error al cerrar la conexión:", err.message);
-    }
-  }
-};
+// export const closeConnection = async () => {
+//   if (dbConnect) {
+//     try {
+//       await mongoose.disconnect();
+//       console.log("🔒 Conexión a la base de datos cerrada correctamente");
+//     } catch (err) {
+//       console.error("❌ Error al cerrar la conexión:", err.message);
+//     }
+//   }
+// };

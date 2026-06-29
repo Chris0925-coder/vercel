@@ -9,14 +9,14 @@ export const authRequired = (req, res, next) => {
       message: "No token, autorization denied (*)",
     });
 
-  let tokenA = tokenAdmin.split(" ")[1];
+  // let tokenA = tokenAdmin.split(" ")[1];
 
-  if (tokenA) {
-    jwt.verify(tokenA, TOKEN_SECRET, (err, user) => {
+  if (tokenAdmin) {
+    jwt.verify(tokenAdmin, TOKEN_SECRET, (err, user) => {
       if (err) {
         return res
           .status(403)
-          .json({ message: "Invalid token", token: tokenA });
+          .json({ message: "Invalid token", token: tokenAdmin });
       } else {
         req.user = user;
       }

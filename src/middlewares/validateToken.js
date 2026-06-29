@@ -9,8 +9,9 @@ export const authRequired = (req, res, next) => {
       message: "No token, autorization denied (*)",
     });
 
-  if (!authHeader) {
-    let tokenA = tokenAdmin.split(" ")[1];
+  let tokenA = tokenAdmin.split(" ")[1];
+
+  if (tokenA) {
     jwt.verify(tokenA, TOKEN_SECRET, (err, user) => {
       if (err) {
         return res
@@ -18,10 +19,9 @@ export const authRequired = (req, res, next) => {
           .json({ message: "Invalid token", token: tokenA });
       } else {
         req.user = user;
-
-        next();
       }
     });
+    // next();
   } else {
     let tokenAuth = authHeader.split(" ")[1];
 
@@ -31,12 +31,11 @@ export const authRequired = (req, res, next) => {
       });
 
     jwt.verify(tokenAuth, TOKEN_SECRET, (err, user) => {
-      if (err) return res.status(403).json({ message: "Invalid token" });
+      if (err) return res.status(403).json({ message: "Invalid token (*)" });
 
       req.user = user;
-      next();
     });
   }
-  // console.log("Validing Token");
-  // next();
+  console.log("Validing Token");
+  next();
 };

@@ -13,18 +13,18 @@ const mongoDBLocal = process.env.DB_URI;
 export const dbConnect = async () => {
   try {
     await mongoose.connect(mongoDBLocal, clientOptions);
-    await mongoose.connection.db.admin().command({ ping: 1 });
+    // await mongoose.connection.db.admin().command({ ping: 1 });
     console.log("MongoDB is connected");
   } catch (error) {
     console.log(error);
   }
 };
 
-export const closeConnection = async () => {
-  try {
-    await mongoose.disconnect();
-    console.log("🔒 Conexión a la base de datos cerrada correctamente");
-  } catch (err) {
-    console.error("❌ Error al cerrar la conexión:", err.message);
-  }
-};
+// export const closeConnection = async () => {
+//   try {
+//     await mongoose.disconnect();
+//     console.log("🔒 Conexión a la base de datos cerrada correctamente");
+//   } catch (err) {
+//     console.error("❌ Error al cerrar la conexión:", err.message);
+//   }
+// };

@@ -90,7 +90,13 @@ async function login() {
       });
 
     console.log(result);
-    console.log(result.error);
+    console.log(result.message);
+
+    if (result.message == "Invalid Token") {
+      message.style.color = "#990000";
+      message.innerText = result.error;
+      removeCookie("token");
+    }
 
     if (!result.error) {
       setCookie("token", result, 7);

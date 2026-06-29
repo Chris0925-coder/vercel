@@ -16,7 +16,7 @@ export const authRequired = (req, res, next) => {
       } else {
         req.user = user;
 
-        next();
+        // next();
       }
     });
   } else {
@@ -30,10 +30,10 @@ export const authRequired = (req, res, next) => {
         return res.status(403).json({ message: "Invalid token" });
       } else {
         req.user = user;
-
-        next();
+        // next();
       }
     });
   }
   console.log("Validing Token");
+  next();
 };

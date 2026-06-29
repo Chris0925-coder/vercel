@@ -10,7 +10,7 @@ export const authRequired = (req, res, next) => {
     if (!token)
       return res
         .status(401)
-        .json({ message: "No token, autorization denied (*)", token });
+        .json({ message: "No token, autorization denied (*)", token: token });
 
     if (token) {
       jwt.verify(token, TOKEN_SECRET, (err, user) => {
@@ -29,7 +29,10 @@ export const authRequired = (req, res, next) => {
     if (!tokenAuth)
       return res
         .status(401)
-        .json({ message: "No token, autorization denied", tokenAuth });
+        .json({
+          message: "No token, autorization denied",
+          tokenAuth: tokenAuth,
+        });
 
     if (tokenAuth) {
       jwt.verify(token, TOKEN_SECRET, (err, user) => {

@@ -21,7 +21,7 @@ const router = express.Router();
 
 router.get("/", authRequired, crcvControllers.admin);
 
-router.post("/login", validateSchema(loginSchema), login);
+router.post("/login-crcv", validateSchema(loginSchema), login);
 
 router.patch("/msg", authRequired, formControllers.showMSG);
 

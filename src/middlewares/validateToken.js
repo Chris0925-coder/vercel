@@ -3,11 +3,11 @@ import { TOKEN_SECRET } from "../config.js";
 
 export const authRequired = (req, res, next) => {
   let authHeader = req.headers["authorization"];
-  let { token } = req.cookies;
-  if (!token)
+  let { tokenAdmin } = req.cookies;
+  if (!tokenAdmin)
     return res.status(401).json({
       message: "No token, autorization denied (*)",
-      token: req.cookies,
+      token: token,
     });
 
   if (!authHeader) {

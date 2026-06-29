@@ -11,7 +11,7 @@ async function messages() {
   ) {
     message.style.color = "#990000";
     message.innerText = result.error;
-    removeCookie("token-admin");
+    removeCookie("tokenAdmin");
     window.location.replace("/");
   }
 

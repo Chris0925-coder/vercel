@@ -1,9 +1,19 @@
 async function messages() {
   const url = await fetch("/submit").then((msg) => msg.json());
-
+  console.log(url);
   let messages = document.querySelector("#messages");
   let item = messages.querySelector("item:nth-child(2)");
   let itemB = messages.querySelector("item:nth-child(3)");
+
+  if (
+    url.message == "Invalid Token" ||
+    url.message == "No token, autorization denied"
+  ) {
+    message.style.color = "#990000";
+    message.innerText = result.error;
+    removeCookie("token-admin");
+    window.location.replace("/");
+  }
 
   url.forEach((element) => {
     let b = document.createElement("div");

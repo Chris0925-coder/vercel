@@ -15,8 +15,9 @@ export const dbConnect = async () => {
     await mongoose.connect(mongoDBLocal, clientOptions);
     await mongoose.connection.db.admin().command({ ping: 1 });
     console.log("MongoDB is connected");
-  } catch (error) {
-    console.log(error);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
   }
 };
 

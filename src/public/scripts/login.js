@@ -20,11 +20,11 @@ function getCookie(cname) {
       return c.substring(name.length, c.length);
     }
   }
-  return "";
+  return " ";
 }
 
 function removeCookie(cname) {
-  getCookie(cname, "", -1);
+  getCookie(cname, " ", -1);
 }
 
 function detectCookie(cname) {

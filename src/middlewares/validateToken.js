@@ -2,15 +2,15 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
 
 export const authRequired = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
+  let authHeader = req.headers["authorization"];
+  let { token } = req.cookies;
 
   if (!authHeader) {
-    let { token } = req.cookies;
-
     if (!token)
-      return res
-        .status(401)
-        .json({ message: "No token, autorization denied (*)", token: token });
+      return res.status(401).json({
+        message: "No token, autorization denied (*)",
+        token: req.cookies,
+      });
 
     if (token) {
       jwt.verify(token, TOKEN_SECRET, (err, user) => {
@@ -27,12 +27,10 @@ export const authRequired = (req, res, next) => {
     let tokenAuth = authHeader.split(" ")[1];
 
     if (!tokenAuth)
-      return res
-        .status(401)
-        .json({
-          message: "No token, autorization denied",
-          tokenAuth: tokenAuth,
-        });
+      return res.status(401).json({
+        message: "No token, autorization denied",
+        tokenAuth: tokenAuth,
+      });
 
     if (tokenAuth) {
       jwt.verify(token, TOKEN_SECRET, (err, user) => {

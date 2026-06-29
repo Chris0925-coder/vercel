@@ -41,6 +41,17 @@ async function addArticle() {
     })
       .then((response) => {
         console.log(response);
+
+        // "No token, autorization denied"
+        if (
+          result.message == "Invalid Token" ||
+          result.message == "No token, autorization denied"
+        ) {
+          message.style.color = "#990000";
+          message.innerText = result.error;
+          removeCookie("token-admin");
+          window.location.replace("/");
+        }
         if (response.ok) {
           alert("Added article successfully!");
           window.location.reload();

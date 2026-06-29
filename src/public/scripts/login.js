@@ -95,16 +95,16 @@ async function login() {
     if (result.message == "Invalid Token") {
       message.style.color = "#990000";
       message.innerText = result.error;
-      removeCookie("token");
+      removeCookie("token-admin");
     }
 
     if (!result.error) {
-      setCookie("token", result, 7);
+      setCookie("token-admin", result, 7);
       window.location.replace("/home");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;
-      removeCookie("token");
+      removeCookie("token-admin");
     }
   });
 }

@@ -23,12 +23,12 @@ router.post(
 );
 
 router.put(
-  "/webdev:id",
+  "/webdev/:id",
   uploadMiddleware.single("filename"),
   PUT,
   storageController.updateArticles,
 );
 
-router.delete("/webdev:id", storageController.deleteArticles);
+router.delete("/webdev/:id", storageController.deleteArticles);
 
 export default router;

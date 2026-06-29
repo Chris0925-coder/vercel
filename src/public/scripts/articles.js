@@ -30,7 +30,7 @@ async function addArticle() {
     // console.log(updateBTN);
     // console.log(formData.get("filename-b"));
 
-    let result = await fetch(`/upload`, {
+    let result = await fetch(`/upload/webdev`, {
       method: "POST",
       // headers: {
       //   "Content-Type": "application/json; charset=utf-8",
@@ -68,7 +68,7 @@ function update() {
       // console.log(updateBTN);
       // console.log(formData.get("filename-b"));
 
-      let result = await fetch(`/upload/${btn.value}`, {
+      let result = await fetch(`/upload/webdev/${btn.value}`, {
         method: "PUT",
         // headers: {
         //   "Content-Type": "application/json; charset=utf-8",
@@ -107,7 +107,7 @@ function deleteArticle() {
       event.preventDefault();
 
       // console.log("Delete " + btn.value);
-      let result = await fetch(`/upload/${btn.value}`, {
+      let result = await fetch(`/upload/webdev/${btn.value}`, {
         method: "DELETE",
         // headers: {
         //   "Content-Type": "application/json; charset=utf-8",

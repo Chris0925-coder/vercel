@@ -16,19 +16,19 @@ router.get("/", authRequired, storageController.homeArticles);
 router.get("/webdev", storageController.showArticles);
 
 router.post(
-  "/",
+  "/webdev",
   uploadMiddleware.single("filename"),
   PUT,
   storageController.articles,
 );
 
 router.put(
-  "/:id",
+  "/webdev:id",
   uploadMiddleware.single("filename"),
   PUT,
   storageController.updateArticles,
 );
 
-router.delete("/:id", storageController.deleteArticles);
+router.delete("/webdev:id", storageController.deleteArticles);
 
 export default router;

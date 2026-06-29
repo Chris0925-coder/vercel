@@ -19,19 +19,12 @@ import { PUT } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 
-router.get("/", authRequired, crcvControllers.admin);
-
 router.post("/login", validateSchema(loginSchema), login);
 
-router.patch("/submit", authRequired, formControllers.showMSG);
+router.get("/", authRequired, crcvControllers.admin);
 
-router.post("/submit", formControllers.messages);
+router.patch("/msg", authRequired, formControllers.showMSG);
 
-router.post(
-  "/submitad",
-  uploadMiddleware.single("filename"),
-  PUT,
-  storageController.crcvAd,
-);
+router.post("/submit-msg", formControllers.messages);
 
 export default router;

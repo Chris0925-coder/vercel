@@ -21,7 +21,7 @@ msg.showMSG = async (req, res) => {
     //   email: rows.email,
     //   control: rows.control,
     // });
-    res.status(200).json(rows);
+    res.json(rows);
     // res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -60,7 +60,7 @@ msg.messages = async (req, res) => {
     await db.execute(query, params);
 
     await enviarCorreo(c.name, c.email, c.phone, c.control, horaPanama);
-    res.sendStatus(200).json({
+    res.json({
       message: `User with email: ${c.email} send message ${c.control} successfully!`,
     });
   } catch (error) {

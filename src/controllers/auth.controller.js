@@ -1,6 +1,7 @@
 import User from "../models/index.js";
 import bcrypt from "bcryptjs";
 import { createAccesToken } from "../libs/jwt.js";
+// import { closeConnection } from "../../config/mongo.js";
 // import { ClientError, ServerError } from "../utils/errors.js";
 // import { response } from '../utils/response.js';
 // import { catchedAsync } from '../utils/catchedAsync.js';
@@ -28,16 +29,6 @@ export const register = async (req, res) => {
 
     const token = await createAccesToken({ id: userSaved._id });
 
-    // res.cookie("token", token);
-
-    // res.cookie("id", userSaved._id);
-
-    // res.cookie("name", userSaved.name);
-
-    // res.cookie("username", userSaved.username);
-
-    // res.cookie("email", userSaved.email);
-
     res.json({
       id: userSaved._id,
       name: userSaved.name,
@@ -47,11 +38,6 @@ export const register = async (req, res) => {
       created: userSaved.createdAt,
       updated: userSaved.updatedAt,
     });
-
-    // });
-    // res.render('welcome.html',{title:'WELCOME', tab:data});
-    // res.sendStatus(200);
-    // next();
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

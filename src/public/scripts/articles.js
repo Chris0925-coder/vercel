@@ -44,7 +44,7 @@ async function addArticle() {
 
         if (response.ok) {
           alert("Added article successfully!");
-          // window.location.reload();
+          window.location.reload();
         } else {
           alert("Failed to send the form submission.");
         }
@@ -52,15 +52,15 @@ async function addArticle() {
       .catch((error) => console.error("Error:", error));
 
     // "No token, autorization denied"
-    if (
-      result.message == "Invalid Token" ||
-      result.message == "No token, autorization denied"
-    ) {
-      message.style.color = "#990000";
-      message.innerText = result.error;
-      removeCookie("token-admin");
-      window.location.replace("/");
-    }
+    // if (
+    //   result.message == "Invalid Token" ||
+    //   result.message == "No token, autorization denied"
+    // ) {
+    //   message.style.color = "#990000";
+    //   message.innerText = result.error;
+    //   removeCookie("token-admin");
+    //   window.location.replace("/");
+    // }
     // });
   });
 }

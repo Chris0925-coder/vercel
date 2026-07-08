@@ -44,7 +44,7 @@ async function addArticle() {
 
         if (response.ok) {
           alert("Added article successfully!");
-          window.location.reload();
+          // window.location.reload();
         } else {
           alert("Failed to send the form submission.");
         }

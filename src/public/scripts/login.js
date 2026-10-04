@@ -89,9 +89,6 @@ async function login() {
         message.innerText = error;
       });
 
-    console.log(result);
-    console.log(result.message);
-
     if (result.message == "Invalid Token") {
       message.style.color = "#990000";
       message.innerText = result.error;

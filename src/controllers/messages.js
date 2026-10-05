@@ -47,8 +47,8 @@ msg.messages = async (req, res) => {
   //   });
   //   let suma = data.rows[0].count + c.count;
 
-  const query = "INSERT INTO webdev (email, control,from) VALUES (?,?,?)";
-  const params = [c.email, c.control, c.from];
+  const query = "INSERT INTO webdev (email, control,web) VALUES (?,?,?)";
+  const params = [c.email, c.control, c.web];
 
   try {
     await db.execute(query, params);

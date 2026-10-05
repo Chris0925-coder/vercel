@@ -26,7 +26,7 @@ async function messages() {
                       <p>Email: ${element.email}</p>
                       <p>Message: ${element.control}</p>
                       <br>
-                      <span style="font-size:6px">FROM: ${element.web}</span>
+                      <span style="font-size:7px;font-weight:bold;">FROM: ${element.web}</span>
                     </article>`;
 
     b.setAttribute("name", "del");

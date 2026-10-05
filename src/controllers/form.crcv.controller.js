@@ -70,7 +70,6 @@ msg.messages = async (req, res) => {
 
 msg.delete = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
 
   const query = "DELETE FROM formCRCV WHERE id = (?)";
   const params = [id];

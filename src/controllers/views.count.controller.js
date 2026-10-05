@@ -48,7 +48,7 @@ controller.count = async (req, res) => {
 
   try {
     await db.execute(query, params);
-    console.log(`Web with ID ${c.domain} updated visit ${suma} successfully!`);
+    // console.log(`Web with ID ${c.domain} updated visit ${suma} successfully!`);
     res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });

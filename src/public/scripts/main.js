@@ -19,14 +19,14 @@ async function messages() {
     let b = document.createElement("div");
     // b.innerHTML = `<button name="del-btn" value="${element.id}">${element.id}</button>`;
 
-    console.log(element);
+    // console.log(element);
 
     b.innerHTML += `
                     <article class="msg">
                       <p>Email: ${element.email}</p>
                       <p>Message: ${element.control}</p>
                       <br>
-                      <span style="font-size:6px">FROM: ${element.from}</span>
+                      <span style="font-size:6px">FROM: ${element.web}</span>
                     </article>`;
 
     b.setAttribute("name", "del");

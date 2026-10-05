@@ -9,9 +9,13 @@ const db = createClient({
 });
 
 msg.reciveMSG = async (req, res) => {
-  const query = "SELECT id,email,control FROM webdev ORDER BY id DESC";
+  const f = req.body;
+
+  const query =
+    "SELECT id,email,control,`from` FROM webdev WHERE `from`= ? ORDER BY id DESC";
+  const params = [f.from];
   try {
-    let { rows } = await db.execute(query);
+    let { rows } = await db.execute(query, params);
     // console.log(rows);
 
     // res.json({
@@ -38,14 +42,14 @@ msg.messages = async (req, res) => {
   //   });
   //   let suma = data.rows[0].count + c.count;
 
-  const query = "INSERT INTO webdev (email, control) VALUES (?,?)";
-  const params = [c.email, c.control];
+  const query = "INSERT INTO webdev (email, control,from) VALUES (?,?,?)";
+  const params = [c.email, c.control, c.from];
 
   try {
     await db.execute(query, params);
-    console.log(
+    /* console.log(
       `Web with ID ${c.email} send message ${c.control} successfully!`,
-    );
+    ); */
     res.sendStatus(200);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -54,7 +58,7 @@ msg.messages = async (req, res) => {
 
 msg.delete = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
+  // console.log(id);
 
   const query = "DELETE FROM webdev WHERE id = (?)";
   const params = [id];

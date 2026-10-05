@@ -11,9 +11,11 @@ const db = createClient({
 msg.reciveMSG = async (req, res) => {
   const f = req.body;
 
+  const ff = JSON.parse(f.from);
+
   const query =
     "SELECT id,email,control,`from` FROM webdev WHERE `from`= ? ORDER BY id DESC";
-  const params = [f.from];
+  const params = [ff];
   try {
     let { rows } = await db.execute(query, params);
     // console.log(rows);

@@ -11,6 +11,7 @@ import routes from "./src/routes/views.js";
 import crcv from "./src/routes/crcv.js";
 // import webs from "./src/routes/webs.js";
 import lmp from "./src/routes/lovingMyPets.js";
+import apartaestudio from "./src/routes/apartaestudio.js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { dbConnect } from "./config/mongo.js";
@@ -66,6 +67,7 @@ app.use("/", routes);
 app.use("/upload", articles);
 app.use("/crcv", crcv);
 app.use("/lovingmypets", lmp);
+app.use("/form", apartaestudio); //apartaestudio
 app.use((req, res) => {
   res.status(404).send(
     `<div style=" display: flex;

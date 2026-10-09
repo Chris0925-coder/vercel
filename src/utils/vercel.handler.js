@@ -114,3 +114,36 @@ export async function PUT(req, res, next) {
 
 //   return new Response();
 // }
+
+export async function PUT_APARTAESTUDIO(req, res, next) {
+  const files = await req.file;
+  // const { files } = await req;
+  // console.log(!files);
+  if (!files) {
+    // files = existData.rows[0].images;
+    next();
+  } else {
+    try {
+      // for (let i = 0; i < files.length; i++) {
+      const fileContent = files.buffer;
+      const blob = await put(
+        `apartaestudio/${files.originalname}`,
+        fileContent,
+        {
+          access: "public",
+          token: process.env.BLOB_READ_WRITE_TOKEN,
+          allowOverwrite: true,
+        },
+      );
+      // }
+      // console.log("File uploaded successfully:", blob.url);
+      // return Response.json(blob);
+      // Returns the public URL of the uploaded file
+      // return blob.url;
+      next();
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      throw error;
+    }
+  }
+}

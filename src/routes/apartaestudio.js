@@ -12,7 +12,7 @@ import { registerSchema, loginSchema } from "../schemas/authentication.js"; */
 import storageController from "../controllers/form.apartaestudio.controller.js";
 import { uploadMiddleware } from "../utils/handleStorage.js";
 // import { multerErr } from "../utils/errors.js";
-import { PUT_APARTAESTUDIO_ARRAY } from "../utils/vercel.handler.js";
+import { PUT_APARTAESTUDIO } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 

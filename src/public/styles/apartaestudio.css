@@ -1,0 +1,99 @@
+/* tabla.css — tabla de mensajes de contacto
+   Columnas: 1 Nombre, 2 Teléfono, 3 E-mail, 4 Comentario, 5 Fecha */
+
+:root {
+  --tabla-texto: #1f2933;
+  --tabla-suave: #5b6670;
+  --tabla-linea: #d9dee3;
+  --tabla-fondo: #ffffff;
+  --tabla-cabecera: #e8eef2;
+  --tabla-franja: #f6f8fa;
+  --tabla-hover: #e3f0f0;
+  --tabla-acento: #2f6f73;
+}
+
+/* Contenedor: en pantallas angostas la tabla se desplaza en horizontal
+   en vez de romper el diseño de la página */
+.tabla-scroll {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--tabla-fondo);
+  border: 1px solid var(--tabla-linea);
+  border-radius: 6px;
+}
+
+.tabla-scroll:focus-visible {
+  outline: 2px solid var(--tabla-acento);
+  outline-offset: 2px;
+}
+
+.tabla-mensajes {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  font:
+    0.95rem/1.5 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  color: var(--tabla-texto);
+}
+
+.tabla-mensajes th,
+.tabla-mensajes td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--tabla-linea);
+}
+
+.tabla-mensajes thead th {
+  background: var(--tabla-cabecera);
+  font-weight: 600;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--tabla-acento);
+}
+
+.tabla-mensajes tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.tabla-mensajes tbody tr:nth-child(even) {
+  background: var(--tabla-franja);
+}
+
+.tabla-mensajes tbody tr:hover {
+  background: var(--tabla-hover);
+}
+
+/* Nombre */
+.tabla-mensajes td:nth-child(1) {
+  font-weight: 600;
+}
+
+/* Teléfono y Fecha: una sola línea, números alineados */
+.tabla-mensajes td:nth-child(2),
+.tabla-mensajes td:nth-child(5) {
+  white-space: nowrap;
+  color: var(--tabla-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+/* E-mail y Comentario: permiten saltar de línea aunque no haya espacios */
+.tabla-mensajes td:nth-child(3) {
+  overflow-wrap: anywhere;
+}
+
+.tabla-mensajes td:nth-child(4) {
+  min-width: 16rem;
+  max-width: 32rem;
+  overflow-wrap: anywhere;
+}
+
+/* Fila de "No hay registros" */
+.tabla-mensajes td[colspan] {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--tabla-suave);
+}

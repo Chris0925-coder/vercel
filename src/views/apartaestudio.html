@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%=title%></title>
 
-    <!-- <link
+    <link
       rel="stylesheet"
       type="text/css"
       media="screen"
       href="/styles/apartaestudio.css"
-    /> -->
+    />
 
     <!-- <script src="/scripts/cookies.js" defer></script> -->
 
@@ -52,19 +52,24 @@
         </tr>
       </table>
     </div>
+
+    <section>
+      <% img.forEach((d) => { %>
+      <div style="display: flex; border: 2px solid">
+        <div>
+          <h3><%=data.fullname%></h3>
+          <img
+            src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
+            width="150"
+            height="150"
+          />
+        </div>
+      </div>
+      <% }) %>
+    </section>
     <% }) %>
 
     <br />
     <hr />
-
-    <% img.forEach((d) => { %>
-    <div>
-      <img
-        src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
-        width="150"
-        height="150"
-      />
-    </div>
-    <% }) %>
   </body>
 </html>

@@ -11,30 +11,34 @@ const db = createClient({
 });
 
 controller.article = async (req, res) => {
-  let { files, references } = req.file;
-  let { fullname, phone, mail, control, date } = req.body;
+  let { files } = req;
+
+  let fileName = files.map((f, index) => {
+    let filesArray = {
+      [index]: f.originalname,
+    };
+
+    return filesArray[index];
+  });
+
+  console.log(fileName);
+
+  let { fullname, phone, mail, control, web, date } = req.body;
 
   if (files === undefined) {
     files = {
-      originalname: "logo.jpg",
+      originalname: " ",
     };
   }
+
   try {
-    let data = await db.execute({
-      sql: "SELECT id FROM apartaestudio",
-    });
+    // let data = await db.execute({
+    //   sql: "SELECT id FROM apartaestudio",
+    // });
 
     let query =
-      "INSERT INTO apartaestudio (fullname, phone, mail, cedula, referencias, comentarios, fecha) VALUES (?,?,?,?,?,?,?)";
-    let params = [
-      fullname,
-      phone,
-      mail,
-      files.originalname,
-      references.originalname,
-      control,
-      date,
-    ];
+      "INSERT INTO apartaestudio (fullname, phone, mail, cedula, comentarios, fecha, web) VALUES (?,?,?,?,?,?,?)";
+    let params = [fullname, phone, mail, fileName, control, date, web];
 
     await db.execute(query, params);
 

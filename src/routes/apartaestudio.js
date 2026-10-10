@@ -12,15 +12,14 @@ import { registerSchema, loginSchema } from "../schemas/authentication.js"; */
 import storageController from "../controllers/form.apartaestudio.controller.js";
 import { uploadMiddleware } from "../utils/handleStorage.js";
 // import { multerErr } from "../utils/errors.js";
-import { PUT_APARTAESTUDIO } from "../utils/vercel.handler.js";
+import { PUT_ARRAY_APARTAESTUDIO } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 
 router.post(
   "/apartaestudio",
-  uploadMiddleware.single("filename"),
-  uploadMiddleware.single("references"),
-  PUT_APARTAESTUDIO,
+  uploadMiddleware.array("filename"),
+  PUT_ARRAY_APARTAESTUDIO,
   storageController.article,
 );
 

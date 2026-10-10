@@ -1,5 +1,7 @@
 import { put } from "@vercel/blob";
 
+// process.loadEnvFile();
+
 // export async function PUT(request, response, next) {
 //   const files = await request.file;
 //   const pfile = JSON.stringify(files);
@@ -118,7 +120,7 @@ export async function PUT(req, res, next) {
 export async function PUT_APARTAESTUDIO(req, res, next) {
   const files = await req.file;
   // const { files } = await req;
-  // console.log(!files);
+  console.log(files);
   if (!files) {
     // files = existData.rows[0].images;
     next();
@@ -136,6 +138,39 @@ export async function PUT_APARTAESTUDIO(req, res, next) {
         },
       );
       // }
+      // console.log("File uploaded successfully:", blob.url);
+      // return Response.json(blob);
+      // Returns the public URL of the uploaded file
+      // return blob.url;
+      next();
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      throw error;
+    }
+  }
+}
+
+export async function PUT_ARRAY_APARTAESTUDIO(req, res, next) {
+  const { files, body } = await req;
+  // const { files } = await req;
+  console.log("Vercel", files);
+  if (!files) {
+    // files = existData.rows[0].images;
+    next();
+  } else {
+    try {
+      for (let i = 0; i < files.length; i++) {
+        const fileContent = files[i].buffer;
+        const blob = await put(
+          `apartaestudio/${files[i].originalname}`,
+          fileContent,
+          {
+            access: "public",
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+            allowOverwrite: true,
+          },
+        );
+      }
       // console.log("File uploaded successfully:", blob.url);
       // return Response.json(blob);
       // Returns the public URL of the uploaded file

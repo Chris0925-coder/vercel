@@ -4,9 +4,9 @@ import express from "express";
 //   register,
 //   uptdatePassword,
 // } from "../controllers/auth.controller.js";
-/* import { authRequired } from "../middlewares/validateToken.js";
-import { validateSchema } from "../middlewares/validator.js";
-import { registerSchema, loginSchema } from "../schemas/authentication.js"; */
+import { authRequired } from "../middlewares/validateToken.js";
+// import { validateSchema } from "../middlewares/validator.js";
+// import { registerSchema, loginSchema } from "../schemas/authentication.js";
 // import crcvControllers from "../controllers/admin.crcv.controller.js";
 // import formControllers from "../controllers/form.crcv.controller.js";
 import storageController from "../controllers/form.apartaestudio.controller.js";

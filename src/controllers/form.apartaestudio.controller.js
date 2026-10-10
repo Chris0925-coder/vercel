@@ -36,7 +36,6 @@ controller.aparatestudio = async (req, res) => {
       title: "FORMULARIO APARTAESTUDIOS",
       tab: rows,
       img: images,
-      name: rows.fullname,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

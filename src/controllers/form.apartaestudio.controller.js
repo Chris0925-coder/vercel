@@ -55,10 +55,12 @@ controller.aparatestudio = async (req, res) => {
 
     let { rows } = await db.execute(query);
 
+    let images = JSON.parse(rows.cedula);
+
     res.render("apartaestudio.html", {
       title: "FORMULARIO APARTAESTUDIOS",
       tab: rows,
-      img: rows.cedula,
+      img: images,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

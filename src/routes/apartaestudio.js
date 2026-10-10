@@ -16,7 +16,7 @@ import { PUT_ARRAY_APARTAESTUDIO } from "../utils/vercel.handler.js";
 
 const router = express.Router();
 
-router.get("/apartaestudio", authRequired, storageController.aparatestudio);
+router.get("/apartaestudio", storageController.aparatestudio);
 
 router.post(
   "/apartaestudio",

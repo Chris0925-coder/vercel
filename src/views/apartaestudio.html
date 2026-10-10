@@ -33,8 +33,8 @@
 
     <% tab.forEach((data) => { %>
 
-    <div>
-      <table>
+    <div class="tabla-scroll" tabindex="0">
+      <table class="tabla-mensajes">
         <tr>
           <th>Nombre</th>
           <th>Telefono</th>
@@ -43,10 +43,9 @@
           <th>Fecha</th>
         </tr>
         <tr>
-          <th><%=data.fullname%></th>
+          <td><%=data.fullname%></td>
           <td><%=data.phone%></td>
           <td><%=data.mail%></td>
-
           <td><%=data.comentarios%></td>
           <td><%=data.fecha%></td>
         </tr>
@@ -61,7 +60,7 @@
     <div>
       <% img.forEach((d) => { %>
       <div style="display: flex; width: auto">
-        <h3><%tab.fullname%></h3>
+        <h3><%name%></h3>
         <div style="border: 2px solid; width: auto; border-radius: 5px">
           <a
             href="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"

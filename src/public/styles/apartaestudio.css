@@ -83,6 +83,7 @@
 /* E-mail y Comentario: permiten saltar de línea aunque no haya espacios */
 .tabla-mensajes td:nth-child(3) {
   overflow-wrap: anywhere;
+  min-width: 100px;
 }
 
 .tabla-mensajes td:nth-child(4) {

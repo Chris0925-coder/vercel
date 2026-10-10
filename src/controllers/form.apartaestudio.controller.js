@@ -19,7 +19,7 @@ controller.aparatestudio = async (req, res) => {
     const images = [];
 
     let fileName = rows.map((f, index) => {
-      if (!f.cedula.includes(",")) {
+      if (!f.cedula.includes(",") || f.cedula != " ") {
         images.push(f.cedula);
       }
 

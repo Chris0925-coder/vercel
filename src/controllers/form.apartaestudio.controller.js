@@ -17,40 +17,20 @@ controller.aparatestudio = async (req, res) => {
 
     let { rows } = await db.execute(query);
     const images = [];
-    // console.log(rows);
 
     let fileName = rows.map((f, index) => {
-      console.log(f.cedula);
-      // let img = JSON.stringify(f);
-      // let cedula = f[index].cedula.split(",");
-      // let filesArray = {
-      //   [index]: cedula,
-      // };
-
       if (!f.cedula.includes(",")) {
         images.push(f.cedula);
       }
 
       if (f.cedula.includes(",")) {
-        console.log(f.cedula);
+        // console.log(f.cedula);
         let im = f.cedula.split(",");
 
         images.push(im[0]);
         images.push(im[1]);
-        console.log(im);
       }
-
-      // let image = f.cedula.split(",");
-      // f.cedula
-      // console.log(img);
-
-      // return images;
-      // return filesArray;
     });
-
-    // console.log(fileName);
-
-    // let images = JSON.parse(rows.cedula);
 
     res.render("apartaestudio.html", {
       title: "FORMULARIO APARTAESTUDIOS",

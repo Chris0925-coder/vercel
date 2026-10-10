@@ -57,14 +57,13 @@
 
     <br />
     <hr />
-
-    <section>
+    <% tab.forEach((data) => { %>
+    <div>
       <% img.forEach((d) => { %>
       <div style="display: flex; width: auto">
         <div style="border: 2px solid; width: auto; border-radius: 5px">
-          <% tab.forEach((data) => { %>
           <h3><%=data.fullname%></h3>
-          <% }) %>
+
           <a
             href="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
             target="_blank"
@@ -83,6 +82,7 @@
         </div>
       </div>
       <% }) %>
-    </section>
+    </div>
+    <% }) %>
   </body>
 </html>

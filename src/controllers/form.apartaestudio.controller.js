@@ -48,4 +48,20 @@ controller.article = async (req, res) => {
   }
 };
 
+controller.aparatestudio = async (req, res) => {
+  try {
+    const query =
+      "SELECT fullname,phone,mail,cedula,comentarios,fecha,web FROM apartaestudio";
+
+    let { rows } = await db.execute(query);
+
+    res.render("apartaestudio.html", {
+      title: "FORMULARIO APARTAESTUDIOS",
+      tab: rows,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export default controller;

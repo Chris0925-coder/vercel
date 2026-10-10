@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%=title%></title>
+
+    <!-- <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/styles/apartaestudio.css"
+    /> -->
+
+    <!-- <script src="/scripts/cookies.js" defer></script> -->
+
+    <!-- <script src="/scripts/apartaestudio.js" defer></script> -->
+
+    <!-- <link rel="favicon" href="" /> -->
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico" sizes="any" /> -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <!-- <li><a href="/home">Home</a></li> -->
+          <!-- <li><a href="/upload">Upload</a></li> -->
+          <!-- <li><a href="./register.html">Register</a></li> -->
+        </ul>
+      </nav>
+    </header>
+    <h1>APARTAESTUDIO</h1>
+
+    <% tab.forEach((data) => { %>
+
+    <div>
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Telefono</th>
+          <th>E-mail</th>
+          <!-- <th>Fotos</th> -->
+          <th>Comentario</th>
+          <th>Fecha</th>
+        </tr>
+        <tr>
+          <th><%=data.fullname%></th>
+          <td><%=data.phone%></td>
+          <td><%=data.mail%></td>
+          <!-- <td><%=data.cedula%></td> -->
+          <td><%=data.comentarios%></td>
+          <td><%=data.fecha%></td>
+        </tr>
+      </table>
+    </div>
+
+    <% }) %>
+  </body>
+</html>

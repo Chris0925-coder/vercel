@@ -58,6 +58,7 @@ controller.aparatestudio = async (req, res) => {
     res.render("apartaestudio.html", {
       title: "FORMULARIO APARTAESTUDIOS",
       tab: rows,
+      img: rows.cedula,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

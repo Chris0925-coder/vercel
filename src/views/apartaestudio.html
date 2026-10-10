@@ -39,7 +39,6 @@
           <th>Nombre</th>
           <th>Telefono</th>
           <th>E-mail</th>
-          <!-- <th>Fotos</th> -->
           <th>Comentario</th>
           <th>Fecha</th>
         </tr>
@@ -47,16 +46,23 @@
           <th><%=data.fullname%></th>
           <td><%=data.phone%></td>
           <td><%=data.mail%></td>
-          <td id="image">
-            <img
-              src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=data.cedula%>"
-            />;
-          </td>
+
           <td><%=data.comentarios%></td>
           <td><%=data.fecha%></td>
         </tr>
       </table>
     </div>
-    <% }) %>
+
+    <br />
+    <hr />
+
+    <% img.forEach((d) => { %>
+    <div>
+      <h3><th><%=d.fullname%></th></h3>
+      <img
+        src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d.cedula%>"
+      />;
+    </div>
+    <% }) %> <% }) %>
   </body>
 </html>

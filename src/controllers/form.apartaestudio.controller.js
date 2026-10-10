@@ -55,7 +55,9 @@ controller.aparatestudio = async (req, res) => {
 
     let { rows } = await db.execute(query);
 
-    let images = JSON.parse(rows.cedula);
+    let images = rows.cedula.split(",");
+
+    // let images = JSON.parse(rows.cedula);
 
     res.render("apartaestudio.html", {
       title: "FORMULARIO APARTAESTUDIOS",

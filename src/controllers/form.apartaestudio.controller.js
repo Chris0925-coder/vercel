@@ -13,29 +13,13 @@ const db = createClient({
 controller.aparatestudio = async (req, res) => {
   try {
     const query =
-      "SELECT fullname,phone,mail,cedula,comentarios,fecha,web FROM apartaestudio";
+      "SELECT id,fullname,phone,mail,cedula,referencia,comentarios,fecha,web FROM apartaestudio";
 
     let { rows } = await db.execute(query);
-    const images = [];
-
-    let fileName = rows.map((f, index) => {
-      if (!f.cedula.includes(",")) {
-        images.push(f.cedula);
-      }
-
-      if (f.cedula.includes(",")) {
-        // console.log(f.cedula);
-        let im = f.cedula.split(",");
-
-        images.push(im[0]);
-        images.push(im[1]);
-      }
-    });
 
     res.render("apartaestudio.html", {
       title: "FORMULARIO APARTAESTUDIOS",
       tab: rows,
-      img: images,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -44,31 +28,34 @@ controller.aparatestudio = async (req, res) => {
 
 controller.article = async (req, res) => {
   let { files } = req;
+  let { fullname, phone, mail, control, web, date } = req.body;
+  const images = ["img.png", "img2.jpg"];
 
   let fileName = files.map((f, index) => {
     let filesArray = {
       [index]: f.originalname,
     };
 
+    if (f != undefined) {
+      images.splice(index, 1, f.originalname);
+    }
+
     return filesArray[index];
   });
 
-  let { fullname, phone, mail, control, web, date } = req.body;
-
-  if (files === undefined) {
-    files = {
-      originalname: " ",
-    };
-  }
-
   try {
-    // let data = await db.execute({
-    //   sql: "SELECT id FROM apartaestudio",
-    // });
-
     let query =
-      "INSERT INTO apartaestudio (fullname, phone, mail, cedula, comentarios, fecha, web) VALUES (?,?,?,?,?,?,?)";
-    let params = [fullname, phone, mail, fileName, control, date, web];
+      "INSERT INTO apartaestudio (fullname, phone, mail, cedula, referencia, comentarios, fecha, web) VALUES (?,?,?,?,?,?,?,?)";
+    let params = [
+      fullname,
+      phone,
+      mail,
+      images[0],
+      images[1],
+      control,
+      date,
+      web,
+    ];
 
     await db.execute(query, params);
 

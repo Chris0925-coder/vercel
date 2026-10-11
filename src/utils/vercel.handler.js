@@ -153,7 +153,6 @@ export async function PUT_APARTAESTUDIO(req, res, next) {
 export async function PUT_ARRAY_APARTAESTUDIO(req, res, next) {
   const { files, body } = await req;
   // const { files } = await req;
-  console.log("Vercel", files);
   if (!files) {
     // files = existData.rows[0].images;
     next();

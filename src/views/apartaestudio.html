@@ -41,7 +41,8 @@
           <th>E-mail</th>
           <th>Comentario</th>
           <th>Fecha</th>
-          <th>Documentos</th>
+          <th>Cédula</th>
+          <th>Referencias</th>
         </tr>
         <tr>
           <td><%=data.fullname%></td>
@@ -49,13 +50,19 @@
           <td><%=data.mail%></td>
           <td><%=data.comentarios%></td>
           <td><%=data.fecha%></td>
-
           <td>
-            <% img.forEach((d) => { %><img
-              src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
+            <img
+              src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=data.cedula%>"
               width="100"
               height="100"
-            /><% }) %>
+            />
+          </td>
+          <td>
+            <img
+              src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=data.referencia%>"
+              width="100"
+              height="100"
+            />
           </td>
         </tr>
       </table>
@@ -65,29 +72,5 @@
 
     <br />
     <hr />
-
-    <div>
-      <% img.forEach((d) => { %>
-      <div style="display: flex; width: auto">
-        <div style="border: 2px solid; width: auto; border-radius: 5px">
-          <a
-            href="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
-            target="_blank"
-          >
-            <img
-              src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
-              width="100"
-              height="100"
-            />
-          </a>
-          <a
-            href="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
-            download
-            >Descargar</a
-          >
-        </div>
-      </div>
-      <% }) %>
-    </div>
   </body>
 </html>

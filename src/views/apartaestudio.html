@@ -41,6 +41,7 @@
           <th>E-mail</th>
           <th>Comentario</th>
           <th>Fecha</th>
+          <th>Documentos</th>
         </tr>
         <tr>
           <td><%=data.fullname%></td>
@@ -48,6 +49,14 @@
           <td><%=data.mail%></td>
           <td><%=data.comentarios%></td>
           <td><%=data.fecha%></td>
+
+          <td>
+            <% img.forEach((d) => { %><img
+              src="https://qjsvnfogbaqnjbqi.public.blob.vercel-storage.com/apartaestudio/<%=d%>"
+              width="100"
+              height="100"
+            /><% }) %>
+          </td>
         </tr>
       </table>
     </div>

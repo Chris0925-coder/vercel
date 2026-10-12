@@ -36,9 +36,9 @@ controller.article = async (req, res) => {
       [index]: f.originalname,
     };
 
-    if (f != "img.png" && f != "img2.jpg") {
+    if (f.originalname != "img.png" && f.originalname != "img2.jpg") {
       images.splice(index, 1, f.originalname);
-    } else if (f != "img2.jpg") {
+    } else if (f.originalname != "img2.jpg") {
       images.splice(0, 1, f.originalname);
     } else {
       images.splice(1, 1, f.originalname);

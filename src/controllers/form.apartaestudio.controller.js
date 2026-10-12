@@ -13,7 +13,7 @@ const db = createClient({
 controller.aparatestudio = async (req, res) => {
   try {
     const query =
-      "SELECT id,fullname,phone,mail,cedula,referencia,comentarios,fecha,web FROM apartaestudio";
+      "SELECT id,fullname,phone,mail,cedula,referencia,comentarios,fecha,web FROM apartaestudio ORDER BY id DESC";
 
     let { rows } = await db.execute(query);
 

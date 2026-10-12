@@ -36,10 +36,15 @@ controller.article = async (req, res) => {
       [index]: f.originalname,
     };
 
-    if (f != undefined) {
+    if (f != "img.png") {
+      images.splice(1, 1, f.originalname);
+    } else if (f != "img2.jpg") {
+      images.splice(0, 1, f.originalname);
+    } else {
+      // if (f != undefined) {
       images.splice(index, 1, f.originalname);
+      // }
     }
-
     return filesArray[index];
   });
 

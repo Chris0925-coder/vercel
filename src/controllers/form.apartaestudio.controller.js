@@ -31,29 +31,21 @@ controller.article = async (req, res) => {
   let { fullname, phone, mail, control, web, date } = req.body;
   const images = ["img.png", "img2.jpg"];
 
-  let fileName = files.map((f, index) => {
-    // let filesArray = {
-    //   [index]: f.originalname,
-    // };
+  files.map((f, index) => {
+    let filesArray = {
+      [index]: f.originalname,
+    };
 
-    // if (f.originalname != "img.png" && f.originalname != "img2.jpg") {
-    //   images.splice(index, 1, f.originalname);
-    // } else if (f.originalname != "img2.jpg") {
-    //   images.splice(0, 1, f.originalname);
-    // } else {
-    //   images.splice(1, 1, f.originalname);
-    // }
-    return f.originalname;
+    if (filesArray[0] != "img.png" && filesArray[1] != "img2.jpg") {
+      images.splice(index, 1, filesArray[index]);
+    } else if (filesArray[1] != "img2.jpg") {
+      images.splice(0, 1, filesArray[0]);
+    } else {
+      images.splice(1, 1, filesArray[1]);
+    }
+
+    // return f.originalname;
   });
-
-  if (fileName[0] != "img.png") {
-    images.splice(0, 1, fileName[0]);
-  } else if (fileName[1] != "img2.jpg") {
-    images.splice(1, 1, fileName[1]);
-  } else {
-    images.splice(0, 1, fileName[0]);
-    images.splice(1, 1, fileName[1]);
-  }
 
   try {
     let query =

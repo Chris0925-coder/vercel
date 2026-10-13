@@ -35,24 +35,30 @@ controller.article = async (req, res) => {
     let filesArray = {
       [index]: f.originalname,
     };
-    // if (filesArray[0] != "img.png" && filesArray[1] != "img2.jpg") {
-    //   images.splice(index, 1, filesArray[index]);
-    // } else
-    console.log(filesArray);
-    // console.log(filesArray[1] != "img2.jpg");
-    if (!filesArray[1]) {
-      images.splice(0, 2, filesArray[0], "img2.jpg");
+    console.log("index :", index);
+    console.log("data :", f);
+    console.log(filesArray[0] != "img.png" && filesArray[1] != "img2.jpg");
+    if (filesArray[0] != "img.png" && filesArray[1] != "img2.jpg") {
+      // images.splice(0, 2, filesArray[0], filesArray[1]);
+      images.splice(index, 1, filesArray[index]);
+      // } else
+      // console.log(filesArray[1] != "img2.jpg");
+      // console.log(filesArray.length != 2);
+      // if (filesArray.length != 2) {
+
       // images.splice(1, 1, "img2.jpg");
       // } else
       // if (!filesArray[1]) {
       // images.splice(0, 1, "img.png");
       // images.splice(0, 2, "img.png", filesArray[0]);
     } else {
-      images.splice(0, 2, filesArray[0], filesArray[1]);
+      images.splice(0, 2, filesArray[0], "img2.jpg");
     }
 
     // return f.originalname;
   });
+
+  console.log(images);
 
   try {
     let query =

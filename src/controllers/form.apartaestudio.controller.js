@@ -28,24 +28,25 @@ controller.aparatestudio = async (req, res) => {
 
 controller.article = async (req, res) => {
   let { files } = req;
-  let { fullname, phone, mail, control, web, date } = req.body;
-  const images = [];
+  let { fullname, phone, mail, control, web, date, filename } = req.body;
+  const images = ["img.png", "img2.jpg"];
 
   files.map((f, index) => {
     let filesArray = {
       [index]: f.originalname,
     };
-
     // if (filesArray[0] != "img.png" && filesArray[1] != "img2.jpg") {
     //   images.splice(index, 1, filesArray[index]);
     // } else
-
-    if (filesArray[0] != "img.png") {
-      images.splice(0, 1, filesArray[0]);
-      images.splice(1, 1, "img2.jpg");
-    } else if (filesArray[1] != "img2.jpg") {
-      images.splice(0, 1, "img.png");
-      images.splice(1, 1, filesArray[1]);
+    console.log(filesArray);
+    // console.log(filesArray[1] != "img2.jpg");
+    if (!filesArray[1]) {
+      images.splice(0, 2, filesArray[0], "img2.jpg");
+      // images.splice(1, 1, "img2.jpg");
+      // } else
+      // if (!filesArray[1]) {
+      // images.splice(0, 1, "img.png");
+      // images.splice(0, 2, "img.png", filesArray[0]);
     } else {
       images.splice(0, 2, filesArray[0], filesArray[1]);
     }

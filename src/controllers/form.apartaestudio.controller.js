@@ -39,8 +39,8 @@ controller.article = async (req, res) => {
     console.log("data :", f);
     console.log(filesArray[0] != "img.png" && filesArray[1] != "img2.jpg");
     if (filesArray[0] != "img.png" && filesArray[1] != "img2.jpg") {
-      // images.splice(0, 2, filesArray[0], filesArray[1]);
-      images.splice(index, 1, filesArray[index]);
+      images.splice(0, 2, filesArray[0], filesArray[1]);
+      // images.splice(index, 1, filesArray[index]);
       // } else
       // console.log(filesArray[1] != "img2.jpg");
       // console.log(filesArray.length != 2);

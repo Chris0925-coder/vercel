@@ -29,7 +29,7 @@ controller.aparatestudio = async (req, res) => {
 controller.article = async (req, res) => {
   let { files } = req;
   let { fullname, phone, mail, control, web, date } = req.body;
-  const images = ["img.png", "img2.jpg"];
+  const images = [];
 
   files.map((f, index) => {
     let filesArray = {

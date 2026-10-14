@@ -28,37 +28,25 @@ controller.aparatestudio = async (req, res) => {
 
 controller.article = async (req, res) => {
   let { files } = req;
-  let { fullname, phone, mail, control, web, date, filename } = req.body;
-  const images = ["img.png", "img2.jpg"];
+  let { fullname, phone, mail, control, web, date } = req.body;
+  let images = [];
 
-  files.map((f, index) => {
+  if (files[0] === undefined) images.splice(0, 2, "", "");
+  let data = files.map((f, index) => {
     let filesArray = {
       [index]: f.originalname,
     };
-    console.log("index :", index);
-    console.log("data :", f);
-    console.log(filesArray[0] != "img.png" && filesArray[1] != "img2.jpg");
-    if (filesArray[0] != "img.png" && filesArray[1] != "img2.jpg") {
-      // images.splice(0, 2, filesArray[0], filesArray[1]);
-      images.splice(index, 1, filesArray[index]);
-      // } else
-      // console.log(filesArray[1] != "img2.jpg");
-      // console.log(filesArray.length != 2);
-      // if (filesArray.length != 2) {
 
-      // images.splice(1, 1, "img2.jpg");
-      // } else
-      // if (!filesArray[1]) {
-      // images.splice(0, 1, "img.png");
-      // images.splice(0, 2, "img.png", filesArray[0]);
-    } else {
-      images.splice(0, 2, filesArray[0], "img2.jpg");
-    }
-
-    // return f.originalname;
+    return filesArray[index];
   });
 
-  console.log(images);
+  if (data[0] != undefined && data[1] === undefined) {
+    images.splice(0, 2, data[0], "");
+  }
+
+  if (data[1] != undefined) {
+    images.splice(0, 2, data[0], data[1]);
+  }
 
   try {
     let query =

@@ -1,8 +1,15 @@
 {
   "name": "vercel",
   "version": "1.0.0",
-  "main": "./index.js",
+  "description": "vercel web visit count",
+  "repository": {
+    "type": "git",
+    "url": "vercel"
+  },
+  "license": "ISC",
+  "author": "Chris0935-coder",
   "type": "module",
+  "main": "./index.js",
   "scripts": {
     "predeploy": "npm run ./index.js",
     "deploy": "gh-pages -d ./index.js",
@@ -11,16 +18,9 @@
     "server": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "vercel"
-  },
-  "author": "Chris0935-coder",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@libsql/client": "0.15.9",
-    "@vercel/blob": "^2.8.0",
+    "@vercel/blob": "^2.4.0",
     "bcryptjs": "3.0.2",
     "body-parser": "^2.3.0",
     "cookie-parser": "1.4.7",
@@ -35,9 +35,12 @@
     "path": "0.12.7",
     "picocolors": "1.1.1",
     "sqlite3": "^6.0.1",
-    "zod": "3.25.67"
+    "zod": "^4.6.7"
   },
   "allowScripts": {
-    "sqlite3@5.1.7": true
+    "sqlite3@6.0.1": true
+  },
+  "devDependencies": {
+    "pnpm": "^12.16.1"
   }
 }

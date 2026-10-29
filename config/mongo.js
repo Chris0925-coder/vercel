@@ -20,7 +20,7 @@ export const dbConnect = async () => {
     // await mongoose.connection.db.admin().command({ ping: 1 });
 
     if (cached.conn) return cached.conn;
-    cached.promise ??= mongoose.connect(process.env.MONGODB_URI);
+    cached.promise ??= mongoose.connect(mongoDB, clientOptions);
     cached.conn = await cached.promise;
     console.log("MongoDB is connected");
     return cached.conn;

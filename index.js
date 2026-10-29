@@ -4,7 +4,6 @@ import morgan from "morgan";
 import pkg from "ejs";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-// import bodyParser from "body-parser";
 // import index from './routes/index.js';
 import articles from "./src/routes/storage.js";
 import routes from "./src/routes/views.js";
@@ -27,7 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // const hostname = process.env.PUBLIC_URL || "localhost";
-//  process.env.PUBLIC_URL ||
+
 const portFinded = await findAvailablePort(3000).then((port) => port);
 const port = process.env.PORT || portFinded;
 // console.log(process.env.PORT);
@@ -48,12 +47,12 @@ app.set("port", port);
 // MIDDLEWARE
 app.use(cookieParser());
 // app.use(cors({ credentials: true, origin: true }))
-// app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cors(config.application.cors.server));
 app.use(express.json());
+express.urlencoded({ extended: true });
 app.use(express.text());
 
-// app.use(bodyParser.json());
 app.use(morgan("dev"));
 
 // app.verb('path', function(req,res) {

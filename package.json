@@ -4,10 +4,10 @@
   "description": "vercel web visit count",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Chris0925-coder/vercel"
+    "url": "git+https://github.com/USUARIO/vercel.git"
   },
   "license": "ISC",
-  "author": "Chris0935-coder",
+  "author": "Chris0925-coder",
   "type": "module",
   "main": "./index.js",
   "scripts": {

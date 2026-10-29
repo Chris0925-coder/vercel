@@ -85,9 +85,8 @@ app.use((req, res) => {
 //   });
 // });
 
+await dbConnect();
 // listening the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
-
-dbConnect();

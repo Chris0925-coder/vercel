@@ -7,25 +7,26 @@ if (!cached) cached = globalThis._mongoose = { conn: null, promise: null };
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
 };
-// const mongoAtlas=[];
-// const passwordDB = [];
-// const mongoAtlas = `mongodb+srv://chris30:`+encodeURIComponent(passwordDB)+`@cluster0.jkdgz4b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-//mongodb+srv://chris30:<db_password>@cluster0.jkdgz4b.mongodb.net/?appName=Cluster0
-const mongoDB = process.env.DB_URI;
+
 // const mongoDBLocal = "mongodb://localhost:27017/webdev";
 
 export const dbConnect = async () => {
+  const mongoDB = process.env.DB_URI;
+  if (!mongoDB) throw new Error("Falta la variable de entorno DB_URI");
+  if (cached.conn) return cached.conn;
+
   try {
     // await mongoose.connect(mongoDB, clientOptions);
     // await mongoose.connection.db.admin().command({ ping: 1 });
 
-    if (cached.conn) return cached.conn;
     cached.promise ??= mongoose.connect(mongoDB, clientOptions);
     cached.conn = await cached.promise;
     console.log("MongoDB is connected");
     return cached.conn;
   } catch (error) {
-    console.log(error);
+    cached.promise = null; // permite reintentar en la siguiente llamada
+    console.error("Error al conectar con MongoDB:", error.message);
+    throw error;
   }
 };
 

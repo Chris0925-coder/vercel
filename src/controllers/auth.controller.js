@@ -39,7 +39,7 @@ export const register = async (req, res) => {
       updated: userSaved.updatedAt,
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "Error interno del servidor" });
   }
 };
 
@@ -66,7 +66,7 @@ export const login = async (req, res) => {
 
     res.json(token);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: "Error interno del servidor" });
   }
 };
 

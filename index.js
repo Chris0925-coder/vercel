@@ -74,7 +74,7 @@ app.use((req, res) => {
     height: 100%;
     text-align: center;
     align-items: center;
-    justify-content: center;"><img src="img/logo.png" width=150 height=150 alt="logo" /><h1>404</h1><p>File not found, or it has been deleted</p></div>`,
+    justify-content: center;"><img src="https://www.desarrolladorweb.blog/public/img/logochris1.png" width=150 height=150 alt="logo" /><h1>404</h1><p>File not found, or it has been deleted</p></div>`,
   );
 });
 
